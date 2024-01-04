@@ -28,6 +28,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@types/cookie", "npm:0.6.0"],\
             ["@types/node", "npm:20.10.6"],\
             ["@types/react", "npm:18.2.46"],\
             ["@types/react-dom", "npm:18.2.18"],\
@@ -36,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:10.4.16"],\
             ["axios", "npm:1.6.3"],\
             ["babel-eslint", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:10.1.0"],\
+            ["cookie", "npm:0.6.0"],\
             ["eslint", "npm:8.56.0"],\
             ["eslint-config-airbnb", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:17.1.0"],\
@@ -623,6 +625,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@swc/helpers", "npm:0.4.11"],\
             ["tslib", "npm:2.6.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/cookie", [\
+        ["npm:0.6.0", {\
+          "packageLocation": "./.yarn/cache/@types-cookie-npm-0.6.0-1f4c3f48f0-5edce79957.zip/node_modules/@types/cookie/",\
+          "packageDependencies": [\
+            ["@types/cookie", "npm:0.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1560,6 +1571,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/confusing-browser-globals-npm-1.0.11-b3ff8e9483-3afc635abd.zip/node_modules/confusing-browser-globals/",\
           "packageDependencies": [\
             ["confusing-browser-globals", "npm:1.0.11"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["cookie", [\
+        ["npm:0.6.0", {\
+          "packageLocation": "./.yarn/cache/cookie-npm-0.6.0-362d6a2e45-f56a7d32a0.zip/node_modules/cookie/",\
+          "packageDependencies": [\
+            ["cookie", "npm:0.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2997,6 +3017,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["hanzfree-web", "workspace:."],\
+            ["@types/cookie", "npm:0.6.0"],\
             ["@types/node", "npm:20.10.6"],\
             ["@types/react", "npm:18.2.46"],\
             ["@types/react-dom", "npm:18.2.18"],\
@@ -3005,6 +3026,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:10.4.16"],\
             ["axios", "npm:1.6.3"],\
             ["babel-eslint", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:10.1.0"],\
+            ["cookie", "npm:0.6.0"],\
             ["eslint", "npm:8.56.0"],\
             ["eslint-config-airbnb", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:19.0.4"],\
             ["eslint-config-airbnb-typescript", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:17.1.0"],\

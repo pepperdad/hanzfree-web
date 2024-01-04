@@ -1,35 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import Instance from '../api/config';
+import { useRouter } from 'next/router';
+
+import { fetchUser } from '@shared/hooks/fetchUser';
+import { User } from '@shared/types';
 
 const Page = () => {
-  const googleLoginHandler = () => {
-    window.location.href = 'http://localhost:8080/api/auth/google/login';
-  };
-
-  const [user, setUser] = useState<any>('');
+  const { push, pathname } = useRouter();
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    async function fetchUser() {
-      try {
-        const res = await Instance.get('/auth/authenticate');
-        setUser(res.data);
-      } catch (e) {
-        await Instance.post('/auth/refresh', {
-          refreshToken: localStorage.getItem('refreshToken'),
-        });
-        console.log(e);
-      }
-    }
-    fetchUser();
+    fetchUser(setUser, push, pathname);
   }, []);
 
   return (
     <div>
-      <button className='p-4 bg-red-100' onClick={() => googleLoginHandler()}>
-        google login
-      </button>
-
       <ul>
         <li>email: {user?.email}</li>
       </ul>

@@ -38,3 +38,8 @@ a {
     background: black;
   }
 }
+
+/* 수평 및 수직 가운데 정렬 */
+.flex-center {
+  @apply flex items-center justify-center;
+}

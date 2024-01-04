@@ -1,9 +1,9 @@
 import React from 'react';
 
-import LoginForm from '@admin/components/LoginForm';
+import AdminPage from '@admin/components/AdminPage';
 
 const index = () => {
-  return <LoginForm />;
+  return <AdminPage />;
 };
 
 export default index;

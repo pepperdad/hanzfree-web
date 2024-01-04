@@ -3,22 +3,19 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { login } from '@pages/api';
-import Button from '@shared/components/Button';
-import Input from '@shared/components/Input';
+import LoginForm from '@shared/components/LoginForm';
+import { Role } from '@shared/constants/role';
 
-function LoginForm() {
+const AdminPage = () => {
   const router = useRouter();
+  const { from } = router.query;
   const [error, setError] = useState('');
 
   useEffect(() => {
     if (error) {
-      const timer = setTimeout(() => {
+      setTimeout(() => {
         setError('');
       }, 2000);
-
-      return () => {
-        clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 제거
-      };
     }
   }, [error]);
 
@@ -31,9 +28,14 @@ function LoginForm() {
 
     try {
       const res = await login(email, password);
+      console.log('res', res);
 
       if (res.status === 201) {
-        router.push('/admin/dashboard');
+        if (res.data.role === Role.ADMIN) router.push('/admin/dashboard');
+        else {
+          alert('관리자만 접근 가능합니다.');
+          router.push('/');
+        }
       } else if (res.status === 400) {
         setError('비밀번호가 일치하지 않습니다.');
       } else if (res.status === 404) {
@@ -46,27 +48,19 @@ function LoginForm() {
   };
 
   return (
-    <div className='flex items-center justify-center w-screen h-screen'>
-      <div className='flex flex-col items-center justify-center gap-3'>
+    <div className='flex-center w-screen h-screen'>
+      <div className='flex-center flex-col gap-3 relative'>
         <div>
           <img src='/hanzfree.png' alt='hanzfree' />
         </div>
         <h1 className='text-3xl font-bold'>관리자 로그인</h1>
-
-        <form
-          className='flex flex-col gap-2 justify-around items-center w-full h-1/2 pb-12 relative'
-          onSubmit={onClick}
-        >
-          <Input fullWidth placeholder='ID' name='email' />
-          <Input fullWidth placeholder='PW' type='password' name='password' />
-          <Button fullWidth type='submit'>
-            로그인
-          </Button>
-          {error && <div className='text-red-500 absolute bottom-2'>{error}</div>}
-        </form>
+        <LoginForm onClick={onClick} />
+        <div className='flex justify-center'>
+          {error && <span className='text-red-500 absolute -bottom-10'>{error}</span>}
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default LoginForm;
+export default AdminPage;
