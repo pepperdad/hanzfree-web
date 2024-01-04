@@ -1,17 +1,19 @@
-import { AxiosInstance } from "axios";
-import { ApiError } from "next/dist/server/api-utils";
+import { ApiError } from 'next/dist/server/api-utils';
+
+import { AxiosInstance } from 'axios';
 
 const interceptor = (instance: AxiosInstance) => {
   instance.interceptors.response.use(
     (res) => res.data,
     ({ response }) => {
+      console.log('error response', response);
       const error = {
-        status: response.status,
-        message: `${response.status} 네트워크 오류가 발생하였습니다.`,
+        status: response.data.code,
+        message: `${response.data.data.error}`,
       };
 
       return Promise.reject<ApiError>(error);
-    }
+    },
   );
 };
 
