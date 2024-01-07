@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         if (refrshTokenExpTimeUtc < currentTimeUtc) {
           localStorage.removeItem('recoil-persist');
           router.reload();
-          alert('로그인 시간이 만료되었습니다.');
+          alert('로그인이 만료되었습니다.');
         }
       }
     }

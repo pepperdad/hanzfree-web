@@ -19,17 +19,21 @@ const Header = ({ headerData }: any) => {
 
   return (
     <div className='pb-[66px]'>
-      <header className='fixed top-0 left-0 right-0 flex items-center justify-between px-20 py-2 transition-background duration-500 ease-in-out'>
+      <header className='fixed top-0 left-0 right-0 flex items-center justify-between px-20 py-2 bg-blue-600 duration-500 ease-in-out'>
         <div className='flex items-center cursor-pointer'>
           <Link href='/'>
-            <Image src='/hanzfree.png' alt='Catcher Logo' width={50} height={50} />
+            <a>
+              <Image src='/logo.svg' alt='Catcher Logo' width={240} height={50} />
+            </a>
           </Link>
         </div>
         <div className='gap-12 flex-center'>
           {headerData ? (
             <>
               <Link href='/menu'>
-                <button>메뉴1</button>
+                <a>
+                  <button>메뉴1</button>
+                </a>
               </Link>
               <button>메뉴2</button>
               <div>{headerData?.email}</div>

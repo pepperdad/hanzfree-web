@@ -23,7 +23,7 @@ const Page = () => {
   }, [error]);
 
   const googleLoginHandler = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?redirect=${from}`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?from=${from}`;
   };
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,8 +46,8 @@ const Page = () => {
           createdAt: res.data.createdAt,
         });
 
-        if (from) router.push(`http://localhost:3000/${from}`);
-        else router.push('http://localhost:3000/');
+        if (from) router.push(`/${from}`);
+        else router.push('/');
       } else if (res.status === 400) {
         setError('비밀번호가 일치하지 않습니다.');
       } else if (res.status === 404) {

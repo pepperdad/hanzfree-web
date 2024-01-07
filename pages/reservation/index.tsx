@@ -16,15 +16,11 @@ const index = () => {
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
 
-    console.log('name', firstName, lastName);
-
     try {
       const res = await Instance.post('/user/reservation', {
         firstName,
         lastName,
       });
-
-      console.log('res', res);
 
       if (res.status === 201) {
         router.push('/reservation/complete');

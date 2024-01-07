@@ -19,11 +19,25 @@ export default index;
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
-  const userData = await fetchUserData(context);
+  const userDataResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/authenticate`, {
+    headers: {
+      Cookie: context.req.headers.cookie || '',
+    },
+  });
+  const res = await userDataResponse.json();
 
-  if (!userData) {
+  if (res.success === false) {
     return { props: { userData: null } };
   }
+
+  const userData = {
+    email: res.data.email,
+    firstName: res.data.firstName,
+    lastName: res.data.lastName,
+    currentRefreshTokenExp: res.data.currentRefreshTokenExp,
+    role: res.data.role,
+    createdAt: res.data.createdAt,
+  };
 
   return { props: { userData } };
 };

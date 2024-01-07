@@ -33,8 +33,8 @@ const Page = () => {
       const res = await login(email, password);
 
       if (res.status === 201) {
-        if (from) router.push(`http://localhost:3000/${from}`);
-        else router.push('http://localhost:3000/test');
+        if (from) router.push(`/${from}`);
+        else router.push('/test');
       } else if (res.status === 400) {
         setError('비밀번호가 일치하지 않습니다.');
       } else if (res.status === 404) {

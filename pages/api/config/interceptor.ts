@@ -6,7 +6,7 @@ const interceptor = (instance: AxiosInstance) => {
   instance.interceptors.request.use(
     (config) => {
       if (typeof window !== 'undefined') {
-        console.log('in request interceptor');
+        const routerPath = window.location.pathname;
         const recoilPersist = localStorage.getItem('recoil-persist');
 
         if (recoilPersist) {
@@ -21,16 +21,19 @@ const interceptor = (instance: AxiosInstance) => {
 
             if (refrshTokenExpTimeUtc < currentTimeUtc) {
               localStorage.removeItem('recoil-persist');
-              window.location.href = '/login';
+              alert('로그인이 만료되었습니다!');
+              window.location.href = `/login?from=${routerPath}`;
+              return Promise.reject(); // 리디렉션 전에 요청을 거부합니다.
             }
           }
         }
       }
+
       return config;
     },
     (error) => {
       // 요청을 보내기 전에 에러가 발생한 경우 처리
-      console.log('error request', error);
+      // console.log('error request', error);
       return Promise.reject(error);
     },
   );
@@ -42,10 +45,10 @@ const interceptor = (instance: AxiosInstance) => {
     },
     (error) => {
       // console.log('error response', error.response);
-      const errorResponse = {
-        status: error.response.data.status,
-        message: `${error.response.data.data.error}`,
-      };
+      // const errorResponse = {
+      //   status: error.response.data.status,
+      //   message: `${error.response.data.data.error}`,
+      // };
 
       return error.response.data;
     },

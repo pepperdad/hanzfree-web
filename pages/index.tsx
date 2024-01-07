@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import Layout from '@shared/components/Layout';
+import Page from 'main/components/Page';
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 
 import { fetchUserData } from './api';
@@ -8,7 +7,8 @@ import { fetchUserData } from './api';
 const Home: NextPage = ({ userData }: any) => {
   return (
     <Layout headerData={userData}>
-      <div>
+      <Page />
+      {/* <div>
         <ol>
           <li>
             <Link href='/test'>
@@ -37,7 +37,7 @@ const Home: NextPage = ({ userData }: any) => {
             </Link>
           </li>
         </ol>
-      </div>
+      </div> */}
     </Layout>
   );
 };
