@@ -8,36 +8,6 @@ const Home: NextPage = ({ userData }: any) => {
   return (
     <Layout headerData={userData}>
       <Page />
-      {/* <div>
-        <ol>
-          <li>
-            <Link href='/test'>
-              <button>test</button>
-            </Link>
-          </li>
-          <li>
-            <Link href='/login'>
-              <button>login</button>
-            </Link>
-          </li>
-          <li>
-            <Link href='/admin'>
-              <button>admin</button>
-            </Link>
-          </li>
-          <li>
-            <Link href='/admin/dashboard'>
-              <button>admin dashboard</button>
-            </Link>
-          </li>
-
-          <li>
-            <Link href='/reservation'>
-              <button>reservation</button>
-            </Link>
-          </li>
-        </ol>
-      </div> */}
     </Layout>
   );
 };
