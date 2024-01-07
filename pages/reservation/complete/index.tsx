@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-const Animation = React.lazy(() => import('@shared/components/animation/lottie'));
+const Complete = dynamic(() => import('@shared/components/animation/complete'), { ssr: false });
 
 const index = ({ userData }: any) => {
   return (
@@ -12,9 +12,7 @@ const index = ({ userData }: any) => {
       <div>
         reservation complete!!
         <div className='w-40 h-40'>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Animation />
-          </Suspense>
+          <Complete />
         </div>
       </div>
     </Layout>

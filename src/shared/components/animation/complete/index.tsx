@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import Lottie from 'react-lottie-player';
 
-import lottieJson from './lottie.json';
+import completeJson from './complete.json';
 
-export default function Animation() {
+const index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -12,5 +12,7 @@ export default function Animation() {
     setIsPlaying(true);
   }, []);
 
-  return <Lottie animationData={lottieJson} play={isPlaying} loop={false} />;
-}
+  return <Lottie animationData={completeJson} play={isPlaying} loop={false} />;
+};
+
+export default index;
