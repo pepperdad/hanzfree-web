@@ -1,11 +1,10 @@
-import axios from "axios";
-import interceptor from "./interceptor";
+import axios from 'axios';
 
-// import type { Instance } from "./types";
+import interceptor from './interceptor';
 
 const createInterceptor = () => {
   const baseInstance = axios.create({
-    baseURL: "http://localhost:8080/api",
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   });
   baseInstance.defaults.withCredentials = true;
   interceptor(baseInstance);

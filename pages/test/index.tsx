@@ -1,37 +1,43 @@
-import React, { useEffect, useState } from "react";
-import Instance from "../api/config";
+import { fetchUserData } from '@pages/api';
+import Layout from '@shared/components/Layout';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-const Page = () => {
-  const googleLoginHandler = () => {
-    window.location.href = "http://localhost:8080/api/auth/google/login";
-  };
-  const [user, setUser] = useState<any>();
-
-  useEffect(() => {
-    async function fetchUser() {
-      try {
-        const res = await Instance.get("/auth/authenticate");
-
-        console.log("hi", res.data);
-        setUser(res.data);
-      } catch (e) {
-        console.log("hi2", e);
-      }
-    }
-    fetchUser();
-  }, []);
-
+const index = ({ userData }: any) => {
   return (
-    <div>
-      <button className="p-4 bg-red-100" onClick={() => googleLoginHandler()}>
-        google login
-      </button>
-
-      <ul>
-        <li>email: {user?.email}</li>
-      </ul>
-    </div>
+    <Layout headerData={userData}>
+      <div>
+        <ul>
+          <li>email: {userData.email}</li>
+        </ul>
+      </div>
+    </Layout>
   );
 };
 
-export default Page;
+export default index;
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const userDataResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/authenticate`, {
+    headers: {
+      Cookie: context.req.headers.cookie || '',
+    },
+  });
+  const res = await userDataResponse.json();
+
+  if (res.success === false) {
+    return { props: { userData: null } };
+  }
+
+  const userData = {
+    email: res.data.email,
+    firstName: res.data.firstName,
+    lastName: res.data.lastName,
+    currentRefreshTokenExp: res.data.currentRefreshTokenExp,
+    role: res.data.role,
+    createdAt: res.data.createdAt,
+  };
+
+  return { props: { userData } };
+};
