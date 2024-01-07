@@ -28,7 +28,6 @@ const AdminPage = () => {
 
     try {
       const res = await login(email, password);
-      console.log('res', res);
 
       if (res.status === 201) {
         if (res.data.role === Role.ADMIN) router.push('/admin/dashboard');

@@ -4,9 +4,13 @@ import { useRouter } from 'next/router';
 
 import { login } from '@pages/api';
 import LoginForm from '@shared/components/LoginForm';
+import { userState } from '@shared/recoil';
+import { useSetRecoilState } from 'recoil';
 
 const Page = () => {
+  const setUser = useSetRecoilState(userState);
   const router = useRouter();
+  // TODO: 리다이렉트 from 페이지로
   const { from } = router.query;
   const [error, setError] = useState('');
 
@@ -19,7 +23,7 @@ const Page = () => {
   }, [error]);
 
   const googleLoginHandler = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/redirect?redirect=${from}`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?redirect=${from}`;
   };
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,8 +37,17 @@ const Page = () => {
       const res = await login(email, password);
 
       if (res.status === 201) {
+        setUser({
+          email: res.data.email,
+          firstName: res.data.firstName,
+          lastName: res.data.lastName,
+          currentRefreshTokenExp: res.data.currentRefreshTokenExp,
+          role: res.data.role,
+          createdAt: res.data.createdAt,
+        });
+
         if (from) router.push(`http://localhost:3000/${from}`);
-        else router.push('http://localhost:3000/test');
+        else router.push('http://localhost:3000/');
       } else if (res.status === 400) {
         setError('비밀번호가 일치하지 않습니다.');
       } else if (res.status === 404) {

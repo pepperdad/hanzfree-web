@@ -1,20 +1,17 @@
-import { fetchUserData } from '@pages/api';
+// 서비스 소개 페이지
+
+import React from 'react';
+
 import Layout from '@shared/components/Layout';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-const index = ({ userData }: any) => {
-  return (
-    <Layout headerData={userData}>
-      <div>
-        <ul>
-          <li>email: {userData.email}</li>
-        </ul>
-      </div>
-    </Layout>
-  );
+import { fetchUserData } from './api';
+
+const menu = () => {
+  return <Layout>menu</Layout>;
 };
 
-export default index;
+export default menu;
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,

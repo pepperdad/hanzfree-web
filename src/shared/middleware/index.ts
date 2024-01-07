@@ -19,10 +19,10 @@ export async function withAuth(req: NextRequest) {
 
     const response = await res.json();
 
-    if (response.code === 200) {
+    if (response.status === 200) {
       return NextResponse.next();
     }
-    if (response.code === 401) {
+    if (response.status === 401) {
       return NextResponse.redirect(url);
     }
   } catch (error) {
@@ -46,16 +46,18 @@ export async function withAdmin(req: NextRequest) {
 
     const response = await res.json();
 
-    if (response.code === 200) {
+    console.log('response: ', response);
+
+    if (response.status === 200) {
       if (response.data.role !== Role.ADMIN) {
-        alert('관리자만 접근 가능합니다.');
+        // alert('관리자만 접근 가능합니다.'); SSR에서는 alert 사용 불가
         url.pathname = '/';
         return NextResponse.redirect(url);
       }
       return NextResponse.next();
     }
 
-    if (response.code === 401) {
+    if (response.status === 401) {
       return NextResponse.redirect(url);
     }
   } catch (error) {
