@@ -13,8 +13,9 @@ export const login = async (email: string, password: string) => {
 export const fetchUserData = async (context: GetServerSidePropsContext) => {
   const { cookie } = context.req.headers;
   // 쿠키가 없거나 토큰이 없는 경우 null 반환
+  console.log('context.req', context);
 
-  console.log('cookie', cookie);
+  console.log('context.req', context.req);
 
   if (!cookie || !cookie.includes('access_token') || !cookie.includes('refresh_token')) {
     return null;
