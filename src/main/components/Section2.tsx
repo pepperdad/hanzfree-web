@@ -4,9 +4,7 @@ import Image from 'next/image';
 
 const Section2 = () => {
   return (
-    <div id='section2' className='min-h-screen relative'>
-      <div className='w-[450px] h-[450px] bg-gradient-to-b from-indigo-200 to-zinc-100 rounded-full absolute -right-60 -z-20' />
-
+    <div id='section2' className='min-h-screen'>
       <div className="text-blue-700 text-7xl font-medium font-['Hind'] relative top-20 text-right">
         Introduction of Service
       </div>
@@ -18,7 +16,7 @@ const Section2 = () => {
         Same-day delivery service. Travel light and enjoy stress-free.
       </div>
 
-      <div className='flex flex-wrap gap-6 pb-4'>
+      <div className='md:flex md:flex-wrap md:flex-row gap-6 pb-4 flex flex-col gap-3'>
         <div className='w-[250px] h-[250px] bg-blue-700 rounded-[50px] shadow-xl flex-col m-auto'>
           <div className='pl-4 flex-center pt-14 pb-10 gap-3'>
             <span>
