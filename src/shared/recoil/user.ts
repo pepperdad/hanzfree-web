@@ -1,8 +1,10 @@
-import { User } from '@shared/types';
-import { uniqueId } from 'lodash';
 import { atom, useSetRecoilState, AtomEffect, selector } from 'recoil';
+
+import { uniqueId } from 'lodash';
 import { recoilPersist } from 'recoil-persist';
 import { v1 } from 'uuid';
+
+import { User } from '@shared/types';
 
 const localStorage = typeof window !== 'undefined' ? window.localStorage : undefined;
 

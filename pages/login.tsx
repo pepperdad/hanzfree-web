@@ -1,5 +1,6 @@
-import Layout from '@shared/components/Layout';
 import Page from 'login/Page';
+
+import Layout from '@shared/components/Layout';
 
 const index = () => {
   return (

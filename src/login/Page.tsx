@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
 
+import { useSetRecoilState } from 'recoil';
+
 import { login } from '@pages/api';
+
 import LoginForm from '@shared/components/LoginForm';
 import { userState } from '@shared/recoil';
-import { useSetRecoilState } from 'recoil';
 
 const Page = () => {
   const setUser = useSetRecoilState(userState);

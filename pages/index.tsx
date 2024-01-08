@@ -1,7 +1,8 @@
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 
-import Layout from '@shared/components/Layout';
 import Page from 'main/components/Page';
+
+import Layout from '@shared/components/Layout';
 
 import { fetchUserData } from './api';
 
