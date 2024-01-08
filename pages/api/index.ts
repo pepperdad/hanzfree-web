@@ -24,6 +24,10 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
   });
 
   if (res.status === 401) {
+    context.res.setHeader('Set-Cookie', [
+      'access_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT',
+      'refresh_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT',
+    ]);
     return null;
   }
 
