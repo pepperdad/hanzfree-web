@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+
 import { useRouter } from 'next/router';
 
 import { fetchUserData } from '@pages/api';
@@ -7,7 +9,6 @@ import Instance from '@pages/api/config';
 import Button from '@shared/components/Button';
 import Input from '@shared/components/Input';
 import Layout from '@shared/components/Layout';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const index = ({ userData }: any) => {
   const router = useRouter();
