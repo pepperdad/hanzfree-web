@@ -1,6 +1,7 @@
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 const index = ({ userData }: any) => {
   return (
