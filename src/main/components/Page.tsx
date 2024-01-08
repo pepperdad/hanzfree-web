@@ -35,6 +35,13 @@ const Page = () => {
           </li>
         </ol>
       </div>
+      <div className='w-screen h-screen'>hi</div>
+      <div id='section1' className='w-screen h-screen'>
+        서비스 소개
+      </div>
+      <div id='section2' className='w-screen h-screen'>
+        가이드
+      </div>
     </div>
   );
 };

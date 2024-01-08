@@ -12,14 +12,31 @@ const Header = ({ headerData }: any) => {
 
   const handleLogout = async () => {
     sessionStorage.removeItem('recoil-persist');
-    const res = await Instance.post('/auth/logout');
+    try {
+      const res = await Instance.post('/auth/logout');
 
-    if (res.status === 201) router.reload();
+      if (res.status === 201) router.reload();
+    } catch (err: any) {
+      console.log('err', err);
+    }
+  };
+
+  const scrollToSection = (section: string) => {
+    const toScroll = document.getElementById(section);
+
+    if (toScroll) {
+      const sectionPosition = toScroll.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionPosition - 80, behavior: 'smooth' });
+    } else {
+      router.push('/').then(() => {
+        scrollToSection(section);
+      });
+    }
   };
 
   return (
-    <div className='pb-[66px]'>
-      <header className='fixed top-0 left-0 right-0 flex items-center justify-between px-20 py-2 bg-blue-600 duration-500 ease-in-out'>
+    <div className='pb-20'>
+      <header className='fixed top-0 left-0 right-0 flex items-center justify-between px-20 py-2 bg-blue-600 duration-500 ease-in-out h-20'>
         <div className='flex items-center cursor-pointer'>
           <Link href='/'>
             <a>
@@ -28,14 +45,16 @@ const Header = ({ headerData }: any) => {
           </Link>
         </div>
         <div className='gap-12 flex-center'>
+          <button onClick={() => scrollToSection('section1')}>서비스 소개</button>
+          {/* <Link href='#introduce'>
+            <a>
+              <button>메뉴1</button>
+            </a>
+          </Link> */}
+          <button onClick={() => scrollToSection('section2')}>가이드</button>
+
           {headerData ? (
             <>
-              <Link href='/menu'>
-                <a>
-                  <button>메뉴1</button>
-                </a>
-              </Link>
-              <button>메뉴2</button>
               <div>{headerData?.email}</div>
               <Button onClick={handleLogout}>로그아웃</Button>
             </>
