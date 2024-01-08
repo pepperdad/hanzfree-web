@@ -20,6 +20,7 @@ export default Home;
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
+  console.log('ssr cookies', context.req.headers.cookie);
   const userData = await fetchUserData(context);
 
   if (!userData) {
