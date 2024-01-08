@@ -2,8 +2,9 @@
 
 import React from 'react';
 
-import Layout from '@shared/components/Layout';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+
+import Layout from '@shared/components/Layout';
 
 import { fetchUserData } from './api';
 

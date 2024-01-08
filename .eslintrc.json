@@ -60,6 +60,16 @@
             "pattern": "next/**",
             "group": "external",
             "position": "before"
+          },
+          {
+            "pattern": "recoil",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@shared/**",
+            "group": "internal",
+            "position": "after"
           }
         ],
         "pathGroupsExcludedImportTypes": ["react"],
