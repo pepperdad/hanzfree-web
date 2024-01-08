@@ -3,6 +3,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { NextRouter } from 'next/router';
 
 import { getLogginedUser } from '@pages/api';
+
 import { User } from '@shared/types';
 
 export const fetchUser = async (
