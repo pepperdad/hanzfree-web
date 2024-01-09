@@ -40,11 +40,11 @@ const interceptor = (instance: AxiosInstance) => {
 
   instance.interceptors.response.use(
     (res) => {
-      // console.log('res', res);
+      console.log('inter res', res);
       return res.data;
     },
     (error) => {
-      // console.log('error response', error.response);
+      console.log('inter error res', error.response);
       // const errorResponse = {
       //   status: error.response.data.status,
       //   message: `${error.response.data.data.error}`,
