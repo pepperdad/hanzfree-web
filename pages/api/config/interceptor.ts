@@ -44,7 +44,7 @@ const interceptor = (instance: AxiosInstance) => {
       return res.data;
     },
     (error) => {
-      console.log('inter error res', error.response);
+      console.log('inter error res', error);
       // const errorResponse = {
       //   status: error.response.data.status,
       //   message: `${error.response.data.data.error}`,
