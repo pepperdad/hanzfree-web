@@ -22,9 +22,9 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
 
   console.log('cookies', cookie);
 
-  // if (!cookie || !cookie.includes('access_token') || !cookie.includes('refresh_token')) {
-  //   return null;
-  // }
+  if (!cookie || !cookie.includes('access_token') || !cookie.includes('refresh_token')) {
+    return null;
+  }
 
   const res = await Instance(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/authenticate`, {
     headers: {
