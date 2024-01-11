@@ -32,6 +32,8 @@ const Page = () => {
 
     try {
       const res = await login(email, password);
+      console.log('from', from);
+      console.log('res', res);
 
       if (res.status === 201) {
         if (from) router.push(`/${from}`);
@@ -41,8 +43,6 @@ const Page = () => {
       } else if (res.status === 404) {
         setError('존재하지 않는 아이디입니다.');
       }
-
-      console.log('res', res);
     } catch (err: any) {
       console.log('err', err);
       setError('서버 오류가 발생했습니다.');
