@@ -13,9 +13,15 @@ const Home: NextPage = ({ userData }: any) => {
   console.log('userData', userData);
 
   useEffect(() => {
-    Instance(`${process.env.NEXT_PUBLIC_BASE_URL}/user/check`).then((res) => {
-      console.log('index res in ue', res);
-    });
+    async function fetchData() {
+      try {
+        const res = await Instance.get(`${process.env.NEXT_PUBLIC_BASE_URL}/user/check`);
+        console.log('srr res', res);
+      } catch (err) {
+        console.log('err', err);
+      }
+    }
+    fetchData();
   });
 
   return (
