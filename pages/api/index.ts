@@ -17,8 +17,8 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
   // 쿠키가 없거나 토큰이 없는 경우 null 반환
   const parsedCookie = parse(cookie ?? '');
 
-  console.log('context.req', context.req.headers);
-  console.log('parsedCookie', parsedCookie);
+  // console.log('context.req', context.req.headers);
+  // console.log('parsedCookie', parsedCookie);
 
   console.log('cookies', cookie);
 
