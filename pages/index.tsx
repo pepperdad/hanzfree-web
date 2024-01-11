@@ -5,6 +5,7 @@ import Page from 'main/components/Page';
 import Layout from '@shared/components/Layout';
 
 import { fetchUserData } from './api';
+import Instance from './api/config';
 
 const Home: NextPage = ({ userData }: any) => {
   console.log('userData', userData);
@@ -26,6 +27,10 @@ export const getServerSideProps: GetServerSideProps = async (
   if (!userData) {
     return { props: { userData: null } };
   }
+
+  await Instance(`${process.env.NEXT_PUBLIC_BASE_URL}/user/check`).then((res) => {
+    console.log('index res', res);
+  });
 
   return { props: { userData } };
 };
