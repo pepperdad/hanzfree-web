@@ -67,6 +67,11 @@
             "position": "before"
           },
           {
+            "pattern": "react-cookie",
+            "group": "external",
+            "position": "before"
+          },
+          {
             "pattern": "@shared/**",
             "group": "internal",
             "position": "after"

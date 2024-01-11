@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 
-import Page from 'main/components/Page';
 import { Cookies } from 'react-cookie';
+
+import Page from 'main/components/Page';
 
 import Layout from '@shared/components/Layout';
 
