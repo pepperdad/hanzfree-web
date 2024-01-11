@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 
 import Page from 'main/components/Page';
@@ -9,6 +11,13 @@ import Instance from './api/config';
 
 const Home: NextPage = ({ userData }: any) => {
   console.log('userData', userData);
+
+  useEffect(() => {
+    Instance(`${process.env.NEXT_PUBLIC_BASE_URL}/user/check`).then((res) => {
+      console.log('index res in ue', res);
+    });
+  });
+
   return (
     <Layout headerData={userData}>
       <Page />
