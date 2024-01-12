@@ -14,8 +14,6 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
   const { cookie } = context.req.headers;
   // 쿠키가 없거나 토큰이 없는 경우 null 반환
 
-  console.log('cookie', cookie);
-
   if (!cookie || !cookie.includes('access_token') || !cookie.includes('refresh_token')) {
     return null;
   }
@@ -25,8 +23,6 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
       Cookie: cookie || '',
     },
   });
-
-  console.log('res', res);
 
   if (res.status === 401) {
     context.res.setHeader('Set-Cookie', [
