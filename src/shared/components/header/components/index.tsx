@@ -37,48 +37,94 @@ const Header = ({ headerData }: any) => {
 
   return (
     <div className='pb-20'>
-      <header className='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-2 bg-blue-600 h-20 rounded-bl-[20px] rounded-br-[20px] md:flex-row'>
-        <button
-          className='flex items-center cursor-pointer'
-          onClick={() => scrollToSection('section1')}
-        >
-          <Image src='/logo.svg' alt='hanzfree Logo' width={240} height={50} />
-        </button>
+      <header className='fixed top-0 left-0 right-0 z-50 px-10 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
+        <div className='flex items-center justify-between'>
+          {/* pc header */}
+          <button
+            className='flex items-center cursor-pointer'
+            onClick={() => scrollToSection('section1')}
+          >
+            <Image src='/logo.svg' alt='hanzfree Logo' width={240} height={48} />
+          </button>
 
-        <button className='md:hidden' onClick={toggleMobileMenu}>
-          {/* 햄버거 메뉴 아이콘 */}
-          <Image src='/assets/hamburger-icon.png' alt='Menu' width={30} height={30} />
-        </button>
+          <nav className='hidden md:flex md:flex-row md:gap-12'>
+            <button onClick={() => scrollToSection('section2')}>서비스 소개</button>
+            <button onClick={() => scrollToSection('section3')}>가이드</button>
+
+            {headerData ? (
+              <>
+                <div className='text-2xl text-center'>
+                  {headerData.firstName} {headerData.lastName}
+                </div>
+                <Button onClick={handleLogout}>로그아웃</Button>
+              </>
+            ) : (
+              <Button onClick={() => router.push('/login')}>로그인</Button>
+            )}
+          </nav>
+
+          <button
+            className='p-2 rounded-lg md:hidden flex-center hover:bg-blue-700'
+            onClick={toggleMobileMenu}
+          >
+            {/* 햄버거 메뉴 아이콘 */}
+            <Image src='/assets/hamburger-icon.png' alt='Menu' width={30} height={30} />
+          </button>
+        </div>
 
         <nav
           className={`${
-            isMobileMenuOpen ? 'flex' : 'hidden'
-          } flex-col md:flex md:flex-row md:gap-12`}
+            isMobileMenuOpen ? 'absolute' : 'hidden'
+          }  top-0 left-0 w-screen h-screen bg-gray-100 py-16 px-6`}
         >
-          <button onClick={() => scrollToSection('section2')}>서비스 소개</button>
-          <button onClick={() => scrollToSection('section3')}>가이드</button>
+          <button
+            onClick={toggleMobileMenu}
+            className='absolute p-2 rounded-lg right-10 top-5 hover:bg-gray-300 flex-center'
+          >
+            <Image src='/assets/x_button.svg' alt='x' width={28} height={28} />
+          </button>
 
-          {headerData ? (
-            <>
-              <div>
-                {headerData?.firstName} {headerData?.lastName}
-              </div>
-              <Button onClick={handleLogout}>로그아웃</Button>
-            </>
-          ) : (
-            <Button onClick={() => router.push('/login')}>로그인</Button>
-          )}
+          <div className='flex flex-col'>
+            <div
+              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
+              onClick={() => {
+                toggleMobileMenu();
+                scrollToSection('section1');
+              }}
+            >
+              Home
+            </div>
+            <div
+              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
+              onClick={() => {
+                toggleMobileMenu();
+                scrollToSection('section2');
+              }}
+            >
+              Introduce of Service
+            </div>
+            <div
+              className='p-2 mb-10 text-2xl text-center rounded-md hover:bg-gray-300'
+              onClick={() => {
+                toggleMobileMenu();
+                scrollToSection('section3');
+              }}
+            >
+              Guide
+            </div>
+            {headerData ? (
+              <>
+                <div>
+                  Welcome {headerData.firstName} {headerData.lastName}
+                </div>
+                <Button onClick={handleLogout}>로그아웃</Button>
+              </>
+            ) : (
+              <Button onClick={() => router.push('/login')}>로그인</Button>
+            )}
+          </div>
         </nav>
       </header>
-
-      {/* 모바일 메뉴 내용 */}
-      <div
-        className={`absolute top-20 left-0 right-0 p-5 bg-white ${
-          isMobileMenuOpen ? 'block' : 'hidden'
-        } md:hidden`}
-      >
-        {/* 여기에 모바일 메뉴 내용 */}
-      </div>
     </div>
   );
 };

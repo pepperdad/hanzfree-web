@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useSetRecoilState } from 'recoil';
@@ -62,21 +63,29 @@ const Page = () => {
   };
 
   return (
-    <div className='pt-32'>
+    <div className='pt-24'>
+      <h1 className='pb-10 text-4xl font-bold text-center'>Log In</h1>
       <div className='flex justify-center'>
-        <div>
-          <img src='/hanzfree.png' alt='hanzfree' />
-        </div>
-        <div className='w-1/3 relative'>
+        <div className='relative w-3/5 md:w-1/3'>
           <LoginForm onClick={onClick} />
           <div className='flex justify-center'>
-            {error && <span className='text-red-500 absolute -bottom-10'>{error}</span>}
+            {error && <span className='absolute text-red-500 -bottom-1'>{error}</span>}
+          </div>
+          <div className='flex justify-center'>
+            <div
+              onClick={() => googleLoginHandler()}
+              className='flex items-center border-2 hover:border-blue-700'
+            >
+              <button className='p-1 flex-center'>
+                <Image src='/assets/google_icon.svg' alt='google login' width={36} height={36} />
+              </button>
+              <div className='h-full p-2 font-bold text-gray-400 flex-center hover:bg-blue-700 hover:text-white'>
+                Sign in with Google
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <button className='p-4 bg-red-100' onClick={() => googleLoginHandler()}>
-        google login
-      </button>
     </div>
   );
 };
