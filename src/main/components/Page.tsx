@@ -5,7 +5,6 @@ import Section2 from './Section2';
 import Section3 from './Section3';
 
 const Page = () => {
-  const mobile = true;
   return (
     <div className='relative flex justify-center overflow-hidden'>
       <div className='flex-col w-4/5'>
