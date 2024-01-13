@@ -52,6 +52,13 @@ const PCGuide = () => {
           <Image src='/assets/line.svg' alt='line' width={127} height={20} />
         </div>
       </div>
+
+      <div className="w-[530px] text-blue-700 text-7xl font-medium font-['Hind']">
+        Customer Guide
+      </div>
+      <div className="w-[528px] h-[21px] text-zinc-800 text-2xl font-normal font-['Roboto']">
+        How can I use this luggage delivery service?
+      </div>
     </div>
   );
 };
