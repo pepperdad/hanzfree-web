@@ -1,76 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { useSetRecoilState } from 'recoil';
+import Instance from '@pages/api/config';
 
-import { login } from '@pages/api';
-
-import LoginForm from '@shared/components/LoginForm';
-import { userState } from '@shared/recoil';
+import SignUpForm from './SignUpForm';
 
 const Page = () => {
-  const setUser = useSetRecoilState(userState);
   const router = useRouter();
   // TODO: 리다이렉트 from 페이지로
   const { from } = router.query;
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        setError('');
-      }, 2000);
-    }
-  }, [error]);
 
   const googleLoginHandler = () => {
     window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?from=${from}`;
   };
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
+    //   const onClick = () => {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
     const email = form.email.value;
     const password = form.password.value;
+    const passwordConfirm = form['password-confirm'].value;
+
+    // 이름 또는 성이 비어 있는 경우
+    if (!firstName || !lastName) {
+      alert('Please enter both first name and last name.');
+      return;
+    }
+
+    // 이메일 형식 검증
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      alert('Passwords do not match. Please try again.');
+      return;
+    }
 
     try {
-      const res = await login(email, password);
+      alert('Form is valid, submit data');
+      const res = await Instance.post('/user/signup', { email, password, firstName, lastName });
+
+      if (res.status === 400) {
+        alert('This email already exists.');
+        return;
+      }
 
       if (res.status === 201) {
-        setUser({
-          email: res.data.email,
-          firstName: res.data.firstName,
-          lastName: res.data.lastName,
-          currentRefreshTokenExp: res.data.currentRefreshTokenExp,
-          role: res.data.role,
-          createdAt: res.data.createdAt,
-        });
-
-        if (from) router.push(`/${from}`);
-        else router.push('/');
-      } else if (res.status === 400) {
-        setError('비밀번호가 일치하지 않습니다.');
-      } else if (res.status === 404) {
-        setError('존재하지 않는 아이디입니다.');
+        router.push('/login');
       }
     } catch (err: any) {
       console.log('err', err);
-      setError('서버 오류가 발생했습니다.');
     }
   };
 
   return (
     <div className='pt-16'>
-      <h1 className='pb-10 text-4xl font-bold text-center'>Log In</h1>
+      <h1 className='pb-10 text-4xl font-bold text-center'>Sign Up</h1>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
-          <LoginForm onClick={onClick} />
-          <div className='flex justify-center'>
-            {error && <span className='absolute text-red-500 top-54'>{error}</span>}
-          </div>
+          <SignUpForm onClick={onClick} />
 
           <div className='flex flex-col items-center justify-center mt-10 border-y py-6'>
             <div className='text-center mb-3'>Or sign in with:</div>
@@ -88,12 +85,12 @@ const Page = () => {
           </div>
 
           <div className='flex justify-center mt-4'>
-            <div className='text-gray-400'>Don&apos;t have an account yet?</div>
+            <div className='text-gray-400'>Already have an account?</div>
             <div
               className='ml-2 text-blue-700 cursor-pointer'
-              onClick={() => router.push('/signup')}
+              onClick={() => router.push('/login')}
             >
-              Sign up
+              Log In
             </div>
           </div>
         </div>

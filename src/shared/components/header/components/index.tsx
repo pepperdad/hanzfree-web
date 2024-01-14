@@ -114,7 +114,7 @@ const Header = ({ headerData }: any) => {
             </div>
             {headerData ? (
               <>
-                <div>
+                <div className='text-3xl text-center'>
                   Welcome {headerData.firstName} {headerData.lastName}
                 </div>
                 <Button onClick={handleLogout}>로그아웃</Button>
