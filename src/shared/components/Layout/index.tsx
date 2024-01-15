@@ -1,5 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
+import Footer from '@shared/components/footer/components';
 import Header from '@shared/components/header/components';
 
 interface LayoutProps {
@@ -18,6 +19,7 @@ const Layout = ({ children, headerData, ...props }: LayoutProps) => {
         }
         return child;
       })}
+      <Footer />
     </div>
   );
 };

@@ -1,11 +1,9 @@
-import React from 'react';
-
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Instance from '@pages/api/config';
 
-import SignUpForm from './SignUpForm';
+import SignUpForm from 'signUp/SignUpForm';
 
 const Page = () => {
   const router = useRouter();
@@ -17,7 +15,6 @@ const Page = () => {
   };
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
-    //   const onClick = () => {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
