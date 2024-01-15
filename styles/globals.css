@@ -43,3 +43,13 @@ a {
 .flex-center {
   @apply flex items-center justify-center;
 }
+
+@layer components {
+  .fadeIn {
+    transition: color 0.2s ease;
+  }
+}
+
+.fadeIn:hover {
+  color: rgb(62, 162, 255);
+}

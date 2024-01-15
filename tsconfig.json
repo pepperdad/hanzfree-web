@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -20,14 +24,35 @@
     ],
     "baseUrl": "./src",
     "paths": {
-      "@pages/*": ["../pages/*"],
-      "@shared/*": ["shared/*"],
-      "@admin/*": ["admin/*"],
-      "@main/*": ["main/*"],
-      "@reservation/*": ["reservation/*"]
+      "@pages/*": [
+        "../pages/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@admin/*": [
+        "admin/*"
+      ],
+      "@main/*": [
+        "main/*"
+      ],
+      "@signup/*": [
+        "signup/*"
+      ],
+      "@reservation/*": [
+        "reservation/*"
+      ]
     },
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "pages/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

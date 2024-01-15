@@ -9,17 +9,17 @@ interface LoginFormProps {
 
 const LoginForm = ({ onClick }: LoginFormProps) => {
   return (
-    <form className='flex flex-col items-center w-full h-full gap-2' onSubmit={onClick}>
+    <form className='flex flex-col items-center w-full gap-2' onSubmit={onClick}>
       <Input
         fullWidth
-        placeholder='ID'
+        placeholder='Enter your email'
         name='email'
         label='Email Address'
         inputStyle='bg-slate-100'
       />
       <Input
         fullWidth
-        placeholder='PW'
+        placeholder='Enter your password'
         type='password'
         name='password'
         label='Password'

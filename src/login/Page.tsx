@@ -63,25 +63,35 @@ const Page = () => {
   };
 
   return (
-    <div className='pt-24'>
+    <div className='pt-16'>
       <h1 className='pb-10 text-4xl font-bold text-center'>Log In</h1>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
           <LoginForm onClick={onClick} />
           <div className='flex justify-center'>
-            {error && <span className='absolute text-red-500 -bottom-1'>{error}</span>}
+            {error && <span className='absolute text-red-500 top-54'>{error}</span>}
           </div>
-          <div className='flex justify-center'>
+
+          <div className='flex flex-col items-center justify-center mt-10 border-y py-6'>
+            <div className='text-center mb-3'>Or sign in with:</div>
             <div
               onClick={() => googleLoginHandler()}
-              className='flex items-center border-2 hover:border-blue-700'
+              className='flex items-center border-2 hover:border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white text-gray-400'
             >
-              <button className='p-1 flex-center'>
+              <button className='p-2 flex-center bg-white'>
                 <Image src='/assets/google_icon.svg' alt='google login' width={36} height={36} />
               </button>
-              <div className='h-full p-2 font-bold text-gray-400 flex-center hover:bg-blue-700 hover:text-white'>
-                Sign in with Google
-              </div>
+              <div className='h-full p-3 font-bold flex-center'>Sign in with Google</div>
+            </div>
+          </div>
+
+          <div className='flex justify-center mt-4'>
+            <div className='text-gray-400'>Don&apos;t have an account yet?</div>
+            <div
+              className='ml-2 text-blue-700 cursor-pointer'
+              onClick={() => router.push('/signup')}
+            >
+              Sign up
             </div>
           </div>
         </div>
