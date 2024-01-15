@@ -1,5 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 
+import { parse } from 'cookie';
+
 import Instance from './config';
 
 export const getLogginedUser = async () => {

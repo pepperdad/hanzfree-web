@@ -32,6 +32,8 @@ const Page = () => {
 
     try {
       const res = await login(email, password);
+      console.log('from', from);
+      console.log('res', res);
 
       if (res.status === 201) {
         if (from) router.push(`/${from}`);

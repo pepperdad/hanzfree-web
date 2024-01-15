@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 
 import Page from 'main/components/Page';
