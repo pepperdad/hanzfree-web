@@ -2,7 +2,6 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
-  "files": ["*.ts", "*.tsx"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "createDefaultProgram": true

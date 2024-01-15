@@ -475,6 +475,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/intl-tel-input@npm:^18.1.4":
+  version: 18.1.4
+  resolution: "@types/intl-tel-input@npm:18.1.4"
+  dependencies:
+    "@types/jquery": "*"
+  checksum: 9bc44b0de130fc7c992604e9266c7412b1c22b98b007d5734dd795891b7eb38b9e84fc8bffdb598f979dad589c5f88adc3523b74686dbe145780fb76ce403328
+  languageName: node
+  linkType: hard
+
+"@types/jquery@npm:*":
+  version: 3.5.29
+  resolution: "@types/jquery@npm:3.5.29"
+  dependencies:
+    "@types/sizzle": "*"
+  checksum: 5e959762d6f7050b07b4387b6507a308113384566a77cfc4f8d0f54c2fb0a79f6bc8c057706c6aa4840cde56f32ad0e5814fb53c5f078c5db9e01670a1ecd535
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.12":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -543,6 +561,13 @@ __metadata:
   version: 7.5.6
   resolution: "@types/semver@npm:7.5.6"
   checksum: 563a0120ec0efcc326567db2ed920d5d98346f3638b6324ea6b50222b96f02a8add3c51a916b6897b51523aad8ac227d21d3dcf8913559f1bfc6c15b14d23037
+  languageName: node
+  linkType: hard
+
+"@types/sizzle@npm:*":
+  version: 2.3.8
+  resolution: "@types/sizzle@npm:2.3.8"
+  checksum: 2ac62443dc917f5f903cbd9afc51c7d6cc1c6569b4e1a15faf04aea5b13b486e7f208650014c3dc4fed34653eded3e00fe5abffe0e6300cbf0e8a01beebf11a6
   languageName: node
   linkType: hard
 
@@ -2316,6 +2341,7 @@ __metadata:
   resolution: "hanzfree-web@workspace:."
   dependencies:
     "@types/cookie": ^0.6.0
+    "@types/intl-tel-input": ^18.1.4
     "@types/lodash": ^4.14.202
     "@types/node": ^20
     "@types/react": ^18
@@ -2339,6 +2365,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-tailwindcss: ^3.13.1
+    intl-tel-input: ^18.5.3
     lodash: ^4.17.21
     next: 12.3.2
     postcss: ^8
@@ -2510,6 +2537,13 @@ __metadata:
     hasown: ^2.0.0
     side-channel: ^1.0.4
   checksum: 7872454888047553ce97a3fa1da7cc054a28ec5400a9c2e9f4dbe4fe7c1d041cb8e8301467614b80d4246d50377aad2fb58860b294ed74d6700cc346b6f89549
+  languageName: node
+  linkType: hard
+
+"intl-tel-input@npm:^18.5.3":
+  version: 18.5.3
+  resolution: "intl-tel-input@npm:18.5.3"
+  checksum: f08fb6db91524886e4726e7b4486b1b8e138f5acadfcdd8dd4aa2ca6e82692cab88748bd36c724459d357cfe9d9c5e4d72ef40ced11a6a8aaa5015f3fec5c386
   languageName: node
   linkType: hard
 

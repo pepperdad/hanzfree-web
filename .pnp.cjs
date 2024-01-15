@@ -29,6 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@types/cookie", "npm:0.6.0"],\
+            ["@types/intl-tel-input", "npm:18.1.4"],\
             ["@types/lodash", "npm:4.14.202"],\
             ["@types/node", "npm:20.10.6"],\
             ["@types/react", "npm:18.2.46"],\
@@ -52,6 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:7.33.2"],\
             ["eslint-plugin-react-hooks", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:4.6.0"],\
             ["eslint-plugin-tailwindcss", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:3.13.1"],\
+            ["intl-tel-input", "npm:18.5.3"],\
             ["lodash", "npm:4.17.21"],\
             ["next", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:12.3.2"],\
             ["postcss", "npm:8.4.32"],\
@@ -645,6 +647,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/intl-tel-input", [\
+        ["npm:18.1.4", {\
+          "packageLocation": "./.yarn/cache/@types-intl-tel-input-npm-18.1.4-9e1d605899-9bc44b0de1.zip/node_modules/@types/intl-tel-input/",\
+          "packageDependencies": [\
+            ["@types/intl-tel-input", "npm:18.1.4"],\
+            ["@types/jquery", "npm:3.5.29"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/jquery", [\
+        ["npm:3.5.29", {\
+          "packageLocation": "./.yarn/cache/@types-jquery-npm-3.5.29-4029cf7fc3-5e959762d6.zip/node_modules/@types/jquery/",\
+          "packageDependencies": [\
+            ["@types/jquery", "npm:3.5.29"],\
+            ["@types/sizzle", "npm:2.3.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/json-schema", [\
         ["npm:7.0.15", {\
           "packageLocation": "./.yarn/cache/@types-json-schema-npm-7.0.15-fd16381786-97ed0cb44d.zip/node_modules/@types/json-schema/",\
@@ -727,6 +749,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-semver-npm-7.5.6-9d2637fc95-563a0120ec.zip/node_modules/@types/semver/",\
           "packageDependencies": [\
             ["@types/semver", "npm:7.5.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/sizzle", [\
+        ["npm:2.3.8", {\
+          "packageLocation": "./.yarn/cache/@types-sizzle-npm-2.3.8-b4e813dde8-2ac62443dc.zip/node_modules/@types/sizzle/",\
+          "packageDependencies": [\
+            ["@types/sizzle", "npm:2.3.8"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3052,6 +3083,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["hanzfree-web", "workspace:."],\
             ["@types/cookie", "npm:0.6.0"],\
+            ["@types/intl-tel-input", "npm:18.1.4"],\
             ["@types/lodash", "npm:4.14.202"],\
             ["@types/node", "npm:20.10.6"],\
             ["@types/react", "npm:18.2.46"],\
@@ -3075,6 +3107,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:7.33.2"],\
             ["eslint-plugin-react-hooks", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:4.6.0"],\
             ["eslint-plugin-tailwindcss", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:3.13.1"],\
+            ["intl-tel-input", "npm:18.5.3"],\
             ["lodash", "npm:4.17.21"],\
             ["next", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:12.3.2"],\
             ["postcss", "npm:8.4.32"],\
@@ -3273,6 +3306,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-intrinsic", "npm:1.2.2"],\
             ["hasown", "npm:2.0.0"],\
             ["side-channel", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["intl-tel-input", [\
+        ["npm:18.5.3", {\
+          "packageLocation": "./.yarn/unplugged/intl-tel-input-npm-18.5.3-228c6984c7/node_modules/intl-tel-input/",\
+          "packageDependencies": [\
+            ["intl-tel-input", "npm:18.5.3"]\
           ],\
           "linkType": "HARD"\
         }]\
