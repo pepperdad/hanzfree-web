@@ -76,14 +76,12 @@ const Page = () => {
             <div className='text-center mb-3'>Or sign in with:</div>
             <div
               onClick={() => googleLoginHandler()}
-              className='flex items-center border-2 hover:border-blue-700'
+              className='flex items-center border-2 hover:border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white text-gray-400'
             >
-              <button className='p-1 flex-center'>
+              <button className='p-2 flex-center bg-white'>
                 <Image src='/assets/google_icon.svg' alt='google login' width={36} height={36} />
               </button>
-              <div className='h-full p-3 font-bold text-gray-400 flex-center hover:bg-blue-700 hover:text-white'>
-                Sign in with Google
-              </div>
+              <div className='h-full p-3 font-bold flex-center'>Sign in with Google</div>
             </div>
           </div>
 
