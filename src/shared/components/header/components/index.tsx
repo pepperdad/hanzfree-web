@@ -44,22 +44,32 @@ const Header = ({ headerData }: any) => {
             className='flex items-center cursor-pointer'
             onClick={() => scrollToSection('section1')}
           >
-            <Image src='/logo.svg' alt='hanzfree Logo' width={240} height={48} />
+            <Image src='/logo.svg' alt='hanzfree Logo' width={200} height={48} />
           </button>
 
           <nav className='hidden md:flex md:flex-row md:gap-12'>
-            <button onClick={() => scrollToSection('section2')}>서비스 소개</button>
-            <button onClick={() => scrollToSection('section3')}>가이드</button>
+            <button
+              onClick={() => scrollToSection('section2')}
+              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
+            >
+              Introduction of Service
+            </button>
+            <button
+              onClick={() => scrollToSection('section3')}
+              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
+            >
+              Customer Guide
+            </button>
 
             {headerData ? (
               <>
-                <div className='text-2xl text-center'>
-                  {headerData.firstName} {headerData.lastName}
+                <div className='text-center flex-center text-white fadeIn'>
+                  Hello! {headerData.firstName} {headerData.lastName}
                 </div>
-                <Button onClick={handleLogout}>로그아웃</Button>
+                {/* <Button onClick={handleLogout}>Sign out</Button> */}
               </>
             ) : (
-              <Button onClick={() => router.push('/login')}>로그인</Button>
+              <Button onClick={() => router.push('/login')}>Sign in</Button>
             )}
           </nav>
 
@@ -68,14 +78,14 @@ const Header = ({ headerData }: any) => {
             onClick={toggleMobileMenu}
           >
             {/* 햄버거 메뉴 아이콘 */}
-            <Image src='/assets/hamburger-icon.png' alt='Menu' width={30} height={30} />
+            <Image src='/assets/hamburger.svg' alt='Menu' width={30} height={30} />
           </button>
         </div>
 
         <nav
           className={`${
             isMobileMenuOpen ? 'absolute' : 'hidden'
-          }  top-0 left-0 w-screen h-screen bg-gray-100 py-16 px-6`}
+          } top-0 left-0 w-screen h-screen bg-gray-100 py-16 px-6`}
         >
           <button
             onClick={toggleMobileMenu}
@@ -110,7 +120,7 @@ const Header = ({ headerData }: any) => {
                 scrollToSection('section3');
               }}
             >
-              Guide
+              Customer Guide
             </div>
             {headerData ? (
               <>
