@@ -63,8 +63,9 @@ const Page = () => {
   };
 
   return (
-    <div className='pt-16'>
-      <h1 className='pb-10 text-4xl font-bold text-center'>Log In</h1>
+    <div className='pt-6'>
+      <h1 className='text-4xl font-bold text-center'>Log In</h1>
+      <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
           <LoginForm onClick={onClick} />
