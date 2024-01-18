@@ -6,7 +6,11 @@ import { useRouter } from 'next/router';
 import Instance from '@pages/api/config';
 import SignUpForm from 'signUp/SignUpForm';
 
-const Page = () => {
+interface PageProps {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Page = ({ setPage }: PageProps) => {
   const router = useRouter();
   // TODO: 리다이렉트 from 페이지로
   const { from } = router.query;
@@ -66,6 +70,9 @@ const Page = () => {
       alert('Form is valid, submit data');
       console.log('formData', formData);
       // TODO: 회원가입 API 호출 (entity 수정 후)
+
+      setPage(2);
+
       // const res = await Instance.post('/user/signup', { email, password, firstName, lastName });
 
       // if (res.status === 400) {
@@ -82,8 +89,9 @@ const Page = () => {
   };
 
   return (
-    <div className='pt-16'>
-      <h1 className='pb-10 text-4xl font-bold text-center'>Sign Up</h1>
+    <div className='pt-6'>
+      <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
+      <h2 className='pb-8 text-lg text-center text-gray-500'>create an account to continue</h2>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
           <SignUpForm onClick={onClick} setCountryCode={setCountryCode} setDialCode={setDialCode} />
@@ -107,7 +115,7 @@ const Page = () => {
               className='ml-2 text-blue-700 cursor-pointer'
               onClick={() => router.push('/login')}
             >
-              Log In
+              Sign in
             </div>
           </div>
         </div>

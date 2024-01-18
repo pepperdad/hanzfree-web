@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
+import CompletePage from 'signUp/CompletePage';
 import Page from 'signUp/Page';
 
 import Layout from '@shared/components/Layout';
@@ -7,9 +10,12 @@ import Layout from '@shared/components/Layout';
 import { fetchUserData } from './api';
 
 const index = ({ userData }: any) => {
+  const [page, setPage] = useState(1);
+
   return (
     <Layout headerData={userData}>
-      <Page />
+      {page === 1 && <Page setPage={setPage} />}
+      {page === 2 && <CompletePage />}
     </Layout>
   );
 };
