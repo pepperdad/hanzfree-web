@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Lottie from 'react-lottie-player';
 
-import completeJson from './complete.json';
+import completeJson from './complete_1.json';
 
 const index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
