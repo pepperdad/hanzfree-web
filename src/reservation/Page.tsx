@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import Instance from '@pages/api/config';
 import Calendar from 'react-calendar';
+
+import Instance from '@pages/api/config';
 
 type ValuePiece = Date | null;
 
