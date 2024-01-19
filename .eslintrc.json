@@ -64,8 +64,14 @@
             "group": "external",
             "position": "before"
           },
+
           {
             "pattern": "recoil",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "react-calendar",
             "group": "external",
             "position": "before"
           },

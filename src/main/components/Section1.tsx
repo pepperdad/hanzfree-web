@@ -2,8 +2,11 @@ import React from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Section1 = () => {
+  const router = useRouter();
+
   return (
     <div id='section1' className=''>
       <div className='md:flex pt-12 hidden'>
@@ -18,7 +21,12 @@ const Section1 = () => {
           </div>
         </div>
         <div className='flex flex-col gap-6 w-full'>
-          <button className='h-32 bg-blue-700 rounded-[50px] hover:bg-blue-800 transition duration-250 ease-in-out'>
+          <button
+            className='h-32 bg-blue-700 rounded-[50px] hover:bg-blue-800 transition duration-250 ease-in-out'
+            onClick={() => {
+              router.push('/reservation');
+            }}
+          >
             <div className='flex-center gap-3'>
               <Image src='/assets/bag.svg' alt='bag' width={51} height={40} />
               <span className='text-3xl font-normal text-white'>Book Now</span>
@@ -43,7 +51,12 @@ const Section1 = () => {
           Book easily for convenience at your fingertips!
         </div>
         <div className='flex flex-col gap-3 items-center'>
-          <button className='w-[300px] h-16 bg-blue-700 rounded-[30px] hover:bg-blue-800'>
+          <button
+            className='w-[300px] h-16 bg-blue-700 rounded-[30px] hover:bg-blue-800'
+            onClick={() => {
+              router.push('/reservation');
+            }}
+          >
             <div className='flex-center gap-6'>
               <Image src='/assets/bag.svg' alt='bag' width={36} height={30} />
               <span className='text-2xl font-normal text-white'> Book Now</span>
