@@ -5,8 +5,9 @@ import { useRouter } from 'next/router';
 
 import { RecoilRoot } from 'recoil';
 
-import '../styles/globals.css';
 import 'intl-tel-input/build/css/intlTelInput.css';
+import 'react-calendar/dist/Calendar.css';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
