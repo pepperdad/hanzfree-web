@@ -24,7 +24,7 @@
       "@shared/*": ["shared/*"],
       "@admin/*": ["admin/*"],
       "@main/*": ["main/*"],
-      "@signup/*": ["signup/*"],
+      "@signUp/*": ["signUp/*"],
       "@reservation/*": ["reservation/*"]
     },
     "forceConsistentCasingInFileNames": true
