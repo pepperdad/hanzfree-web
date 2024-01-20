@@ -36,7 +36,7 @@ const Header = ({ headerData }: any) => {
 
   return (
     <div className='pb-20'>
-      <header className='fixed top-0 left-0 right-0 z-50 px-10 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
+      <header className='fixed top-0 left-0 right-0 z-50 px-5 md:px-10 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
         <div className='flex items-center justify-between'>
           {/* pc header */}
           <button
@@ -46,7 +46,7 @@ const Header = ({ headerData }: any) => {
             <Image src='/logo.svg' alt='hanzfree Logo' width={200} height={48} />
           </button>
 
-          <nav className='hidden md:flex md:flex-row md:gap-12'>
+          <nav className='hidden md:flex md:flex-row md:gap-6'>
             <button
               onClick={() => scrollToSection('section2')}
               className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
@@ -60,15 +60,30 @@ const Header = ({ headerData }: any) => {
               Customer Guide
             </button>
 
+            <button
+              onClick={() => router.push('/reservation')}
+              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
+            >
+              Go to reservation
+            </button>
+
             {headerData ? (
               <>
-                <div className='text-center flex-center text-white fadeIn'>
-                  Hello! {headerData.firstName} {headerData.lastName}
+                <div className='text-center flex-center text-slate-100 fadeIn font-semibold'>
+                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
                 </div>
                 {/* <Button onClick={handleLogout}>Sign out</Button> */}
               </>
             ) : (
-              <Button onClick={() => router.push('/login')}>Sign in</Button>
+              <>
+                <Button onClick={() => router.push('/login')}>Sign in</Button>
+                <Button
+                  buttonStyle='bg-gray-400 hover:bg-gray-500'
+                  onClick={() => router.push('/signup')}
+                >
+                  Sign up
+                </Button>
+              </>
             )}
           </nav>
 
@@ -88,7 +103,7 @@ const Header = ({ headerData }: any) => {
         >
           <button
             onClick={toggleMobileMenu}
-            className='absolute p-2 rounded-lg right-10 top-5 hover:bg-gray-300 flex-center'
+            className='absolute p-2 rounded-lg right-6 top-5 hover:bg-gray-300 flex-center'
           >
             <Image src='/assets/x_button.svg' alt='x' width={28} height={28} />
           </button>
@@ -112,8 +127,9 @@ const Header = ({ headerData }: any) => {
             >
               Introduce of Service
             </div>
+
             <div
-              className='p-2 mb-10 text-2xl text-center rounded-md hover:bg-gray-300'
+              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section3');
@@ -121,15 +137,30 @@ const Header = ({ headerData }: any) => {
             >
               Customer Guide
             </div>
+
+            <div
+              className='p-2 mb-10 text-2xl text-center rounded-md hover:bg-gray-300'
+              onClick={() => router.push('/reservation')}
+            >
+              Go to reservation
+            </div>
             {headerData ? (
               <>
-                <div className='text-3xl text-center'>
-                  Welcome {headerData.firstName} {headerData.lastName}
+                <div className='text-3xl text-center mb-4 font-semibold border-t pt-2'>
+                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
                 </div>
-                <Button onClick={handleLogout}>로그아웃</Button>
+                <Button onClick={handleLogout}>Sign out</Button>
               </>
             ) : (
-              <Button onClick={() => router.push('/login')}>로그인</Button>
+              <>
+                <Button onClick={() => router.push('/login')}>Sign in</Button>
+                <Button
+                  buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500'
+                  onClick={() => router.push('/signup')}
+                >
+                  Sign up
+                </Button>
+              </>
             )}
           </div>
         </nav>
