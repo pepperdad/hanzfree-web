@@ -7,13 +7,13 @@ import Input from '@shared/components/Input';
 
 interface SignUpFormProps {
   onClick: (e: React.FormEvent<HTMLFormElement>) => void;
-  setCountryCode: React.Dispatch<React.SetStateAction<string>>;
+  setCountry: React.Dispatch<React.SetStateAction<string>>;
   setDialCode: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SignUpForm = ({ onClick, setCountryCode, setDialCode }: SignUpFormProps) => {
+const SignUpForm = ({ onClick, setCountry, setDialCode }: SignUpFormProps) => {
   useEffect(() => {
-    const input = document.querySelector('#phone') as Element;
+    const input = document.querySelector('#phoneNumber') as Element;
 
     const iti = intlTelInput(input, {
       // IP 주소를 기반으로 가장 적합한 국가를 자동으로 선택
@@ -32,9 +32,9 @@ const SignUpForm = ({ onClick, setCountryCode, setDialCode }: SignUpFormProps) =
     input.addEventListener('countrychange', () => {
       const { dialCode } = iti.getSelectedCountryData();
       const selectedCountry = iti.getSelectedCountryData();
-      const countryCode = selectedCountry.iso2;
+      const country = selectedCountry.name;
       setDialCode(dialCode);
-      setCountryCode(countryCode);
+      setCountry(country);
     });
   }, []);
 
@@ -47,10 +47,10 @@ const SignUpForm = ({ onClick, setCountryCode, setDialCode }: SignUpFormProps) =
 
       <Input fullWidth placeholder='ID' name='email' label='Email Address' />
       <div className='flex flex-col w-full'>
-        <label className='mb-1'>phone</label>
+        <label className='mb-1'>Phone Number</label>
         <input
-          name='phone'
-          id='phone'
+          name='phoneNumber'
+          id='phoneNumber'
           type='tel'
           // placeholder='Enter your number only'
           className='px-3 py-2 border border-gray-300 rounded-md w-full'

@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Instance from '@pages/api/config';
-
 import Button from '@shared/components/Button';
 
 const Header = ({ headerData }: any) => {

@@ -44,6 +44,7 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "react/no-array-index-key": "off",
+    "no-nested-ternary": "off",
     "import/order": [
       "error",
       {
@@ -81,9 +82,19 @@
             "position": "before"
           },
           {
-            "pattern": "@shared/**",
+            "pattern": "react-hook-form",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "intl-tel-input",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": ["react"],

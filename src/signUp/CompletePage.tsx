@@ -9,11 +9,11 @@ const CompletePage = () => {
   const router = useRouter();
 
   return (
-    <div className='pt-16'>
+    <div className='py-8 2xl:mb-20'>
       <div className='flex-center flex-col text-center'>
-        <div className='text-6xl font-medium pb-4'>Sign up Complete!</div>
+        <div className='text-4xl md:text-6xl font-medium pb-4'>Sign up Complete!</div>
         <h2 className='pb-8 text-lg text-center text-gray-500'>get Started with your account</h2>
-        <div className='w-56 h-56'>
+        <div className='w-80 h-96'>
           <Complete />
         </div>
         <button

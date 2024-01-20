@@ -34,12 +34,13 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
     return null;
   }
 
-  return {
-    email: res.data.email,
-    firstName: res.data.firstName,
-    lastName: res.data.lastName,
-    currentRefreshTokenExp: res.data.currentRefreshTokenExp,
-    role: res.data.role,
-    createdAt: res.data.createdAt,
-  };
+  return res.data;
+  // return {
+  //   email: res.data.email,
+  //   firstName: res.data.firstName,
+  //   lastName: res.data.lastName,
+  //   currentRefreshTokenExp: res.data.currentRefreshTokenExp,
+  //   role: res.data.role,
+  //   createdAt: res.data.createdAt,
+  // };
 };

@@ -2,10 +2,9 @@ import { useState } from 'react';
 
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
+import Layout from '@shared/components/Layout';
 import CompletePage from 'signUp/CompletePage';
 import Page from 'signUp/Page';
-
-import Layout from '@shared/components/Layout';
 
 import { fetchUserData } from './api';
 
