@@ -6,7 +6,6 @@ import { fetchUserData } from '@pages/api';
 import CompletePage from '@reservation/CompletePage';
 import OtherInfoPage from '@reservation/OtherInfoPage';
 import Page from '@reservation/Page';
-
 import Layout from '@shared/components/Layout';
 
 const index = ({ userData }: any) => {

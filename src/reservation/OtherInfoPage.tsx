@@ -6,9 +6,9 @@ import { useRecoilState } from 'recoil';
 
 import { useForm } from 'react-hook-form';
 
-import Instance from '@pages/api/config';
 import intlTelInput from 'intl-tel-input';
 
+import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
 
 const OtherInfoPage = ({ userData, setPage }: any) => {

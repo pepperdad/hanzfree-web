@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Instance from '@pages/api/config';
-
 import { PagePropsWithSetPage } from '@shared/types';
 
 import SignUpForm from './SignUpForm';

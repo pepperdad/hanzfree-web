@@ -87,9 +87,14 @@
             "position": "before"
           },
           {
-            "pattern": "@shared/**",
+            "pattern": "intl-tel-input",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": ["react"],
