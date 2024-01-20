@@ -4,9 +4,10 @@ import Image from 'next/image';
 
 import { useRecoilState } from 'recoil';
 
+import { useForm } from 'react-hook-form';
+
 import Instance from '@pages/api/config';
 import intlTelInput from 'intl-tel-input';
-import { useForm } from 'react-hook-form';
 
 import { reservationState } from '@shared/recoil';
 
@@ -198,7 +199,7 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
             </div>
 
             <div className='flex flex-col md:w-1/2-20'>
-              <label htmlFor='arrivalFlightNumber' className='mb-1'>
+              <label htmlFor='flightNumber' className='mb-1'>
                 Flight Number
                 {reservation?.method === 'airportToHotel'
                   ? '(Arrival)'
@@ -208,18 +209,16 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
               </label>
               <input
                 className={`input ${
-                  errors?.arrivalFlightNumber ? 'border border-red-500' : 'border-gray-300'
+                  errors?.flightNumber ? 'border border-red-500' : 'border-gray-300'
                 } `}
-                {...register('arrivalFlightNumber', {
+                {...register('flightNumber', {
                   required: 'please enter your flight number',
                 })}
                 type='text'
                 placeholder='Please enter'
               />
               <span className='text-red-500'>
-                {errors?.arrivalFlightNumber?.message
-                  ? `⚠ ${String(errors?.arrivalFlightNumber?.message)}`
-                  : ''}
+                {errors?.flightNumber?.message ? `⚠ ${String(errors?.flightNumber?.message)}` : ''}
               </span>
             </div>
 

@@ -82,6 +82,11 @@
             "position": "before"
           },
           {
+            "pattern": "react-hook-form",
+            "group": "external",
+            "position": "before"
+          },
+          {
             "pattern": "@shared/**",
             "group": "internal",
             "position": "after"
