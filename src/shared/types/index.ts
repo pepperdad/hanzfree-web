@@ -5,3 +5,7 @@ export interface User {
   role: string;
   createdAt: string;
 }
+
+export interface PagePropsWithSetPage {
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}

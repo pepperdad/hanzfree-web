@@ -39,6 +39,8 @@ const Page = () => {
     try {
       const res = await login(email, password);
 
+      // console.log('res', res);
+
       if (res.status === 201) {
         setUser({
           email: res.data.email,
@@ -63,7 +65,7 @@ const Page = () => {
   };
 
   return (
-    <div className='pt-6'>
+    <div className='py-8 md:mb-8'>
       <h1 className='text-4xl font-bold text-center'>Log In</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
       <div className='flex justify-center'>

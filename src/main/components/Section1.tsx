@@ -9,7 +9,7 @@ const Section1 = () => {
 
   return (
     <div id='section1' className=''>
-      <div className='md:flex pt-12 hidden'>
+      <div className='md:flex hidden'>
         <div className='flex-col w-2/3 shrink-0'>
           <div className='flex-center'>
             <Image src='/assets/logo_small.svg' alt='section1' width={218} height={244} />
@@ -41,7 +41,7 @@ const Section1 = () => {
         </div>
       </div>
 
-      <div className='md:hidden flex flex-col pt-10'>
+      <div className='md:hidden flex flex-col'>
         <div className='flex-center'>
           <Image src='/assets/logo_small.svg' alt='section1' width={109} height={120} />
         </div>

@@ -4,18 +4,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Instance from '@pages/api/config';
-import SignUpForm from 'signUp/SignUpForm';
 
-interface PageProps {
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-}
+import { PagePropsWithSetPage } from '@shared/types';
 
-const Page = ({ setPage }: PageProps) => {
+import SignUpForm from './SignUpForm';
+
+const Page = ({ setPage }: PagePropsWithSetPage) => {
   const router = useRouter();
   // TODO: 리다이렉트 from 페이지로
   const { from } = router.query;
 
-  const [countryCode, setCountryCode] = useState<string>('');
+  const [country, setCountry] = useState<string>('');
   const [dialCode, setDialCode] = useState<string>('');
 
   const googleLoginHandler = () => {
@@ -24,12 +23,13 @@ const Page = ({ setPage }: PageProps) => {
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // TODO: 로그인 유효성 검사 상세히 추가
 
     const form = e.target as HTMLFormElement;
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
     const email = form.email.value;
-    const phone = form.phone.value;
+    const phoneNumber = form.phoneNumber.value;
     const password = form.password.value;
     const passwordConfirm = form['password-confirm'].value;
 
@@ -46,7 +46,7 @@ const Page = ({ setPage }: PageProps) => {
       return;
     }
 
-    if (!countryCode || !phone) {
+    if (!country || !phoneNumber) {
       alert('Please enter your phone number.');
       return;
     }
@@ -62,39 +62,35 @@ const Page = ({ setPage }: PageProps) => {
         lastName,
         email,
         dialCode,
-        countryCode,
-        phone,
+        country,
+        phoneNumber,
         password,
       };
 
-      alert('Form is valid, submit data');
-      console.log('formData', formData);
-      // TODO: 회원가입 API 호출 (entity 수정 후)
+      const res = await Instance.post('/user/signup', formData);
 
-      setPage(2);
+      // console.log('res', res);
 
-      // const res = await Instance.post('/user/signup', { email, password, firstName, lastName });
+      if (res.status === 409) {
+        alert('This email already exists.');
+        return;
+      }
 
-      // if (res.status === 400) {
-      //   alert('This email already exists.');
-      //   return;
-      // }
-
-      // if (res.status === 201) {
-      //   router.push('/login');
-      // }
+      if (res.status === 201) {
+        setPage(2);
+      }
     } catch (err: any) {
       console.log('err', err);
     }
   };
 
   return (
-    <div className='pt-6'>
+    <div className='py-8'>
       <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>create an account to continue</h2>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
-          <SignUpForm onClick={onClick} setCountryCode={setCountryCode} setDialCode={setDialCode} />
+          <SignUpForm onClick={onClick} setCountry={setCountry} setDialCode={setDialCode} />
 
           <div className='flex flex-col items-center justify-center mt-10 border-y py-6'>
             <div className='text-center mb-3'>Or sign in with:</div>
