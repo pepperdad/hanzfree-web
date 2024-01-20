@@ -3,7 +3,6 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import dynamic from 'next/dynamic';
 
 import { fetchUserData } from '@pages/api';
-
 import Layout from '@shared/components/Layout';
 
 const Complete = dynamic(() => import('@shared/components/animation/complete'), { ssr: false });
