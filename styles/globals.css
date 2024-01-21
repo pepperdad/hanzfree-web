@@ -39,6 +39,19 @@ a {
   }
 }
 
+:root {
+  color-scheme: light only;
+}
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: #fff !important;
+    background-color: #fff !important;
+    color: black;
+  }
+}
+
 /* 수평 및 수직 가운데 정렬 */
 .flex-center {
   @apply flex items-center justify-center;
