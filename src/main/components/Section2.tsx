@@ -5,7 +5,7 @@ import PCIntro from './PCIntro';
 
 const Section2 = () => {
   return (
-    <div id='section2' className='md:py-10'>
+    <div id='section2' className='py-10'>
       <div className='text-blue-700 text-4xl md:text-7xl font-medium text-right pb-2'>
         Introduction of Service
       </div>

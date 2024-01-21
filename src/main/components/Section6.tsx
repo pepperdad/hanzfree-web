@@ -9,7 +9,7 @@ const Section6 = () => {
     <div className='my-10 md:my-20'>
       <div className='flex gap-4 items-center mb-6'>
         <Image src='/assets/alert-icon.svg' alt='alert-icon' width={54} height={54} />
-        <div className='text-blue-700 text-4xl md:text-7xl font-medium'>Must-knows</div>
+        <span className='text-blue-700 text-4xl md:text-6xl font-medium'>Must-knows</span>
       </div>
 
       <div className='flex flex-col gap-6'>

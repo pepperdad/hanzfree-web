@@ -9,20 +9,40 @@ const Section1 = () => {
 
   return (
     <div id='section1' className='py-20'>
+      {/* PC */}
       <div className='md:flex hidden'>
         <div className='flex-col w-2/3 shrink-0'>
           <div className='flex-center'>
             <Image src='/assets/logo_small.svg' alt='section1' width={218} height={244} />
-            <div className='text-blue-700 text-lg font-normal'>
-              Travel light with HanzFree, enjoy to the fullest! <br />
-              Enjoy your journey with both hands free. <br />
-              Book easily for convenience at your fingertips!
+            <div className='absolute w-full h-56'>
+              <Image
+                className='object-contain'
+                src='/assets/map_base.svg'
+                alt='map'
+                layout='fill'
+              />
+            </div>
+
+            <div className='ml-4'>
+              <div className='relative w-full h-56 z-10'>
+                <Image
+                  className='object-contain'
+                  src='/assets/logo_string.png'
+                  alt='map'
+                  layout='fill'
+                />
+              </div>
+              <div className='text-blue-700 text-lg font-normal relative -top-10'>
+                Travel light with HanzFree, enjoy to the fullest! <br />
+                Enjoy your journey with both hands free. <br />
+                Book easily for convenience at your fingertips!
+              </div>
             </div>
           </div>
         </div>
-        <div className='flex flex-col gap-6 w-full'>
+        <div className='flex flex-col gap-6 w-full justify-evenly'>
           <button
-            className='h-32 bg-blue-700 rounded-[50px] hover:bg-blue-800 transition duration-250 ease-in-out'
+            className='py-8 bg-blue-700 rounded-[50px] hover:bg-blue-800 transition duration-250 ease-in-out'
             onClick={() => {
               router.push('/reservation');
             }}
@@ -33,7 +53,7 @@ const Section1 = () => {
             </div>
           </button>
           <button
-            className='h-32 bg-white border-2 border-blue-700 rounded-[50px] hover:bg-slate-100 transition duration-250 ease-in-out'
+            className='py-8 bg-white border-2 border-blue-700 rounded-[50px] hover:bg-slate-100 transition duration-250 ease-in-out'
             onClick={() => {
               router.push('/booking');
             }}
@@ -46,11 +66,12 @@ const Section1 = () => {
         </div>
       </div>
 
+      {/* mobile */}
       <div className='md:hidden flex flex-col'>
         <div className='flex-center'>
           <Image src='/assets/logo_small.svg' alt='section1' width={109} height={120} />
         </div>
-        <div className='text-blue-700 text-lg font-normal'>
+        <div className='text-blue-700 text-lg font-normal text-center py-5'>
           Travel light with HanzFree, enjoy to the fullest! <br />
           Enjoy your journey with both hands free. <br />
           Book easily for convenience at your fingertips!

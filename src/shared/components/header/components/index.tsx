@@ -117,8 +117,9 @@ const Header = ({ headerData }: any) => {
           </button>
 
           <div className='flex flex-col'>
+            <Image src='/assets/logo_string2.svg' alt='x' width={28} height={80} />
             <div
-              className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
+              className='mt-10 p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section1');
