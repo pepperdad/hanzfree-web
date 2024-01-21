@@ -1,7 +1,6 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import DetailPage from '@booking/DetailPage';
-
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
 
