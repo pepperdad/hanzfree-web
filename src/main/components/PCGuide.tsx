@@ -9,7 +9,7 @@ const PCGuide = () => {
         <div className='pr-5'>
           <Image src='/assets/line.svg' alt='line' width={127} height={20} />
         </div>
-        <div className="text-black text-2xl font-normal font-['Roboto'] rounded-3xl bg-gray-200 p-2">
+        <div className='text-black text-xl font-normal rounded-3xl bg-gray-200 p-3'>
           Before the trip, entrust your luggage and enjoy a comfortable journey.
         </div>
         <div>
@@ -21,7 +21,7 @@ const PCGuide = () => {
         <span>
           <Image src='/assets/location.svg' alt='check' width={200} height={200} />
         </span>
-        <div className=" text-black text-2xl font-normal font-['Roboto'] rounded-3xl bg-gray-200 p-2">
+        <div className=' text-black text-xl font-normal rounded-3xl bg-gray-200 p-3'>
           Delivery available to various accommodations near Seoul.
         </div>
         <div className='pr-5 rotate-180 right-16'>
@@ -33,7 +33,7 @@ const PCGuide = () => {
         <div className='pr-5'>
           <Image src='/assets/line.svg' alt='line' width={127} height={20} />
         </div>
-        <div className="text-black text-2xl font-normal font-['Roboto'] rounded-3xl bg-gray-200 p-2">
+        <div className='text-black text-xl font-normal rounded-3xl bg-gray-200 p-3'>
           Affordable prices offered through bundled delivery.
         </div>
         <div>
@@ -45,7 +45,7 @@ const PCGuide = () => {
         <span>
           <Image src='/assets/luggage.svg' alt='check' width={200} height={200} />
         </span>
-        <div className="text-black text-2xl font-normal font-['Roboto'] rounded-3xl bg-gray-200 p-2">
+        <div className='text-black text-xl font-normal rounded-3xl bg-gray-200 p-3'>
           We deliver various items with detailed luggage sizes to your desired location.
         </div>
         <div className='pr-5 rotate-180 right-16'>

@@ -12,6 +12,9 @@ const config: Config = {
         '1/2-12': 'calc(50% - 12px)',
         '1/2-20': 'calc(50% - 20px)',
       },
+      minHeight: {
+        'screen-230': 'calc(100vh - 230px);',
+      },
     },
   },
   plugins: [],

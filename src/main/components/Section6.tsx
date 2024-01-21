@@ -2,41 +2,33 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import MustKnowBox from './MustKnowBox';
+
 const Section6 = () => {
   return (
-    <div className='mt-20'>
-      <div className='flex gap-4'>
+    <div className='my-10 md:my-20'>
+      <div className='flex gap-4 items-center mb-6'>
         <Image src='/assets/alert-icon.svg' alt='alert-icon' width={54} height={54} />
-        <div className='text-blue-700 text-7xl font-medium'>Must-knows</div>
+        <span className='text-blue-700 text-4xl md:text-6xl font-medium'>Must-knows</span>
       </div>
 
       <div className='flex flex-col gap-6'>
-        <div className='bg-white rounded-[50px] shadow border-2 border-blue-700 flex-center mt-10 p-3'>
-          <span className='text-zinc-800 text-lg font-normal'>
-            Please upload photos of your luggage via the link provided in the personal message after
-            making your reservation.
-          </span>
-        </div>
+        <MustKnowBox
+          content='Please upload photos of your luggage via the link provided in the personal message after
+          making your reservation.'
+        />
 
-        <div className='bg-white rounded-[50px] shadow border-2 border-blue-700 flex-center p-3'>
-          <span className='text-zinc-800 text-lg font-normal'>
-            Cancellations or changes to your reservation are free of charge until 20:00 the service
-            day before, but fees may apply thereafter.
-          </span>
-        </div>
+        <MustKnowBox
+          content='Cancellations or changes to your reservation are free of charge until 20:00 the service
+            day before, but fees may apply thereafter.'
+        />
 
-        <div className='bg-white rounded-[50px] shadow border-2 border-blue-700 flex-center p-3'>
-          <span className='text-zinc-800 text-lg font-normal'>
-            Please use a lock on your bag. We are not be responsible for any lost items inside the
-            bag due to the absence of a lock.
-          </span>
-        </div>
+        <MustKnowBox
+          content='Please use a lock on your bag. We are not be responsible for any lost items inside the
+          bag due to the absence of a lock.'
+        />
 
-        <div className='bg-white rounded-[50px] shadow border-2 border-blue-700 flex-center p-3'>
-          <span className='text-zinc-800 text-lg font-normal'>
-            Always carry your passport, travel documents, and valuables with you.
-          </span>
-        </div>
+        <MustKnowBox content=' Always carry your passport, travel documents, and valuables with you.' />
       </div>
     </div>
   );

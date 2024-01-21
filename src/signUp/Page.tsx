@@ -15,6 +15,7 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
   const [country, setCountry] = useState<string>('');
   const [dialCode, setDialCode] = useState<string>('');
+  const [loading, setLoading] = useState(false);
 
   const googleLoginHandler = () => {
     window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?from=${from}`;
@@ -22,6 +23,9 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setLoading(true);
+    if (loading) return;
     // TODO: 로그인 유효성 검사 상세히 추가
 
     const form = e.target as HTMLFormElement;
@@ -70,6 +74,8 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
       // console.log('res', res);
 
+      setLoading(false);
+
       if (res.status === 409) {
         alert('This email already exists.');
         return;
@@ -80,6 +86,7 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
       }
     } catch (err: any) {
       console.log('err', err);
+      setLoading(false);
     }
   };
 
