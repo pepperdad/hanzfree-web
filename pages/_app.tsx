@@ -10,16 +10,16 @@ import 'intl-tel-input/build/css/intlTelInput.css';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/globals.css';
 
-export const metadata = {
-  title: {
-    default: '이정민 블로그',
-    template: '이정민 블로그 | %s',
-  },
-  description: '프론트엔드 개발자가 되고 싶은 취준생의 블로그',
-  icons: {
-    icon: '/favicon.ico',
-  },
-};
+// export const metadata = {
+//   title: {
+//     default: '이정민 블로그',
+//     template: '이정민 블로그 | %s',
+//   },
+//   description: '프론트엔드 개발자가 되고 싶은 취준생의 블로그',
+//   icons: {
+//     icon: '/favicon.ico',
+//   },
+// };
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         if (refrshTokenExpTimeUtc < currentTimeUtc) {
           localStorage.removeItem('recoil-persist');
           router.reload();
-          alert('로그인이 만료되었습니다.');
+          alert('Your login has expired. Please log in again.');
         }
       }
     }
@@ -71,6 +71,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property='og:image' content='/logo_favicon.png' key='og-image' />
         <meta property='og:site_name' content='hanzfreesite' key='og-site' />
 
+        <meta name='color-scheme' content='light only' />
+        <meta name='supported-color-schemes' content='light' />
         {/* Favicon 설정 */}
         <link rel='icon' href='/logo_favicon.png' />
       </Head>

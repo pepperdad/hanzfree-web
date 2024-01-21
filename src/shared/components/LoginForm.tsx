@@ -26,7 +26,7 @@ const LoginForm = ({ onClick }: LoginFormProps) => {
         inputStyle='bg-slate-100'
       />
       <Button fullWidth type='submit' buttonStyle='mt-4'>
-        로그인
+        Log in
       </Button>
     </form>
   );

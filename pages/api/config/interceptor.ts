@@ -21,7 +21,7 @@ const interceptor = (instance: AxiosInstance) => {
 
             if (refrshTokenExpTimeUtc < currentTimeUtc) {
               localStorage.removeItem('recoil-persist');
-              alert('로그인이 만료되었습니다!');
+              alert('Your login has expired. Please log in again!');
               window.location.href = `/login?from=${routerPath}`;
               return Promise.reject(); // 리디렉션 전에 요청을 거부합니다.
             }
