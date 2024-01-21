@@ -14,7 +14,7 @@ const Section1 = () => {
         <div className='flex-col w-2/3 shrink-0'>
           <div className='flex-center'>
             <Image src='/assets/logo_small.svg' alt='section1' width={218} height={244} />
-            <div className='absolute w-full h-56'>
+            <div className='absolute w-full h-56 -z-10'>
               <Image
                 className='object-contain'
                 src='/assets/map_base.svg'
