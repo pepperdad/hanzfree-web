@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import { useRecoilState } from 'recoil';
@@ -10,6 +11,8 @@ import intlTelInput from 'intl-tel-input';
 
 import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
+
+const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
 const OtherInfoPage = ({ userData, setPage }: any) => {
   const {
@@ -79,7 +82,12 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
   }, []);
 
   return (
-    <div className='flex w-full justify-center md:bg-[#f5f5f5]'>
+    <div className='relative flex w-full justify-center md:bg-[#f5f5f5]'>
+      {isSubmitting && (
+        <div className='absolute bottom-0 left-0 z-10 flex-center w-screen h-screen opacity-80 bg-slate-50'>
+          <Loading />
+        </div>
+      )}
       <div className='flex flex-col w-full md:w-4/5 items-center mx-4 bg-white my-6 py-10 rounded-3xl'>
         <div className='flex items-center w-full md:w-4/5'>
           <div className='w-2.5 h-10 bg-blue-700 mr-3' />
