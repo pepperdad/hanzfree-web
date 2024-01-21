@@ -32,7 +32,12 @@ const Section1 = () => {
               <span className='text-3xl font-normal text-white'>Book Now</span>
             </div>
           </button>
-          <button className='h-32 bg-white border-2 border-blue-700 rounded-[50px] hover:bg-slate-100 transition duration-250 ease-in-out'>
+          <button
+            className='h-32 bg-white border-2 border-blue-700 rounded-[50px] hover:bg-slate-100 transition duration-250 ease-in-out'
+            onClick={() => {
+              router.push('/booking');
+            }}
+          >
             <div className='flex-center gap-3'>
               <Image src='/assets/calender.svg' alt='bag' width={39} height={43} />
               <span className='text-3xl font-normal text-blue-700'>My Booking</span>
