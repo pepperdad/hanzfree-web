@@ -46,7 +46,7 @@ const Header = ({ headerData }: any) => {
             <Image src='/logo.svg' alt='hanzfree Logo' width={200} height={48} />
           </button>
 
-          <nav className='hidden md:flex md:flex-row md:gap-6'>
+          <nav className='hidden md:flex md:flex-row md:gap-4'>
             <button
               onClick={() => scrollToSection('section2')}
               className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
@@ -67,11 +67,19 @@ const Header = ({ headerData }: any) => {
               Go to reservation
             </button>
 
+            <button
+              onClick={() => router.push('/booking')}
+              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
+            >
+              Bookings
+            </button>
+
             {headerData ? (
               <>
                 <div className='text-center flex-center text-slate-100 fadeIn font-semibold'>
                   Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
                 </div>
+
                 {/* <Button onClick={handleLogout}>Sign out</Button> */}
               </>
             ) : (
@@ -110,7 +118,7 @@ const Header = ({ headerData }: any) => {
 
           <div className='flex flex-col'>
             <div
-              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
+              className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section1');
@@ -119,7 +127,7 @@ const Header = ({ headerData }: any) => {
               Home
             </div>
             <div
-              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
+              className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section2');
@@ -129,7 +137,7 @@ const Header = ({ headerData }: any) => {
             </div>
 
             <div
-              className='p-2 text-2xl text-center rounded-md hover:bg-gray-300'
+              className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section3');
@@ -139,15 +147,22 @@ const Header = ({ headerData }: any) => {
             </div>
 
             <div
-              className='p-2 mb-10 text-2xl text-center rounded-md hover:bg-gray-300'
+              className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => router.push('/reservation')}
             >
               Go to reservation
             </div>
+            <div
+              className='p-2 mb-10 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
+              onClick={() => router.push('/booking')}
+            >
+              Bookings
+            </div>
             {headerData ? (
               <>
-                <div className='text-3xl text-center mb-4 font-semibold border-t pt-2'>
-                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
+                <div className='text-3xl text-center mb-4 font-extralight pt-2'>
+                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()},{' '}
+                  Enjoy our service!
                 </div>
                 <Button onClick={handleLogout}>Sign out</Button>
               </>

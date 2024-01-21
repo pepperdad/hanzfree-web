@@ -6,7 +6,6 @@ import Page from 'main/components/Page';
 import { fetchUserData } from './api';
 
 const Home: NextPage = ({ userData }: any) => {
-  // console.log('userData: ', userData);
   return (
     <Layout headerData={userData}>
       <Page />

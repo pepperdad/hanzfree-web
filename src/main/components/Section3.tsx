@@ -5,7 +5,7 @@ import PCGuide from './PCGuide';
 
 const Section3 = () => {
   return (
-    <div id='section3' className='min-h-screen pt-10 md:pt-0'>
+    <div className='py-10 md:pt-0'>
       <PCGuide />
       <MobileGuide />
     </div>

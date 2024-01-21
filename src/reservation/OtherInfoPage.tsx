@@ -90,7 +90,7 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
             <Image src='/assets/reservation/delivery.svg' alt='delivery' width={155} height={110} />
           </div>
           <div className='flex flex-col ml-4 justify-between'>
-            <div className='text-black text-2xl md:text-3xl font-medium'>
+            <div className='text-2xl md:text-3xl font-medium text-blue-700'>
               Incheon International Airport (ICN) Luggage Service by HANZFREE
             </div>
             <div className='text-neutral-600 text-lg md:text-2xl font-normal'>
@@ -466,12 +466,21 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
                 Please confirm that you acknowledge the following:
               </label>
               <div className='flex bg-slate-100 rounded-[20px] px-4 py-4 items-center'>
-                <input type='checkbox' className='w-5 h-5 mr-4 shrink-0' />
+                <input
+                  type='checkbox'
+                  className='w-5 h-5 mr-4 shrink-0'
+                  {...register('term1', {
+                    required: 'Please agree to the terms and conditions',
+                  })}
+                />
                 <span className='text-zinc-800 font-normal'>
                   Make sure the name of the hotel reservation is the same as HANZFREE reservation
                   name.
                 </span>
               </div>
+              <span className='text-red-500'>
+                {errors?.term1?.message ? `⚠ ${String(errors?.term1?.message)}` : ''}
+              </span>
             </div>
 
             <div className='flex flex-col w-full'>
@@ -479,12 +488,21 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
                 Please confirm that you acknowledge the following:
               </label>
               <div className='flex bg-slate-100 rounded-[20px] px-4 py-4 items-center'>
-                <input type='checkbox' className='w-5 h-5 mr-4 shrink-0' />
+                <input
+                  type='checkbox'
+                  className='w-5 h-5 mr-4 shrink-0'
+                  {...register('term2', {
+                    required: 'Please agree to the terms and conditions',
+                  })}
+                />
                 <span className='text-zinc-800 font-normal'>
                   Same day delivery only applied to pick-up during 08:00~17:00 Next day delivery for
                   the luggage picked up after 17:00
                 </span>
               </div>
+              <span className='text-red-500'>
+                {errors?.term2?.message ? `⚠ ${String(errors?.term2?.message)}` : ''}
+              </span>
             </div>
 
             <div className='flex flex-col w-full'>
@@ -492,13 +510,22 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
                 Please confirm that you acknowledge the following:
               </label>
               <div className='flex bg-slate-100 rounded-[20px] px-4 py-4 items-center'>
-                <input type='checkbox' className='w-5 h-5 mr-4 shrink-0' />
+                <input
+                  type='checkbox'
+                  className='w-5 h-5 mr-4 shrink-0'
+                  {...register('term3', {
+                    required: 'Please agree to the terms and conditions',
+                  })}
+                />
                 <span className='text-zinc-800 font-normal'>
                   I understand that I need to contact HANZFREE via messenger app after booking on
                   HANZFREE your booking number and name. If you do not contact HANZFREE 72 hours
                   before your reservation date, your booking will be cancelled.
                 </span>
               </div>
+              <span className='text-red-500'>
+                {errors?.term3?.message ? `⚠ ${String(errors?.term3?.message)}` : ''}
+              </span>
             </div>
 
             <div className='w-full'>

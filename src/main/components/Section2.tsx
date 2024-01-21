@@ -5,12 +5,12 @@ import PCIntro from './PCIntro';
 
 const Section2 = () => {
   return (
-    <div id='section2' className='min-h-screen'>
-      <div className="text-blue-700 text-6xl font-medium font-['Hind'] relative top-20 text-right pb-2">
+    <div id='section2' className='md:py-10'>
+      <div className='text-blue-700 text-4xl md:text-7xl font-medium text-right pb-2'>
         Introduction of Service
       </div>
 
-      <div className="text-right text-zinc-800 text-xl font-['Roboto'] relative top-20 pb-32">
+      <div className='text-right text-zinc-800 text-md md:text-xl pt-4 pb-16'>
         Smooth luggage transportation throughout your entire journey. <br />
         From the airport to your accommodation, from your accommodation to the airport, and even
         between accommodations. <br />

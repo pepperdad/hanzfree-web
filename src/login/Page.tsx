@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -9,12 +10,15 @@ import { login } from '@pages/api';
 import LoginForm from '@shared/components/LoginForm';
 import { userState } from '@shared/recoil';
 
+const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
+
 const Page = () => {
   const setUser = useSetRecoilState(userState);
   const router = useRouter();
   // TODO: 리다이렉트 from 페이지로
   const { from } = router.query;
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -30,6 +34,9 @@ const Page = () => {
 
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setLoading(true);
+    if (loading) return;
 
     const form = e.target as HTMLFormElement;
     const email = form.email.value;
@@ -57,14 +64,21 @@ const Page = () => {
       } else if (res.status === 404) {
         setError('존재하지 않는 아이디입니다.');
       }
+      setLoading(false);
     } catch (err: any) {
       console.log('err', err);
       setError('서버 오류가 발생했습니다.');
+      setLoading(false);
     }
   };
 
   return (
-    <div className='py-8 md:mb-8'>
+    <div className='py-8 min-h-screen-230'>
+      {loading && (
+        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80'>
+          <Loading />
+        </div>
+      )}
       <h1 className='text-4xl font-bold text-center'>Log In</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
       <div className='flex justify-center'>

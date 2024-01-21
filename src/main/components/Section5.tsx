@@ -21,7 +21,7 @@ const Section5 = () => {
   return (
     <div>
       <div className='flex flex-col items-center mt-10'>
-        <h1 className='text-blue-700 text-7xl font-medium'>Operation Hours</h1>
+        <h1 className='text-blue-700 text-4xl md:text-7xl font-medium'>Operation Hours</h1>
         <table className='w-full mt-10 border border-stone-200 shadow-lg'>
           <thead className='h-12'>
             <tr className='bg-blue-700 text-white font-medium'>

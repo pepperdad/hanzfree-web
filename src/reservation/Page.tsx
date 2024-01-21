@@ -128,7 +128,7 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
   return (
     <div className='py-10 flex flex-col items-center'>
-      <h1 className='mx-4 text-2xl md:text-4xl font-bold text-center'>
+      <h1 className='mx-4 text-2xl md:text-4xl font-bold text-center text-blue-700'>
         Incheon International Airport (ICN) Luggage Service by HANZFREE
       </h1>
       <div className='mx-6 mt-10 flex gap-5 md:gap-10'>

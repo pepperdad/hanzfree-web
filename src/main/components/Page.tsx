@@ -9,7 +9,7 @@ import Section6 from './Section6';
 
 const Page = () => {
   return (
-    <div className='relative flex justify-center overflow-hidden py-10'>
+    <div className='relative flex justify-center overflow-hidden'>
       <div className='flex-col w-4/5'>
         <Section1 />
         <div className='w-[450px] h-[450px] bg-gradient-to-b from-indigo-200 to-zinc-100 rounded-full absolute -right-80 -z-20 rotate-[90.14deg] md:-right-40' />

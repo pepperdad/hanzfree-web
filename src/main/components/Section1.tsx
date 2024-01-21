@@ -8,7 +8,7 @@ const Section1 = () => {
   const router = useRouter();
 
   return (
-    <div id='section1' className=''>
+    <div id='section1' className='py-20'>
       <div className='md:flex hidden'>
         <div className='flex-col w-2/3 shrink-0'>
           <div className='flex-center'>
@@ -67,7 +67,12 @@ const Section1 = () => {
               <span className='text-2xl font-normal text-white'> Book Now</span>
             </div>
           </button>
-          <button className='w-[300px] h-16 bg-white border-2 border-blue-700 rounded-[30px] hover:bg-slate-100'>
+          <button
+            className='w-[300px] h-16 bg-white border-2 border-blue-700 rounded-[30px] hover:bg-slate-100'
+            onClick={() => {
+              router.push('/booking');
+            }}
+          >
             <div className='flex-center gap-3'>
               <Image src='/assets/calender.svg' alt='bag' width={40} height={32} />
               <span className='text-2xl font-normal text-blue-700'>My Booking</span>
@@ -75,35 +80,6 @@ const Section1 = () => {
           </button>
         </div>
       </div>
-
-      <ol>
-        <li>
-          <Link href='/test'>
-            <button>test</button>
-          </Link>
-        </li>
-        <li>
-          <Link href='/login'>
-            <button>login</button>
-          </Link>
-        </li>
-        <li>
-          <Link href='/admin'>
-            <button>admin</button>
-          </Link>
-        </li>
-        <li>
-          <Link href='/admin/dashboard'>
-            <button>admin dashboard</button>
-          </Link>
-        </li>
-
-        <li>
-          <Link href='/reservation'>
-            <button>reservation</button>
-          </Link>
-        </li>
-      </ol>
     </div>
   );
 };

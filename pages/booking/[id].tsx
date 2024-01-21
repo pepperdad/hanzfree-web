@@ -1,6 +1,6 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-import Page from '@booking/Page';
+import DetailPage from '@booking/DetailPage';
 
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
@@ -8,7 +8,7 @@ import Layout from '@shared/components/Layout';
 const index = ({ userData }: any) => {
   return (
     <Layout headerData={userData}>
-      <Page />
+      <DetailPage />
     </Layout>
   );
 };

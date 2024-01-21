@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 
 import { useRecoilState } from 'recoil';
 
@@ -9,17 +10,16 @@ import { reservationState } from '@shared/recoil';
 const Complete = dynamic(() => import('@shared/components/animation/celebrate'), { ssr: false });
 
 const CompletePage = () => {
+  const router = useRouter();
   const [reservation, setReservation] = useRecoilState(reservationState);
-
-  console.log('reservation: ', reservation);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
   return (
-    <div className='py-16 2xl:mb-24'>
+    <div className='py-12 min-h-screen-230'>
       <div className='flex-center flex-col text-center'>
-        <div className='w-full top-24 absolute -z-10'>
+        <div className='absolute top-0 left-0 flex-center w-screen h-screen -z-10'>
           <Complete />
         </div>
         <div className='text-4xl md:text-6xl font-medium pb-4'>Thank you for your reservation!</div>
@@ -92,6 +92,13 @@ const CompletePage = () => {
             <div className='text-neutral-600 text-xl font-semibold grow'>{reservation.email}</div>
           </div>
         </div>
+
+        <button
+          onClick={() => router.push('/booking')}
+          className='p-4 mt-4 bg-slate-100 rounded-md hover:bg-slate-200 text-blue-500'
+        >
+          Go to My Bookings
+        </button>
       </div>
     </div>
   );
