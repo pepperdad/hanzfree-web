@@ -9,18 +9,23 @@ const Footer = () => {
       <div>
         <div className='md:w-full flex flex-col gap-y-2 md:flex-row justify-center md:gap-12 md:my-3'>
           <div className='md:min-w-56 flex flex-row ml-8 md:ml-0 md:flex-col items-center'>
+            <Image src='/assets/instagram_icon.svg' alt='instagram' width={40} height={40} />
+            <span className='ml-3 md:ml-0'>@hanzfree_official</span>
+          </div>
+
+          {/* <div className='md:min-w-56 flex flex-row ml-8 md:ml-0 md:flex-col items-center'>
             <Image src='/assets/whatsapp.svg' alt='whatsapp' width={40} height={40} />
             <span className='ml-3 md:ml-0'>hanzfree</span>
-          </div>
+          </div> */}
 
           <div className='md:min-w-56 flex flex-row ml-8 md:ml-0 md:flex-col items-center'>
             <Image src='/assets/line_talk.svg' alt='line' width={40} height={40} />
-            <span className='ml-3 md:ml-0'>hanzfree@naver.com</span>
+            <span className='ml-3 md:ml-0'>@hanzfree</span>
           </div>
 
           <div className='md:min-w-56 flex flex-row ml-8 md:ml-0 md:flex-col items-center'>
             <Image src='/assets/gmail.svg' alt='whatsapp' width={40} height={40} />
-            <span className='ml-3 md:ml-0'>hanzfree@gmail.com</span>
+            <span className='ml-3 md:ml-0'>hanzfree.official@gmail.com</span>
           </div>
         </div>
         <p className='text-center text-sm hidden md:block'>
