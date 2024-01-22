@@ -29,7 +29,7 @@ const DetailPage = () => {
       <div className='max-w-screen-lg w-full min-h-screen-230 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl'>
         <div className='flex justify-between gap-3 mb-6 items-center'>
           <h1 className='text-xl md:text-3xl font-semibold text-blue-500'>
-            Reservation details for {formatDate(reservation?.date)}
+            Reservation details for {formatDate(reservation?.date) ?? ''}
           </h1>
           <button
             onClick={() => router.push('/booking')}
