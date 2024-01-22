@@ -34,6 +34,11 @@ const Header = ({ headerData }: any) => {
     }
   };
 
+  const redirectUrl = (url: string) => {
+    toggleMobileMenu();
+    router.push(url);
+  };
+
   return (
     <div className='pb-20'>
       <header className='fixed top-0 left-0 right-0 z-50 px-5 md:px-10 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
@@ -61,7 +66,7 @@ const Header = ({ headerData }: any) => {
             </button>
 
             <button
-              onClick={() => router.push('/reservation')}
+              onClick={() => redirectUrl('/reservation')}
               className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
             >
               Go to reservation
@@ -84,7 +89,7 @@ const Header = ({ headerData }: any) => {
               </>
             ) : (
               <>
-                <Button onClick={() => router.push('/login')}>Sign in</Button>
+                <Button onClick={() => redirectUrl('/login')}>Sign in</Button>
                 <Button
                   buttonStyle='bg-gray-400 hover:bg-gray-500'
                   onClick={() => router.push('/signup')}
@@ -149,13 +154,13 @@ const Header = ({ headerData }: any) => {
 
             <div
               className='p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
-              onClick={() => router.push('/reservation')}
+              onClick={() => redirectUrl('/reservation')}
             >
               Go to reservation
             </div>
             <div
               className='p-2 mb-10 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
-              onClick={() => router.push('/booking')}
+              onClick={() => redirectUrl('/booking')}
             >
               Bookings
             </div>
@@ -169,10 +174,10 @@ const Header = ({ headerData }: any) => {
               </>
             ) : (
               <>
-                <Button onClick={() => router.push('/login')}>Sign in</Button>
+                <Button onClick={() => redirectUrl('/login')}>Sign in</Button>
                 <Button
                   buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500'
-                  onClick={() => router.push('/signup')}
+                  onClick={() => redirectUrl('/signup')}
                 >
                   Sign up
                 </Button>
