@@ -66,7 +66,7 @@ const Header = ({ headerData }: any) => {
             </button>
 
             <button
-              onClick={() => redirectUrl('/reservation')}
+              onClick={() => router.push('/reservation')}
               className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
             >
               Go to reservation
@@ -89,7 +89,7 @@ const Header = ({ headerData }: any) => {
               </>
             ) : (
               <>
-                <Button onClick={() => redirectUrl('/login')}>Sign in</Button>
+                <Button onClick={() => router.push('/login')}>Sign in</Button>
                 <Button
                   buttonStyle='bg-gray-400 hover:bg-gray-500'
                   onClick={() => router.push('/signup')}
