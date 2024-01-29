@@ -46,7 +46,7 @@ export async function withAdmin(req: NextRequest) {
 
     const response = await res.json();
 
-    console.log('response: ', response);
+    // console.log('response: ', response);
 
     if (response.status === 200) {
       if (response.data.role !== Role.ADMIN) {
