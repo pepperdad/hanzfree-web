@@ -99,8 +99,6 @@ const reservation = () => {
   };
 
   const handleFitler = () => {
-    console.log('filter', filter);
-
     Instance.get('/reservation', {
       params: {
         startDate: filter.date.start,
@@ -177,14 +175,14 @@ const reservation = () => {
               <tr key={_reservation.id}>
                 <td className='border border-gray-300 px-4 py-2'>{_reservation.id}</td>
                 <td className='border border-gray-300 px-4 py-2'>
-                  {_reservation.date.slice(0, 10)}
+                  {_reservation?.date?.slice(0, 10)}
                 </td>
                 <td className='border border-gray-300 px-4 py-2'>{_reservation.method}</td>
                 <td className='border border-gray-300 px-4 py-2'>
                   {_reservation.firstName} {_reservation.lastName}
                 </td>
                 <td className='border border-gray-300 px-4 py-2'>
-                  {_reservation.createdAt.slice(0, 10)}
+                  {_reservation?.createdAt?.slice(0, 10)}
                 </td>
                 {/* 예약과 관련된 다른 필드에 따라 필요한 만큼 td를 추가하세요 */}
               </tr>
