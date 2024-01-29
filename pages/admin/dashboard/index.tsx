@@ -11,7 +11,7 @@ export interface Admin {
   lastName: string;
 }
 
-const Index = () => {
+const index = () => {
   const router = useRouter();
   const [admin, setAdmin] = useState<Admin>();
 
@@ -46,4 +46,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default index;
