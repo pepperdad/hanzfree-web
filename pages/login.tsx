@@ -1,11 +1,12 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 import Page from 'login/Page';
 
 import { fetchUserData } from './api';
 
-const index = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   return (
     <Layout headerData={userData}>
       <Page />

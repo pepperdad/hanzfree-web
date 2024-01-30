@@ -2,10 +2,11 @@ import React, { ReactElement, ReactNode } from 'react';
 
 import Footer from '@shared/components/footer/components';
 import Header from '@shared/components/header/components';
+import { UserProfile } from '@shared/types';
 
 interface LayoutProps {
   children?: ReactNode;
-  headerData?: any;
+  headerData?: UserProfile;
 }
 
 const Layout = ({ children, headerData, ...props }: LayoutProps) => {

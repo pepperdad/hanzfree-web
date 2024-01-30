@@ -1,11 +1,12 @@
-import type { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
+import type { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 import Page from 'main/components/Page';
 
 import { fetchUserData } from './api';
 
-const Home: NextPage = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   return (
     <Layout headerData={userData}>
       <Page />
@@ -13,7 +14,7 @@ const Home: NextPage = ({ userData }: any) => {
   );
 };
 
-export default Home;
+export default index;
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,

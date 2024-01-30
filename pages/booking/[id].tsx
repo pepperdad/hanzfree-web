@@ -3,8 +3,9 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import DetailPage from '@booking/DetailPage';
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 
-const index = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   return (
     <Layout headerData={userData}>
       <DetailPage />

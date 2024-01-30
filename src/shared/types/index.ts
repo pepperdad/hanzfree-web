@@ -9,3 +9,25 @@ export interface User {
 export interface PagePropsWithSetPage {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
+
+export interface UserProfile {
+  id: number;
+  country: string | null;
+  countryCode: string | null;
+  createdAt: string;
+  currentRefreshToken: string;
+  currentRefreshTokenExp: string;
+  dialCode: string;
+  email: string;
+  externalId: null;
+  firstName: string;
+  isSocialAccountRegistered: boolean;
+  lastName: string;
+  phoneNumber: string;
+  role: string;
+  socialProvider: string;
+}
+
+export interface PageProp {
+  userData: UserProfile;
+}
