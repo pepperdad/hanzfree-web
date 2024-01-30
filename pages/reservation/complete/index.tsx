@@ -4,10 +4,11 @@ import dynamic from 'next/dynamic';
 
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 
 const Complete = dynamic(() => import('@shared/components/animation/complete'), { ssr: false });
 
-const index = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   return (
     <Layout headerData={userData}>
       <div>

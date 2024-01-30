@@ -1,7 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
 
-import { parse } from 'cookie';
-
 import Instance from './config';
 
 export const getLogginedUser = async () => {
@@ -35,12 +33,4 @@ export const fetchUserData = async (context: GetServerSidePropsContext) => {
   }
 
   return res.data;
-  // return {
-  //   email: res.data.email,
-  //   firstName: res.data.firstName,
-  //   lastName: res.data.lastName,
-  //   currentRefreshTokenExp: res.data.currentRefreshTokenExp,
-  //   role: res.data.role,
-  //   createdAt: res.data.createdAt,
-  // };
 };

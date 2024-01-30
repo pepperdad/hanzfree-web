@@ -7,8 +7,9 @@ import CompletePage from '@reservation/CompletePage';
 import OtherInfoPage from '@reservation/OtherInfoPage';
 import Page from '@reservation/Page';
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 
-const index = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   const [page, setPage] = useState(1);
   return (
     <Layout headerData={userData}>

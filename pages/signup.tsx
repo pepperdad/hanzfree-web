@@ -3,12 +3,13 @@ import { useState } from 'react';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import Layout from '@shared/components/Layout';
+import { PageProp } from '@shared/types';
 import CompletePage from 'signUp/CompletePage';
 import Page from 'signUp/Page';
 
 import { fetchUserData } from './api';
 
-const index = ({ userData }: any) => {
+const index = ({ userData }: PageProp) => {
   const [page, setPage] = useState(1);
 
   return (

@@ -76,7 +76,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Favicon 설정 */}
         <link rel='icon' href='/logo_favicon.png' />
       </Head>
-      {/* <Header /> */}
       <Component {...pageProps} />
     </RecoilRoot>
   );

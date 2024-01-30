@@ -26,7 +26,8 @@
       "@main/*": ["main/*"],
       "@signUp/*": ["signUp/*"],
       "@reservation/*": ["reservation/*"],
-      "@booking/*": ["booking/*"]
+      "@booking/*": ["booking/*"],
+      "@admin/*": ["admin/*"]
     },
     "forceConsistentCasingInFileNames": true
   },
