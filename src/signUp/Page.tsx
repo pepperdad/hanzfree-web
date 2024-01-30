@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
 import Instance from '@pages/api/config';
+import SignInGoogle from '@shared/components/SignInGoogle';
 import { PagePropsWithSetPage } from '@shared/types';
 
 import SignUpForm from './SignUpForm';
+
+const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
 const Page = ({ setPage }: PagePropsWithSetPage) => {
   const router = useRouter();
@@ -24,8 +27,6 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setLoading(true);
-    if (loading) return;
     // TODO: 로그인 유효성 검사 상세히 추가
 
     const form = e.target as HTMLFormElement;
@@ -54,10 +55,18 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
       return;
     }
 
+    if (!password) {
+      alert('Please enter your password.');
+      return;
+    }
+
     if (password !== passwordConfirm) {
       alert('Passwords do not match. Please try again.');
       return;
     }
+
+    setLoading(true);
+    if (loading) return;
 
     try {
       const formData = {
@@ -92,33 +101,27 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
   return (
     <div className='py-8'>
+      {loading && (
+        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80'>
+          <Loading />
+        </div>
+      )}
       <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>create an account to continue</h2>
       <div className='flex justify-center'>
         <div className='relative w-3/5 md:w-1/3'>
           <SignUpForm onClick={onClick} setCountry={setCountry} setDialCode={setDialCode} />
 
-          <div className='flex flex-col items-center justify-center mt-10 border-y py-6'>
-            <div className='text-center mb-3'>Or sign in with:</div>
-            <div
-              onClick={() => googleLoginHandler()}
-              className='flex items-center border-2 hover:border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white text-gray-400'
-            >
-              <button className='p-2 flex-center bg-white'>
-                <Image src='/assets/google_icon.svg' alt='google login' width={36} height={36} />
-              </button>
-              <div className='h-full p-3 font-bold flex-center'>Sign in with Google</div>
-            </div>
-          </div>
+          <SignInGoogle from={from} />
 
           <div className='flex justify-center mt-4'>
-            <div className='text-gray-400'>Already have an account?</div>
-            <div
-              className='ml-2 text-blue-700 cursor-pointer'
+            <p className='text-gray-400'>Already have an account?</p>
+            <span
+              className='ml-2 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2'
               onClick={() => router.push('/login')}
             >
               Sign in
-            </div>
+            </span>
           </div>
         </div>
       </div>
