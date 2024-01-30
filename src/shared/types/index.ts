@@ -31,3 +31,7 @@ export interface UserProfile {
 export interface PageProp {
   userData: UserProfile;
 }
+
+export interface PageState {
+  page: number;
+}

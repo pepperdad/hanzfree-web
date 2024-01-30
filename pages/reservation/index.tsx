@@ -1,21 +1,23 @@
-import { useState } from 'react';
-
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+
+import { useRecoilValue } from 'recoil';
 
 import { fetchUserData } from '@pages/api';
 import CompletePage from '@reservation/CompletePage';
 import OtherInfoPage from '@reservation/OtherInfoPage';
 import Page from '@reservation/Page';
 import Layout from '@shared/components/Layout';
+import { reservationPageState } from '@shared/recoil/reservationPage';
 import { PageProp } from '@shared/types';
 
 const index = ({ userData }: PageProp) => {
-  const [page, setPage] = useState(1);
+  const { page: reservationPage } = useRecoilValue(reservationPageState);
+
   return (
     <Layout headerData={userData}>
-      {page === 1 && <Page setPage={setPage} />}
-      {page === 2 && <OtherInfoPage userData={userData} setPage={setPage} />}
-      {page === 3 && <CompletePage />}
+      {reservationPage === 1 && <Page />}
+      {reservationPage === 2 && <OtherInfoPage userData={userData} />}
+      {reservationPage === 3 && <CompletePage />}
     </Layout>
   );
 };

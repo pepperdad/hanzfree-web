@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { useForm } from 'react-hook-form';
 
@@ -11,16 +11,19 @@ import intlTelInput from 'intl-tel-input';
 
 import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
+import { reservationPageState } from '@shared/recoil/reservationPage';
 
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
-const OtherInfoPage = ({ userData, setPage }: any) => {
+const OtherInfoPage = ({ userData }: any) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
   } = useForm({ mode: 'all' });
+
+  const setPage = useSetRecoilState(reservationPageState);
 
   const [reservation, setReservation] = useRecoilState(reservationState);
 
@@ -48,7 +51,7 @@ const OtherInfoPage = ({ userData, setPage }: any) => {
 
       if (res.status === 201) {
         setReservation(formData);
-        setPage(3);
+        setPage({ page: 3 });
       }
     } catch (e) {
       console.log(e);
