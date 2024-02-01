@@ -1,7 +1,8 @@
 import { atom } from 'recoil';
 
-import { DELIVERY_TYPE } from '@reservation/constants';
 import { uniqueId } from 'lodash';
+
+import { DELIVERY_TYPE } from '@reservation/constants';
 
 interface ReservationState {
   method: keyof typeof DELIVERY_TYPE;
