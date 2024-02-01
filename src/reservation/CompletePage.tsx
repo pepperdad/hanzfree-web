@@ -7,6 +7,8 @@ import { useRecoilValue } from 'recoil';
 
 import { reservationState } from '@shared/recoil';
 
+import { DELIVERY_TYPE } from './constants';
+
 const Complete = dynamic(() => import('@shared/components/animation/celebrate'), { ssr: false });
 
 const CompletePage = () => {
@@ -16,6 +18,7 @@ const CompletePage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
+
   return (
     <div className='py-12 min-h-screen-230'>
       <div className='flex-center flex-col text-center'>
@@ -49,13 +52,7 @@ const CompletePage = () => {
           <div className='flex py-2'>
             <div className='text-neutral-600 text-xl w-1/2'>Method</div>
             <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.method === 'airportToHotel'
-                ? 'Airport to Hotel'
-                : reservation.method === 'hotelToAirport'
-                  ? 'Hotel to Airport'
-                  : reservation.method === 'hotelToHotel'
-                    ? 'Hotel to Hotel'
-                    : ''}
+              {DELIVERY_TYPE[reservation.method]}
             </div>
           </div>
 

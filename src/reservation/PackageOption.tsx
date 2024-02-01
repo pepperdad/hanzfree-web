@@ -9,11 +9,12 @@ import Calendar from 'react-calendar';
 import { reservationState } from '@shared/recoil';
 import { DateType } from '@shared/types';
 
-import { deliveryType } from './constants';
+import { DELIVERY_TYPE } from './constants';
 import { ReservationPageContext } from './context';
+import Tag from './Tag';
 
 interface PackageOptionProps {
-  type: keyof typeof deliveryType;
+  type: keyof typeof DELIVERY_TYPE;
 }
 
 const PackageOption = ({ type }: PackageOptionProps) => {
@@ -72,7 +73,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
   return (
     <div className='mt-5 flex flex-col min-w-[360px] md:w-3/5 rounded-3xl border border-zinc-300 px-3 md:px-5 py-5 mx-[1rem]'>
       <div className='flex justify-between items-center'>
-        <div className='text-gray-800 text-2xl font-bold'>{deliveryType[type]}</div>
+        <div className='text-gray-800 text-2xl font-bold'>{DELIVERY_TYPE[type]}</div>
         <span className='flex-center rounded-lg p-2 hover:bg-slate-100' onClick={toggleHandler}>
           <Image
             src='/assets/reservation/toggle.svg'
@@ -89,15 +90,9 @@ const PackageOption = ({ type }: PackageOptionProps) => {
       </div>
 
       <div className='inline-flex flex-wrap mt-2 gap-2'>
-        <div className='text-neutral-500 py-[2px] px-2 rounded-md shadow bg-gray-200 text-sm'>
-          Conditional cancellation
-        </div>
-        <div className='text-neutral-500 py-[2px] px-2 rounded-md shadow bg-gray-200 text-sm'>
-          24-hour confirmation
-        </div>
-        <div className='text-neutral-500 py-[2px] px-2 rounded-md shadow bg-gray-200 text-sm'>
-          Valid on the selected date
-        </div>
+        <Tag content='Conditional cancellation' />
+        <Tag content='24-hour confirmation' />
+        <Tag content='Valid on the selected date' />
       </div>
 
       <div className='flex mt-4 items-end'>
@@ -128,7 +123,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
                 Please select an experience date
               </div>
               <Calendar
-                className='mt-[32px] grow max-w-[400px]'
+                className='mt-[32px] grow max-w-[350px]'
                 value={selectedDate}
                 onChange={setSelectedDate}
                 locale='en'
