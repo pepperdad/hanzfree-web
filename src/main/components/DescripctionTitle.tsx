@@ -7,7 +7,7 @@ interface DescripctionTitleProps {
 
 const DescripctionTitle = ({ content, className }: DescripctionTitleProps) => {
   return (
-    <div className={`text-blue-700 text-4xl md:text-5xl font-medium pb-2 ${className}`}>
+    <div className={`text-blue-700 text-4xl md:text-5xl font-bold pb-2 ${className}`}>
       {content}
     </div>
   );
