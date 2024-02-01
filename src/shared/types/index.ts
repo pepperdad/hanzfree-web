@@ -35,3 +35,7 @@ export interface PageProp {
 export interface PageState {
   page: number;
 }
+
+export type DatePiece = Date | null;
+
+export type DateType = DatePiece | [DatePiece, DatePiece];

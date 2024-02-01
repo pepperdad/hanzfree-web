@@ -5,7 +5,7 @@ import Image from 'next/image';
 const PageIntro = () => {
   return (
     <>
-      <h1 className='mx-4 text-2xl md:text-4xl font-bold text-center text-blue-700'>
+      <h1 className='mx-4 text-2xl md:text-4xl font-semibold text-center text-blue-700'>
         Incheon International Airport (ICN) Luggage Service by HANZFREE
       </h1>
       <div className='mx-6 mt-10 flex gap-5 md:gap-10'>

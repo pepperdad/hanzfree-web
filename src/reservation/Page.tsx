@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { useRouter } from 'next/router';
-
 import PageIntro from './PageIntro';
 import SelectOption from './SelectOption';
 
 const Page = () => {
-  const router = useRouter();
-
   return (
     <div className='py-10 flex flex-col items-center'>
       <PageIntro />

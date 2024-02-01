@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 import { reservationState } from '@shared/recoil';
 
@@ -11,7 +11,7 @@ const Complete = dynamic(() => import('@shared/components/animation/celebrate'),
 
 const CompletePage = () => {
   const router = useRouter();
-  const [reservation, setReservation] = useRecoilState(reservationState);
+  const reservation = useRecoilValue(reservationState);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
