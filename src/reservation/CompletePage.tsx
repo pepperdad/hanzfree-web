@@ -22,8 +22,8 @@ const CompletePage = () => {
         <div className='absolute top-0 left-0 flex-center w-screen h-screen -z-10'>
           <Complete />
         </div>
-        <div className='text-4xl md:text-6xl font-medium pb-4'>Thank you for your reservation!</div>
-        <h2 className='pb-8 text-lg text-center text-gray-500'>
+        <div className='text-4xl md:text-5xl font-bold pb-4'>Thank you for your reservation!</div>
+        <h2 className='pb-8 text-center text-gray-500'>
           or any inquiries or assistance, feel free to contact us. Happy journey
         </h2>
 

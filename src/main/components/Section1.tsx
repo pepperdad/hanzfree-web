@@ -72,8 +72,7 @@ const Section1 = () => {
           <Image src='/assets/logo_small.svg' alt='section1' width={109} height={120} />
         </div>
         <div className='text-blue-700 text-lg font-normal text-center py-5'>
-          Travel light with HanzFree, enjoy to the fullest! <br />
-          Enjoy your journey with both hands free. <br />
+          Travel light with HanzFree, enjoy to the fullest! Enjoy your journey with both hands free.
           Book easily for convenience at your fingertips!
         </div>
         <div className='flex flex-col gap-3 items-center'>

@@ -9,11 +9,11 @@ import Calendar from 'react-calendar';
 import { reservationState } from '@shared/recoil';
 import { DateType } from '@shared/types';
 
-import { deleiveryType } from './constants';
+import { deliveryType } from './constants';
 import { ReservationPageContext } from './context';
 
 interface PackageOptionProps {
-  type: keyof typeof deleiveryType;
+  type: keyof typeof deliveryType;
 }
 
 const PackageOption = ({ type }: PackageOptionProps) => {
@@ -72,7 +72,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
   return (
     <div className='mt-5 flex flex-col min-w-[360px] md:w-3/5 rounded-3xl border border-zinc-300 px-3 md:px-5 py-5 mx-[1rem]'>
       <div className='flex justify-between items-center'>
-        <div className='text-gray-800 text-2xl font-bold'>{deleiveryType[type]}</div>
+        <div className='text-gray-800 text-2xl font-bold'>{deliveryType[type]}</div>
         <span className='flex-center rounded-lg p-2 hover:bg-slate-100' onClick={toggleHandler}>
           <Image
             src='/assets/reservation/toggle.svg'
@@ -108,7 +108,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
       <div className='flex items-center justify-between h-[44px] mt-2'>
         <div className='text-neutral-800 text-xl font-medium '>₩ 25,000</div>
         <button
-          className={`px-3 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg shadow text-white text-lg font-medium ${
+          className={`px-6 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg shadow text-white font-bold ${
             onToggle && 'hidden'
           }`}
           onClick={() => toggleHandler()}
@@ -128,7 +128,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
                 Please select an experience date
               </div>
               <Calendar
-                className='mt-[32px] w-[310px]'
+                className='mt-[32px] grow max-w-[400px]'
                 value={selectedDate}
                 onChange={setSelectedDate}
                 locale='en'
@@ -139,11 +139,11 @@ const PackageOption = ({ type }: PackageOptionProps) => {
               />
             </div>
             <div className='flex flex-col grow justify-between'>
-              <div className='flex flex-col md:min-w-[285px]'>
+              <div className='flex flex-col'>
                 <div className='text-neutral-500 text-lg font-light'>Select quantity</div>
-                <div className='flex justify-between py-2 border-b'>
-                  <div className='text-neutral-800'>Per luggage</div>
-                  <div className='text-center w-28 text-black text-xl font-medium'>
+                <div className='flex justify-between py-2 border-b h-12 items-end'>
+                  <div className='text-neutral-700'>Per luggage</div>
+                  <div className='text-center w-24 text-black text-base font-medium'>
                     {selectedDate ? `₩ ${(25000 * quantity).toLocaleString('ko-KR')}` : ''}
                   </div>
                   <div className='flex items-center w-28 justify-between'>
