@@ -3,27 +3,30 @@ import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 import { reservationState } from '@shared/recoil';
+
+import { DELIVERY_TYPE } from './constants';
 
 const Complete = dynamic(() => import('@shared/components/animation/celebrate'), { ssr: false });
 
 const CompletePage = () => {
   const router = useRouter();
-  const [reservation, setReservation] = useRecoilState(reservationState);
+  const reservation = useRecoilValue(reservationState);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
+
   return (
     <div className='py-12 min-h-screen-230'>
       <div className='flex-center flex-col text-center'>
         <div className='absolute top-0 left-0 flex-center w-screen h-screen -z-10'>
           <Complete />
         </div>
-        <div className='text-4xl md:text-6xl font-medium pb-4'>Thank you for your reservation!</div>
-        <h2 className='pb-8 text-lg text-center text-gray-500'>
+        <div className='text-4xl md:text-5xl font-bold pb-4'>Thank you for your reservation!</div>
+        <h2 className='pb-8 text-center text-gray-500'>
           or any inquiries or assistance, feel free to contact us. Happy journey
         </h2>
 
@@ -49,13 +52,7 @@ const CompletePage = () => {
           <div className='flex py-2'>
             <div className='text-neutral-600 text-xl w-1/2'>Method</div>
             <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.method === 'airportToHotel'
-                ? 'Airport to Hotel'
-                : reservation.method === 'hotelToAirport'
-                  ? 'Hotel to Airport'
-                  : reservation.method === 'hotelToHotel'
-                    ? 'Hotel to Hotel'
-                    : ''}
+              {DELIVERY_TYPE[reservation.method]}
             </div>
           </div>
 

@@ -2,11 +2,13 @@ import React from 'react';
 
 import { operationHourTable } from '@main/const';
 
+import DescripctionTitle from './DescripctionTitle';
+
 const Section5 = () => {
   return (
     <div>
       <div className='flex flex-col items-center mt-20 md:mt-32'>
-        <h1 className='text-blue-700 text-4xl md:text-6xl font-medium'>Operation Hours</h1>
+        <DescripctionTitle content='Operation hours' />
         <table className='w-full mt-5 md:mt-10 border border-stone-200 shadow-lg'>
           <thead className='h-12'>
             <tr className='bg-blue-700 text-white font-light md:font-medium'>

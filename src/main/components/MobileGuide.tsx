@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const MobileGuide = () => {
   return (
-    <div className='flex flex-col md:hidden'>
+    <div className='flex flex-col gap-4 md:hidden'>
       <div className='flex items-center'>
         <div className='shrink-0'>
           <Image src='/assets/check.svg' alt='check' width={80} height={80} />

@@ -2,14 +2,15 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import DescripctionTitle from './DescripctionTitle';
 import MustKnowBox from './MustKnowBox';
 
 const Section6 = () => {
   return (
     <div className='my-10 md:my-20'>
       <div className='flex gap-4 items-center mb-6'>
-        <Image src='/assets/alert-icon.svg' alt='alert-icon' width={54} height={54} />
-        <span className='text-blue-700 text-4xl md:text-6xl font-medium'>Must-knows</span>
+        <Image src='/assets/alert-icon.svg' alt='alert-icon' width={40} height={40} />
+        <DescripctionTitle content='Must-knows' />
       </div>
 
       <div className='flex flex-col gap-6'>

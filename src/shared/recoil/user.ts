@@ -1,15 +1,15 @@
 import { atom, useSetRecoilState, AtomEffect, selector } from 'recoil';
 
-import { uniqueId } from 'lodash';
 import { recoilPersist } from 'recoil-persist';
-import { v1 } from 'uuid';
+
+import { uniqueId } from 'lodash';
 
 import { User } from '@shared/types';
 
 const localStorage = typeof window !== 'undefined' ? window.localStorage : undefined;
 
 export const ssrCompletedState = atom({
-  key: `SsrCompleted/${v1()}`,
+  key: `SsrCompleted/${uniqueId}`,
   default: true,
 });
 

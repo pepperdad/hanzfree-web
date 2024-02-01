@@ -65,9 +65,13 @@
             "group": "external",
             "position": "before"
           },
-
           {
             "pattern": "recoil",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "recoil-persist",
             "group": "external",
             "position": "before"
           },
@@ -88,6 +92,11 @@
           },
           {
             "pattern": "intl-tel-input",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "lodash",
             "group": "external",
             "position": "before"
           },

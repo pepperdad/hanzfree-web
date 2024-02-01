@@ -2,8 +2,10 @@ import { atom } from 'recoil';
 
 import { uniqueId } from 'lodash';
 
+import { DELIVERY_TYPE } from '@reservation/constants';
+
 interface ReservationState {
-  method: string;
+  method: keyof typeof DELIVERY_TYPE;
   date: Date | null;
   quantity: number;
   price: number;
@@ -35,7 +37,7 @@ interface ReservationState {
 export const reservationState = atom<ReservationState>({
   key: `reservationState/${uniqueId}`, // 각 atom의 고유한 키
   default: {
-    method: '',
+    method: 'airportToHotel',
     date: null,
     quantity: 1,
     price: 0,

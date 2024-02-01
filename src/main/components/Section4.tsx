@@ -4,14 +4,15 @@ import Image from 'next/image';
 
 import { priceTable } from '@main/const';
 
+import DescripctionTitle from './DescripctionTitle';
 import GuideBox from './GuideBox';
 
 const Section4 = () => {
   return (
     <div id='section3' className='pt-10'>
       <div className='flex flex-col items-center md:block'>
-        <div className='text-blue-700 text-4xl md:text-7xl font-medium'>Customer Guide</div>
-        <div className='text-zinc-800 text-md md:text-xl font-normal mt-4'>
+        <DescripctionTitle content='Customer Guide' />
+        <div className='text-gray-700 font-normal mt-4'>
           How can I use this luggage delivery service?
         </div>
         <div className='flex flex-col md:flex-row justify-between mt-10'>
@@ -40,8 +41,8 @@ const Section4 = () => {
         </div>
 
         <div className='flex flex-col items-center mt-20 md:mt-28'>
-          <h1 className='text-blue-700 text-4xl md:text-7xl font-medium'>Price</h1>
-          <div className='text-zinc-800 text-md md:text-2xl font-normal mt-4 md:mt-8'>
+          <DescripctionTitle content='Price Table' />
+          <div className='text-zinc-800 font-normal mt-4 md:mt-8'>
             HanzFree can deliver not only luggage but also a wide variety of items at reasonable
             prices.
           </div>
