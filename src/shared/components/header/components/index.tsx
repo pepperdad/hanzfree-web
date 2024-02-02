@@ -41,74 +41,69 @@ const Header = ({ headerData }: any) => {
 
   return (
     <div className='pb-20'>
-      <header className='fixed top-0 left-0 right-0 z-50 px-5 md:px-10 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
+      <header className='fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
         <div className='flex items-center justify-between'>
           {/* pc header */}
-          <button
-            className='flex items-center cursor-pointer'
-            onClick={() => scrollToSection('section1')}
-          >
-            <Image src='/logo.svg' alt='hanzfree Logo' width={200} height={48} />
-          </button>
-
-          <nav className='hidden md:flex md:flex-row md:gap-4'>
+          <div className='flex'>
             <button
-              onClick={() => scrollToSection('section2')}
-              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
+              className='flex items-center cursor-pointer'
+              onClick={() => scrollToSection('section1')}
             >
-              Introduction of Service
-            </button>
-            <button
-              onClick={() => scrollToSection('section3')}
-              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
-            >
-              Customer Guide
+              <Image src='/logo.svg' alt='hanzfree Logo' width={160} height={48} />
             </button>
 
-            <button
-              onClick={() => router.push('/reservation')}
-              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
-            >
-              Go to reservation
-            </button>
+            <nav className='ml-10 hidden md:flex md:flex-row'>
+              <button onClick={() => scrollToSection('section2')} className='headerNav'>
+                Introduction of Service
+              </button>
+              <button onClick={() => scrollToSection('section3')} className='headerNav'>
+                Customer Guide
+              </button>
 
-            <button
-              onClick={() => router.push('/booking')}
-              className='text-white hover:bg-blue-700 px-3 py-2 rounded-lg hover:text-slate-100 transition duration-250 ease-in-out'
-            >
-              Bookings
-            </button>
+              <button onClick={() => router.push('/reservation')} className='headerNav'>
+                Go to reservation
+              </button>
 
-            {headerData ? (
-              <>
-                <div className='text-center flex-center text-slate-100 fadeIn font-semibold'>
-                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
-                </div>
+              {headerData && (
+                <button onClick={() => router.push('/booking')} className='headerNav'>
+                  Bookings
+                </button>
+              )}
+            </nav>
+          </div>
+          {headerData ? (
+            <div className='hidden md:flex items-center gap-6 '>
+              <div className='text-center flex-center text-slate-100 font-bold'>
+                <span>Welcome!</span>
+                <span className='ml-2'>
+                  {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()}
+                </span>
+              </div>
 
-                {/* <Button onClick={handleLogout}>Sign out</Button> */}
-              </>
-            ) : (
-              <>
-                <Button onClick={() => router.push('/login')}>Sign in</Button>
-                <Button
-                  buttonStyle='bg-gray-400 hover:bg-gray-500'
-                  onClick={() => router.push('/signup')}
-                >
-                  Sign up
-                </Button>
-              </>
-            )}
-          </nav>
+              <Button onClick={handleLogout}>Sign out</Button>
+            </div>
+          ) : (
+            <div className='hidden md:block'>
+              <Button onClick={() => router.push('/login')}>Sign in</Button>
+              <Button
+                buttonStyle='ml-5 bg-gray-400 hover:bg-gray-500'
+                onClick={() => router.push('/signup')}
+              >
+                Sign up
+              </Button>
+            </div>
+          )}
 
+          {/* mobile */}
           <button
             className='p-2 rounded-lg md:hidden flex-center hover:bg-blue-700'
             onClick={toggleMobileMenu}
           >
-            {/* 햄버거 메뉴 아이콘 */}
             <Image src='/assets/header/hamburger.svg' alt='Menu' width={30} height={30} />
           </button>
         </div>
 
+        {/* mobile menu */}
         <nav
           className={`${
             isMobileMenuOpen ? 'absolute' : 'hidden'
@@ -116,15 +111,40 @@ const Header = ({ headerData }: any) => {
         >
           <button
             onClick={toggleMobileMenu}
-            className='absolute p-2 rounded-lg right-6 top-5 hover:bg-gray-300 flex-center'
+            className='absolute p-2 rounded-lg right-6 top-4 hover:bg-gray-300 flex-center'
           >
             <Image src='/assets/header/x_button.svg' alt='x' width={28} height={28} />
           </button>
 
           <div className='flex flex-col'>
             <Image src='/assets/header/logo_string.svg' alt='x' width={28} height={80} />
+            <div className='my-4 flex flex-col'>
+              {headerData ? (
+                <>
+                  {/* <div className='text-2xl text-center font-bold py-2'>
+                    Welcome! {headerData.firstName.toUpperCase()}{' '}
+                    {headerData.lastName.toUpperCase()}, <br /> Enjoy our service!
+                  </div> */}
+                  <Button onClick={() => redirectUrl('/booking')}>My Bookings</Button>
+                  <Button buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500' onClick={handleLogout}>
+                    Sign out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button onClick={() => redirectUrl('/login')}>Sign in</Button>
+                  <Button
+                    buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500'
+                    onClick={() => redirectUrl('/signup')}
+                  >
+                    Sign up
+                  </Button>
+                </>
+              )}
+            </div>
+
             <div
-              className='mt-10 p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
+              className='mt-2 p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {
                 toggleMobileMenu();
                 scrollToSection('section1');
@@ -158,31 +178,29 @@ const Header = ({ headerData }: any) => {
             >
               Go to reservation
             </div>
-            <div
-              className='p-2 mb-10 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
-              onClick={() => redirectUrl('/booking')}
-            >
-              Bookings
-            </div>
-            {headerData ? (
-              <>
-                <div className='text-3xl text-center mb-4 font-extralight pt-2'>
-                  Hello! {headerData.firstName.toUpperCase()} {headerData.lastName.toUpperCase()},{' '}
-                  Enjoy our service!
-                </div>
-                <Button onClick={handleLogout}>Sign out</Button>
-              </>
-            ) : (
-              <>
-                <Button onClick={() => redirectUrl('/login')}>Sign in</Button>
-                <Button
-                  buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500'
-                  onClick={() => redirectUrl('/signup')}
-                >
-                  Sign up
-                </Button>
-              </>
+            {headerData && (
+              <div
+                className='p-2 mb-10 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
+                onClick={() => redirectUrl('/booking')}
+              >
+                Bookings
+              </div>
             )}
+          </div>
+          <div className='flex flex-col gap-3 absolute bottom-4'>
+            Contact Info.
+            <div className='flex items-center'>
+              <Image src='/assets/footer/instagram_icon.svg' alt='insta' width={30} height={30} />
+              <span className='ml-2'>@hanzfree_official</span>
+            </div>
+            <div className='flex items-center'>
+              <Image src='/assets/footer/line_talk.svg' alt='line' width={30} height={30} />
+              <span className='ml-2'>@hanzfree</span>
+            </div>
+            <div className='flex items-center'>
+              <Image src='/assets/footer/gmail.svg' alt='gmail' width={30} height={30} />
+              <span className='ml-2'>hanzfree.official@gmail.com</span>
+            </div>
           </div>
         </nav>
       </header>

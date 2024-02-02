@@ -19,10 +19,7 @@ const MobileIntro = () => {
             </div>
             <div />
           </div>
-          <div className='text-center text-white text-lg font-normal'>
-            Airport <br />
-            to Acommodation
-          </div>
+          <div className='text-center text-white'>Airport to Acommodation</div>
         </div>
 
         <div className='w-[250px] h-[200px] bg-blue-700 rounded-[20px] shadow-xl flex-col m-auto'>
@@ -38,10 +35,7 @@ const MobileIntro = () => {
             </div>
             <div />
           </div>
-          <div className="text-center text-white text-lg font-normal font-['Roboto'] leading-[25.20px]">
-            Accomodation <br />
-            to Airport
-          </div>
+          <div className='text-center text-white'>Accomodation to Airport</div>
         </div>
       </div>
 
@@ -59,10 +53,7 @@ const MobileIntro = () => {
             </div>
             <div />
           </div>
-          <div className='text-center text-white text-lg font-normal'>
-            Accomodation <br />
-            to Acommodation
-          </div>
+          <div className='text-center text-white'>Accomodation to Acommodation</div>
         </div>
         <div className='w-[250px] h-[200px] bg-blue-700 rounded-[20px] shadow-xl flex-col m-auto'>
           <div className='pt-10 pb-8 flex-center'>
@@ -71,10 +62,7 @@ const MobileIntro = () => {
             </span>
             <div />
           </div>
-          <div className='text-center text-white text-lg'>
-            Airport <br />
-            to Acommodation
-          </div>
+          <div className='text-center text-white'>Airport to Acommodation</div>
         </div>
       </div>
     </>
