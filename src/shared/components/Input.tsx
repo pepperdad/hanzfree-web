@@ -11,14 +11,9 @@ interface InputProps extends Partial<React.InputHTMLAttributes<HTMLInputElement>
 const Input: React.FC<InputProps> = ({ label, fullWidth, type, inputStyle, ...props }) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleMouseDown = () => {
-    setShowPassword(true);
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
-
-  const handleMouseUp = () => {
-    setShowPassword(false);
-  };
-
   return (
     <div className={`flex flex-col ${fullWidth ? 'w-full' : ''}`}>
       {label && <label className='mb-1'>{label}</label>}
@@ -33,12 +28,19 @@ const Input: React.FC<InputProps> = ({ label, fullWidth, type, inputStyle, ...pr
         {type === 'password' && (
           <button
             type='button'
-            className='absolute right-0 flex items-center px-3 inset-y-6'
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+            className='absolute right-0 flex items-center px-3 inset-y-4'
+            onClick={toggleShowPassword}
           >
-            <Image src='/assets/show_password.svg' alt='show password' width={24} height={24} />
+            <Image
+              src={
+                showPassword
+                  ? '/assets/login/hidden_password.png'
+                  : '/assets/login/show_password.png'
+              }
+              alt='show password'
+              width={25}
+              height={25}
+            />
           </button>
         )}
       </div>
