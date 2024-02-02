@@ -7,7 +7,7 @@ export const operationHourTable = [
   {
     method: 'Accommodation -> Airport',
     dropOff: 'Before 11:00',
-    pickUp: 'from 15:00 on the same day.',
+    pickUp: 'from 15:00 on the same day',
   },
   {
     method: 'Accommodation -> Accommodation',
@@ -52,5 +52,23 @@ export const priceTable = [
     airportToAccommodation: '25000won',
     accomodationToAirport: '25000won',
     accomodationToAccommodation: '20000won',
+  },
+];
+
+export const mustKnows = [
+  {
+    content:
+      'Please upload photos of your luggage via the link provided in the personal message after making your reservation.',
+  },
+  {
+    content:
+      'Cancellations or changes to your reservation are free of charge until 20:00 the service day before, but fees may apply thereafter.',
+  },
+  {
+    content:
+      'Please use a lock on your bag. We are not be responsible for any lost items inside the bag due to the absence of a lock.',
+  },
+  {
+    content: 'Always carry your passport, travel documents, and valuables with you.',
   },
 ];

@@ -12,11 +12,11 @@ const Section1 = () => {
       <div className='md:flex hidden'>
         <div className='flex-col w-2/3 shrink-0'>
           <div className='flex-center'>
-            <Image src='/assets/logo_small.svg' alt='section1' width={218} height={244} />
+            <Image src='/assets/landing/logo_small.svg' alt='section1' width={218} height={244} />
             <div className='absolute w-full h-56 -z-10'>
               <Image
                 className='object-contain'
-                src='/assets/map_base.svg'
+                src='/assets/landing/map_base.svg'
                 alt='map'
                 layout='fill'
               />
@@ -26,7 +26,7 @@ const Section1 = () => {
               <div className='relative w-full h-56 z-10'>
                 <Image
                   className='object-contain'
-                  src='/assets/logo_string.png'
+                  src='/assets/landing/logo_string.png'
                   alt='map'
                   layout='fill'
                 />
@@ -47,7 +47,7 @@ const Section1 = () => {
             }}
           >
             <div className='flex-center gap-3'>
-              <Image src='/assets/bag.svg' alt='bag' width={51} height={40} />
+              <Image src='/assets/landing/bag.svg' alt='bag' width={51} height={40} />
               <span className='text-3xl font-normal text-white'>Book Now</span>
             </div>
           </button>
@@ -58,7 +58,7 @@ const Section1 = () => {
             }}
           >
             <div className='flex-center gap-3'>
-              <Image src='/assets/calender.svg' alt='bag' width={39} height={43} />
+              <Image src='/assets/landing/calendar.svg' alt='bag' width={39} height={43} />
               <span className='text-3xl font-normal text-blue-700'>My Booking</span>
             </div>
           </button>
@@ -68,7 +68,7 @@ const Section1 = () => {
       {/* mobile */}
       <div className='md:hidden flex flex-col'>
         <div className='flex-center'>
-          <Image src='/assets/logo_small.svg' alt='section1' width={109} height={120} />
+          <Image src='/assets/landing/logo_small.svg' alt='section1' width={109} height={120} />
         </div>
         <div className='text-blue-700 text-lg font-normal text-center py-5'>
           Travel light with HanzFree, enjoy to the fullest! Enjoy your journey with both hands free.
@@ -82,8 +82,8 @@ const Section1 = () => {
             }}
           >
             <div className='flex-center gap-6'>
-              <Image src='/assets/bag.svg' alt='bag' width={36} height={30} />
-              <span className='text-2xl font-normal text-white'> Book Now</span>
+              <Image src='/assets/landing/bag.svg' alt='bag' width={36} height={30} />
+              <span className='text-2xl font-normal text-white'>Book Now</span>
             </div>
           </button>
           <button
@@ -93,7 +93,7 @@ const Section1 = () => {
             }}
           >
             <div className='flex-center gap-3'>
-              <Image src='/assets/calender.svg' alt='bag' width={40} height={32} />
+              <Image src='/assets/landing/calendar.svg' alt='bag' width={40} height={32} />
               <span className='text-2xl font-normal text-blue-700'>My Booking</span>
             </div>
           </button>

@@ -15,29 +15,59 @@ const Section4 = () => {
         <div className='text-gray-700 font-normal mt-4'>
           How can I use this luggage delivery service?
         </div>
-        <div className='flex flex-col md:flex-row justify-between mt-10'>
+
+        {/* pc */}
+        <div className='hidden md:flex md:flex-row flex-wrap justify-between mt-10'>
           <GuideBox
             number={1}
             content='Make a reservation through our website'
-            img='/assets/guide1.png'
+            img='/assets/landing/guide1.png'
           />
           <GuideBox
             number={2}
             content='Take a photo of the booked luggage and upload it.'
-            img='/assets/guide2.png'
+            img='/assets/landing/guide2.png'
           />
 
           <GuideBox
             number={3}
             content='Hand over your luggage to the staff at the designated location.'
-            img='/assets/guide3.png'
+            img='/assets/landing/guide3.png'
           />
 
           <GuideBox
             number={4}
             content='Retrieve the delivered luggage upon arrival at your destination.'
-            img='/assets/guide4.png'
+            img='/assets/landing/guide4.png'
           />
+        </div>
+        {/* mobile */}
+        <div className='flex flex-col md:hidden mt-10 w-full'>
+          <div className='flex'>
+            <GuideBox
+              number={1}
+              content='Make a reservation through our website'
+              img='/assets/landing/guide1.png'
+            />
+            <GuideBox
+              number={2}
+              content='Take a photo of the booked luggage and upload it.'
+              img='/assets/landing/guide2.png'
+            />
+          </div>
+
+          <div className='flex'>
+            <GuideBox
+              number={3}
+              content='Hand over your luggage to the staff at the designated location.'
+              img='/assets/landing/guide3.png'
+            />
+            <GuideBox
+              number={4}
+              content='Retrieve the delivered luggage upon arrival at your destination.'
+              img='/assets/landing/guide4.png'
+            />
+          </div>
         </div>
 
         <div className='flex flex-col items-center mt-20 md:mt-28'>
@@ -50,7 +80,7 @@ const Section4 = () => {
           <div className='sm:hidden block relative w-full h-80'>
             <Image
               className='object-contain'
-              src='/assets/price_table.png'
+              src='/assets/landing/price_table.png'
               alt='price_table'
               layout='fill'
             />

@@ -12,7 +12,7 @@ const SubmitForm = () => {
       </div>
 
       <div className='flex w-full mt-4'>
-        <div className='grow text-neutral-600 text-md font-normal'>
+        <div className='grow text-neutral-600 font-normal'>
           Your booking will be submitted once you continue to the next step. <br />
           (You can choose your payment method in the next step){' '}
         </div>
