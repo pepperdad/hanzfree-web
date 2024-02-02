@@ -18,7 +18,7 @@ const PCIntro = () => {
           </div>
           <div />
         </div>
-        <div className='text-center text-white text-xl font-normal'>
+        <div className='text-center text-white text-xl'>
           Airport <br />
           to Acommodation
         </div>
@@ -37,7 +37,7 @@ const PCIntro = () => {
           </div>
           <div />
         </div>
-        <div className="text-center text-white text-xl font-normal font-['Roboto']">
+        <div className='text-center text-white text-xl'>
           Accomodation <br />
           to Airport
         </div>
@@ -56,7 +56,7 @@ const PCIntro = () => {
           </div>
           <div />
         </div>
-        <div className='text-center text-white text-xl font-normal'>
+        <div className='text-center text-white text-xl'>
           Accomodation <br />
           to Acommodation
         </div>
@@ -69,7 +69,7 @@ const PCIntro = () => {
           </span>
           <div />
         </div>
-        <div className="text-center text-white text-xl font-normal font-['Roboto']">
+        <div className='text-center text-white text-xl'>
           Airport <br />
           to Acommodation
         </div>
