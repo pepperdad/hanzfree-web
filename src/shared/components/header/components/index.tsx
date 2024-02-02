@@ -117,7 +117,15 @@ const Header = ({ headerData }: any) => {
           </button>
 
           <div className='flex flex-col'>
-            <Image src='/assets/header/logo_string.svg' alt='x' width={28} height={80} />
+            <div
+              onClick={() => {
+                toggleMobileMenu();
+                scrollToSection('section1');
+              }}
+              className='flex cursor-pointer h-20'
+            >
+              <Image src='/assets/header/logo_string.svg' alt='logo' width={1500} height={80} />
+            </div>
             <div className='my-4 flex flex-col'>
               {headerData ? (
                 <>
