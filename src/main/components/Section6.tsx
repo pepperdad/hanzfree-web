@@ -11,7 +11,7 @@ const Section6 = () => {
   return (
     <div className='my-10 md:my-20'>
       <div className='flex gap-4 items-center mb-6'>
-        <Image src='/assets/alert-icon.svg' alt='alert-icon' width={40} height={40} />
+        <Image src='/assets/landing/alert-icon.svg' alt='alert-icon' width={40} height={40} />
         <DescripctionTitle content='Must-knows' />
       </div>
 

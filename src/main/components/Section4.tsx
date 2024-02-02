@@ -21,24 +21,24 @@ const Section4 = () => {
           <GuideBox
             number={1}
             content='Make a reservation through our website'
-            img='/assets/guide1.png'
+            img='/assets/landing/guide1.png'
           />
           <GuideBox
             number={2}
             content='Take a photo of the booked luggage and upload it.'
-            img='/assets/guide2.png'
+            img='/assets/landing/guide2.png'
           />
 
           <GuideBox
             number={3}
             content='Hand over your luggage to the staff at the designated location.'
-            img='/assets/guide3.png'
+            img='/assets/landing/guide3.png'
           />
 
           <GuideBox
             number={4}
             content='Retrieve the delivered luggage upon arrival at your destination.'
-            img='/assets/guide4.png'
+            img='/assets/landing/guide4.png'
           />
         </div>
         {/* mobile */}
@@ -47,12 +47,12 @@ const Section4 = () => {
             <GuideBox
               number={1}
               content='Make a reservation through our website'
-              img='/assets/guide1.png'
+              img='/assets/landing/guide1.png'
             />
             <GuideBox
               number={2}
               content='Take a photo of the booked luggage and upload it.'
-              img='/assets/guide2.png'
+              img='/assets/landing/guide2.png'
             />
           </div>
 
@@ -60,12 +60,12 @@ const Section4 = () => {
             <GuideBox
               number={3}
               content='Hand over your luggage to the staff at the designated location.'
-              img='/assets/guide3.png'
+              img='/assets/landing/guide3.png'
             />
             <GuideBox
               number={4}
               content='Retrieve the delivered luggage upon arrival at your destination.'
-              img='/assets/guide4.png'
+              img='/assets/landing/guide4.png'
             />
           </div>
         </div>
@@ -80,7 +80,7 @@ const Section4 = () => {
           <div className='sm:hidden block relative w-full h-80'>
             <Image
               className='object-contain'
-              src='/assets/price_table.png'
+              src='/assets/landing/price_table.png'
               alt='price_table'
               layout='fill'
             />

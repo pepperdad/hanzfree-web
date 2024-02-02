@@ -34,8 +34,8 @@ const Input: React.FC<InputProps> = ({ label, fullWidth, type, inputStyle, ...pr
             <Image
               src={
                 showPassword
-                  ? '/assets/login/hidden_password.png'
-                  : '/assets/login/show_password.png'
+                  ? '/assets/shared/hidden_password.png'
+                  : '/assets/shared/show_password.png'
               }
               alt='show password'
               width={25}

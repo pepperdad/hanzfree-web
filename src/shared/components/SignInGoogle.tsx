@@ -19,7 +19,7 @@ const SignInGoogle = ({ from }: SignInGoogleProps) => {
         className='flex items-center border-2 hover:border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white text-gray-400'
       >
         <button className='p-2 flex-center bg-white'>
-          <Image src='/assets/google_icon.svg' alt='google login' width={36} height={36} />
+          <Image src='/assets/shared/google_icon.svg' alt='google login' width={36} height={36} />
         </button>
         <div className='h-full p-3 font-bold flex-center'>Sign in with Google</div>
       </div>

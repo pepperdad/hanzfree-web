@@ -105,7 +105,7 @@ const Header = ({ headerData }: any) => {
             onClick={toggleMobileMenu}
           >
             {/* 햄버거 메뉴 아이콘 */}
-            <Image src='/assets/hamburger.svg' alt='Menu' width={30} height={30} />
+            <Image src='/assets/header/hamburger.svg' alt='Menu' width={30} height={30} />
           </button>
         </div>
 
@@ -118,11 +118,11 @@ const Header = ({ headerData }: any) => {
             onClick={toggleMobileMenu}
             className='absolute p-2 rounded-lg right-6 top-5 hover:bg-gray-300 flex-center'
           >
-            <Image src='/assets/x_button.svg' alt='x' width={28} height={28} />
+            <Image src='/assets/header/x_button.svg' alt='x' width={28} height={28} />
           </button>
 
           <div className='flex flex-col'>
-            <Image src='/assets/logo_string2.svg' alt='x' width={28} height={80} />
+            <Image src='/assets/header/logo_string.svg' alt='x' width={28} height={80} />
             <div
               className='mt-10 p-2 text-2xl text-center border-y rounded-md hover:bg-gray-300 font-extralight'
               onClick={() => {

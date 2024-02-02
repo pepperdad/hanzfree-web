@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-interface InputCalenderProps {
+interface InputCalendarProps {
   date?: Date;
   visible: boolean;
   placeholder: string;
@@ -11,13 +11,13 @@ interface InputCalenderProps {
   handleDateChange: (newDate: Date) => void;
 }
 
-const InputCalender = ({
+const InputCalendar = ({
   date,
   visible,
   placeholder,
   handleCalendarClick,
   handleDateChange,
-}: InputCalenderProps) => {
+}: InputCalendarProps) => {
   return (
     <div className='w-[111px] h-[38px] bg-white rounded-[5px] border border-neutral-200 relative cursor-pointer'>
       <div className='h-full flex-center' onClick={handleCalendarClick}>
@@ -28,7 +28,7 @@ const InputCalender = ({
           readOnly
         />
         <div className='pr-2'>
-          <Image src='/assets/calendar.svg' alt='calender' width={13} height={13} />
+          <Image src='/assets/shared/calendar.svg' alt='calendar' width={13} height={13} />
         </div>
       </div>
       {visible && (
@@ -40,4 +40,4 @@ const InputCalender = ({
   );
 };
 
-export default InputCalender;
+export default InputCalendar;
