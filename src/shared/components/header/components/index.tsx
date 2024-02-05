@@ -46,10 +46,10 @@ const Header = ({ headerData }: any) => {
           {/* pc header */}
           <div className='flex'>
             <button
-              className='flex items-center cursor-pointer'
+              className='flex items-center cursor-pointer mb-2'
               onClick={() => scrollToSection('section1')}
             >
-              <Image src='/logo.svg' alt='hanzfree Logo' width={160} height={48} />
+              <Image src='/logo.svg' alt='hanzfree Logo' width={160} height={40} />
             </button>
 
             <nav className='ml-10 hidden md:flex md:flex-row'>
