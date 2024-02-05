@@ -38,13 +38,13 @@ const InputField = forwardRef(
           <input
             className={`input ${errors?.[inputName] ? 'border border-red-500' : 'border-gray-300'}`}
             type={type}
-            placeholder={placeholder || `Please enter ${label.toLowerCase()}`}
+            placeholder={placeholder || `Enter ${label.toLowerCase()}`}
             ref={ref}
             onChange={onChange}
             {...register(inputName, rules)}
           />
         )}
-        <span className='text-red-500'>
+        <span className='text-red-500 text-sm'>
           {errors?.[inputName]?.message && `⚠ ${String(errors?.[inputName]?.message)}`}
         </span>
       </div>

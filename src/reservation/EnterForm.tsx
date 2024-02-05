@@ -12,13 +12,14 @@ import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
 import { UserProfile } from '@shared/types';
 
-import { AIRPORT_TERMINAL, TERMS } from './constants';
+import AirportToHotelForm from './AirportToHotelForm';
+import { TERMS } from './constants';
 import ContactInfo from './ContactInfo';
 import { ReservationPageContext } from './context';
-import InputField from './InputField';
+import HotelToAirportForm from './HotelToAirportForm';
+import HotelToHotelForm from './HotelToHotelForm';
 import SubmitForm from './SubmitForm';
 import TermCheck from './TermCheck';
-import TimeSelect from './TimeSelect';
 
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
@@ -35,9 +36,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
   } = useForm({ mode: 'all' });
 
   const setPage = useContext(ReservationPageContext);
-
   const [reservation, setReservation] = useRecoilState(reservationState);
-
   const [country, setCountry] = useState<string>('');
   const [dialCode, setDialCode] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -94,24 +93,11 @@ const EnterForm = ({ userData }: EnterFormProps) => {
   }, []);
 
   useEffect(() => {
-    const disableScroll = () => {
-      document.body.style.overflow = 'hidden';
-    };
-
-    const enableScroll = () => {
-      document.body.style.overflow = 'visible';
-    };
-
     if (isSubmitting) {
-      disableScroll();
+      document.body.style.overflow = 'hidden';
     } else {
-      enableScroll();
+      document.body.style.overflow = 'visible';
     }
-
-    // 컴포넌트가 언마운트 될 때 스크롤 허용
-    return () => {
-      enableScroll();
-    };
   }, [isSubmitting]);
 
   return (
@@ -126,111 +112,13 @@ const EnterForm = ({ userData }: EnterFormProps) => {
         onSubmit={handleSubmit(onValid)}
         className='flex flex-col md:flex-row flex-wrap justify-between gap-y-2 md:gap-y-3'
       >
-        <InputField
-          inputName='hotelName'
-          label='Hotel Name'
-          register={register}
-          rules={{ required: 'please enter your hotel name' }}
-          // pattern: {
-          //   value: /^[A-Za-z0-9._%+-]+@naver.com$/,
-          //   message: 'Only naver.com emails allowed',
-          // },
-          // minLength: {
-          //   message: 'The username should be longer than 5 chars.',
-          //   value: 5,
-          // },
-          errors={errors}
-        />
-
-        <InputField
-          inputName='hotelAddress'
-          label='Hotel Address'
-          register={register}
-          rules={{ required: 'please enter your hotel address' }}
-          errors={errors}
-        />
-
-        <InputField
-          inputName='hotelRepresentativeName'
-          label='Hotel Representative Name'
-          register={register}
-          rules={{ required: 'please enter your hotel representative name' }}
-          errors={errors}
-        />
-
-        <InputField
-          inputName='airportTerminal'
-          label='Airport Terminal'
-          register={register}
-          type='select'
-          options={AIRPORT_TERMINAL}
-          rules={{ required: 'select one option' }}
-          errors={errors}
-        />
-
-        <InputField
-          inputName='flightNumber'
-          label={`Flight Number${
-            reservation?.method === 'airportToHotel'
-              ? '(Arrival)'
-              : reservation?.method === 'hotelToAirport'
-                ? '(Departure)'
-                : ''
-          }`}
-          register={register}
-          rules={{ required: 'please enter your flight number' }}
-          errors={errors}
-        />
-
-        <div className='w-1/2' />
-
-        {reservation.method === 'airportToHotel' && (
-          <>
-            <TimeSelect
-              label='Arrival time at airport'
-              hourName='arrivalTimeHour'
-              minuteName='arrivalTimeMin'
-              register={register}
-              errors={errors}
-            />
-
-            <TimeSelect
-              label='Drop off luggage at the airport'
-              hourName='dropOffTimeHour'
-              minuteName='dropOffTimeMin'
-              register={register}
-              errors={errors}
-            />
-          </>
+        {reservation.method === 'airportToHotel' ? (
+          <AirportToHotelForm register={register} errors={errors} />
+        ) : reservation.method === 'hotelToAirport' ? (
+          <HotelToAirportForm register={register} errors={errors} />
+        ) : (
+          <HotelToHotelForm register={register} errors={errors} />
         )}
-        {reservation.method === 'hotelToAirport' && (
-          <>
-            <TimeSelect
-              label='Departure time at hotel'
-              hourName='departureTimeHour'
-              minuteName='departureTimeMin'
-              register={register}
-              errors={errors}
-            />
-
-            <TimeSelect
-              label='Pick up luggage at the airport'
-              hourName='pickUpTimeHour'
-              minuteName='pickUpTimeMin'
-              register={register}
-              errors={errors}
-            />
-          </>
-        )}
-
-        <InputField
-          inputName='contactId'
-          label='WhatsApp/Line/WeChat/Kakao Talk'
-          register={register}
-          rules={{ required: 'please enter your contact id' }}
-          placeholder='Enter app and Id (ex. WhatsApp +8210123456789)'
-          errors={errors}
-        />
 
         <div className='flex flex-col md:w-1/2-20'>
           <label htmlFor='phoneNumber' className='mb-1'>
@@ -248,7 +136,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
             placeholder='E.g +852 1234 5678'
             onChange={(e) => setPhone(e.target.value)}
           />
-          <span className='text-red-500'>
+          <span className='text-red-500 text-sm'>
             {errors?.phoneNumber?.message && `⚠ ${String(errors?.phoneNumber?.message)}`}
           </span>
         </div>

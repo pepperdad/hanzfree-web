@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
 
-import { UserProfile } from '@shared/types';
+import { PageProp } from '@shared/types';
 
 import BasicInfo from './BasicInfo';
 import EnterForm from './EnterForm';
 
-interface OtherInfoPageProps {
-  userData: UserProfile;
-}
-
-const OtherInfoPage = ({ userData }: OtherInfoPageProps) => {
+const OtherInfoPage = ({ userData }: PageProp) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
