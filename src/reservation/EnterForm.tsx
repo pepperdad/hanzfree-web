@@ -76,9 +76,9 @@ const EnterForm = ({ userData }: EnterFormProps) => {
       separateDialCode: true,
       autoPlaceholder: 'aggressive',
       geoIpLookup: (callback) => {
-        fetch('https://ipapi.co/json')
+        fetch(`https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_GEOCODING_API_KEY}`)
           .then((res) => res.json())
-          .then((data) => callback(data.country_code))
+          .then((data) => callback(data.country))
           .catch(() => callback('us'));
       },
       utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js',
