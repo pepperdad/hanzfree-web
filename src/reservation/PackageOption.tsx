@@ -57,10 +57,16 @@ const PackageOption = ({ type }: PackageOptionProps) => {
     if (selectedDate === undefined) {
       alert('Please select a date!');
     } else {
+      const currentDate = new Date();
+      const utcOffsetInMinutes = currentDate.getTimezoneOffset();
+      const adjustedReservationDate = new Date(
+        (selectedDate as Date).getTime() - utcOffsetInMinutes * 60 * 1000,
+      );
+
       setReservation({
         ...reservation,
         method: type,
-        date: selectedDate as Date,
+        date: adjustedReservationDate,
         quantity,
         price: 25000 * quantity,
       });
