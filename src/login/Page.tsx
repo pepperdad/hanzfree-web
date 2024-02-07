@@ -65,10 +65,11 @@ const Page = () => {
   return (
     <div className='py-8 min-h-screen-230'>
       {loading && (
-        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80'>
+        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80 bg-slate-50'>
           <Loading />
         </div>
       )}
+
       <h1 className='text-4xl font-bold text-center'>Log In</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
       <div className='flex justify-center'>

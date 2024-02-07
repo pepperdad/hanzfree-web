@@ -102,7 +102,7 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
   return (
     <div className='py-8'>
       {loading && (
-        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80'>
+        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80 bg-slate-50'>
           <Loading />
         </div>
       )}
