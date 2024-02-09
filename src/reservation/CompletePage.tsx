@@ -17,6 +17,8 @@ const CompletePage = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
+
+    document.body.style.overflow = 'visible';
   }, []);
 
   return (
@@ -39,15 +41,19 @@ const CompletePage = () => {
                 `${reservation.dropOffTimeHour} : ${reservation.dropOffTimeMin}`}
               {reservation.method === 'hotelToAirport' &&
                 `${reservation.pickUpTimeHour} : ${reservation.pickUpTimeMin}`}
+              {reservation.method === 'hotelToHotel' &&
+                `${reservation.departureTimeHour} : ${reservation.departureTimeMin}`}
             </div>
           </div>
 
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Terminal</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              Terminal {reservation.airportTerminal}
+          {reservation.method !== 'hotelToHotel' && (
+            <div className='flex py-2'>
+              <div className='text-neutral-600 text-xl w-1/2'>Terminal</div>
+              <div className='text-neutral-600 text-xl font-semibold grow'>
+                Terminal {reservation.airportTerminal}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className='flex py-2'>
             <div className='text-neutral-600 text-xl w-1/2'>Method</div>
