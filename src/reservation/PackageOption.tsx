@@ -102,7 +102,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
       </div>
 
       <div className='flex mt-4 items-end'>
-        <div className='text-neutral-500 pr-3'>Per luggage</div>
+        <div className='text-neutral-500 text-lg pr-3'>Per luggage</div>
         <div className='text-neutral-800 font-medium'>₩ 25,000</div>
       </div>
 

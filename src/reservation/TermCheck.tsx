@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
-const TermCheck = ({ inputName, content, register, rules, errors }: any) => {
-  const [checked, setChecked] = useState(false);
+import { rule } from 'postcss';
 
-  const handleDivClick = () => {
-    setChecked(!checked);
-  };
+const TermCheck = ({ inputName, content, register, rules, errors }: any) => {
+  // const [checked, setChecked] = useState(false);
+
+  // const handleCheckboxChange = () => {
+  //   setChecked(!checked);
+  // };
 
   return (
     <div className='flex flex-col w-full'>
@@ -13,14 +15,13 @@ const TermCheck = ({ inputName, content, register, rules, errors }: any) => {
         Please confirm that you acknowledge the following:
       </label>
       <div
-        className='flex bg-slate-100 rounded-[20px] px-4 py-4 items-center cursor-pointer'
-        onClick={handleDivClick}
+        className='flex bg-slate-100 rounded-[20px] px-4 py-4 items-center'
+        // onClick={handleCheckboxChange}
       >
         <input
           type='checkbox'
           className='w-5 h-5 mr-4 shrink-0 cursor-pointer'
           {...register(inputName, rules)}
-          checked={checked}
         />
         <span className='text-zinc-800 font-normal'>{content}</span>
       </div>
