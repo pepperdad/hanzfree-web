@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { rule } from 'postcss';
-
 const TermCheck = ({ inputName, content, register, rules, errors }: any) => {
   // const [checked, setChecked] = useState(false);
 
