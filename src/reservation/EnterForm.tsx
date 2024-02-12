@@ -43,6 +43,9 @@ const EnterForm = ({ userData }: EnterFormProps) => {
 
   const onValid = async (data: any) => {
     if (isSubmitting) return;
+
+    document.body.style.overflow = 'hidden';
+
     try {
       const formData = {
         ...data,
@@ -58,12 +61,15 @@ const EnterForm = ({ userData }: EnterFormProps) => {
       };
 
       const res = await Instance.post('/reservation', formData);
+      // console.log('res', res);
 
       if (res.status === 201) {
         setReservation(formData);
         setPage(3);
       }
     } catch (e) {
+      document.body.style.overflow = 'visible';
+
       console.log(e);
     }
   };
@@ -91,14 +97,6 @@ const EnterForm = ({ userData }: EnterFormProps) => {
       setCountry(name);
     });
   }, []);
-
-  useEffect(() => {
-    if (isSubmitting) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
-    }
-  }, [isSubmitting]);
 
   return (
     <div className='md:w-4/5 mt-3'>

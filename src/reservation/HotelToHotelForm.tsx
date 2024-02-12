@@ -24,7 +24,7 @@ const HotelToHotelForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
-        inputName='hotelName'
+        inputName='arrivalHotelName'
         label='Luggage Drop-off Hotel Name and representative name'
         register={register}
         rules={{ required: 'please enter your hotel name' }}
@@ -32,7 +32,7 @@ const HotelToHotelForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
-        inputName='hotelAddress'
+        inputName='arrivalHotelAddress'
         label='Luggage Drop-off Hotel Address'
         register={register}
         rules={{ required: 'please enter your hotel address' }}

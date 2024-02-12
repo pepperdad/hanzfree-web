@@ -57,10 +57,16 @@ const PackageOption = ({ type }: PackageOptionProps) => {
     if (selectedDate === undefined) {
       alert('Please select a date!');
     } else {
+      const currentDate = new Date();
+      const utcOffsetInMinutes = currentDate.getTimezoneOffset();
+      const adjustedReservationDate = new Date(
+        (selectedDate as Date).getTime() - utcOffsetInMinutes * 60 * 1000,
+      );
+
       setReservation({
         ...reservation,
         method: type,
-        date: selectedDate as Date,
+        date: adjustedReservationDate,
         quantity,
         price: 25000 * quantity,
       });
@@ -96,7 +102,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
       </div>
 
       <div className='flex mt-4 items-end'>
-        <div className='text-neutral-500 pr-3'>Per luggage</div>
+        <div className='text-neutral-500 text-lg pr-3'>Per luggage</div>
         <div className='text-neutral-800 font-medium'>₩ 25,000</div>
       </div>
 
