@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil';
 
 import Calendar from 'react-calendar';
 
+import Alert from '@shared/components/Alert';
 import { reservationState } from '@shared/recoil';
 import { DateType } from '@shared/types';
 
@@ -23,6 +24,10 @@ const PackageOption = ({ type }: PackageOptionProps) => {
   const [onToggle, setOnToggle] = useState(false);
   const [selectedDate, setSelectedDate] = useState<DateType>();
   const [quantity, setQuantity] = useState(1);
+  const [onAlert, setOnAlert] = useState({
+    open: false,
+    message: '',
+  });
 
   const toggleHandler = () => {
     setOnToggle((prev) => !prev);
@@ -35,7 +40,10 @@ const PackageOption = ({ type }: PackageOptionProps) => {
 
   const increaseQuantity = () => {
     if (selectedDate === undefined) {
-      alert('Please select a date!');
+      setOnAlert({
+        open: true,
+        message: 'Please select a date',
+      });
       return;
     }
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -43,11 +51,17 @@ const PackageOption = ({ type }: PackageOptionProps) => {
 
   const decreaseQuantity = () => {
     if (quantity === 0) {
-      alert('quantity cannot be less than 0');
+      setOnAlert({
+        open: true,
+        message: 'quantity cannot be less than 0',
+      });
       return;
     }
     if (selectedDate === undefined) {
-      alert('please select a date');
+      setOnAlert({
+        open: true,
+        message: 'Please select a date',
+      });
       return;
     }
     setQuantity((prevQuantity) => prevQuantity - 1);
@@ -55,7 +69,10 @@ const PackageOption = ({ type }: PackageOptionProps) => {
 
   const handleNextPage = () => {
     if (selectedDate === undefined) {
-      alert('Please select a date!');
+      setOnAlert({
+        open: true,
+        message: 'Please select a date',
+      });
     } else {
       const currentDate = new Date();
       const utcOffsetInMinutes = currentDate.getTimezoneOffset();
@@ -78,6 +95,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
 
   return (
     <div className='mt-5 flex flex-col min-w-[360px] md:w-3/5 rounded-3xl border border-zinc-300 px-3 md:px-5 py-5 mx-[1rem]'>
+      {onAlert && <Alert onAlert={onAlert} setOnAlert={setOnAlert} />}
       <div className='flex justify-between items-center'>
         <div className='text-gray-800 text-2xl font-bold'>{DELIVERY_TYPE[type]}</div>
         <span className='flex-center rounded-lg p-2 hover:bg-slate-100' onClick={toggleHandler}>

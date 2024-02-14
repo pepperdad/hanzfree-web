@@ -45,6 +45,7 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "react/no-array-index-key": "off",
     "no-nested-ternary": "off",
+    "jsx-a11y/heading-has-content": "off",
     "import/order": [
       "error",
       {
@@ -97,6 +98,21 @@
           },
           {
             "pattern": "lodash",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "class-variance-authority",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "lucide-react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@radix-ui/**",
             "group": "external",
             "position": "before"
           },
