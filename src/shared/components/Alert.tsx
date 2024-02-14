@@ -23,7 +23,6 @@ const Alert = ({ onAlert, setOnAlert }: AlertProps) => {
   return (
     <div>
       <AlertDialog open={onAlert.open} onOpenChange={(open) => setOnAlert({ ...onAlert, open })}>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>HanzFree&apos;s message</AlertDialogTitle>

@@ -9,6 +9,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
   return (
     <>
       <InputField
+        width='md:w-1/2-20'
         inputName='hotelName'
         label='Hotel Name'
         register={register}
@@ -17,6 +18,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
+        width='md:w-1/2-20'
         inputName='hotelAddress'
         label='Hotel Address'
         register={register}
@@ -25,6 +27,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
+        width='md:w-1/2-20'
         inputName='hotelRepresentativeName'
         label='Hotel Representative Name'
         register={register}
@@ -33,6 +36,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
+        width='md:w-1/2-20'
         inputName='airportTerminal'
         label='Airport Terminal'
         register={register}
@@ -43,6 +47,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
+        width='md:w-1/2-20'
         inputName='flightNumber'
         label='Flight Number(Departure)'
         register={register}
@@ -69,6 +74,7 @@ const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
       />
 
       <InputField
+        width='md:w-1/2-20'
         inputName='contactId'
         label='WhatsApp/Line/WeChat/Kakao Talk'
         register={register}

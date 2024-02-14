@@ -16,6 +16,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
     <>
       <InputField
         inputName='hotelName'
+        width='md:w-1/2-20'
         label='Hotel Name'
         register={register}
         rules={{ required: 'please enter your hotel name' }}
@@ -32,6 +33,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
 
       <InputField
         inputName='hotelAddress'
+        width='md:w-1/2-20'
         label='Hotel Address'
         register={register}
         rules={{ required: 'please enter your hotel address' }}
@@ -40,6 +42,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
 
       <InputField
         inputName='hotelRepresentativeName'
+        width='md:w-1/2-20'
         label='Hotel Representative Name'
         register={register}
         rules={{ required: 'please enter your hotel representative name' }}
@@ -48,6 +51,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
 
       <InputField
         inputName='airportTerminal'
+        width='md:w-1/2-20'
         label='Airport Terminal'
         register={register}
         type='select'
@@ -58,6 +62,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
 
       <InputField
         inputName='flightNumber'
+        width='md:w-1/2-20'
         label='Flight Number(Arrival)'
         register={register}
         rules={{ required: 'please enter your flight number' }}
@@ -84,6 +89,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
 
       <InputField
         inputName='contactId'
+        width='md:w-1/2-20'
         label='WhatsApp/Line/WeChat/Kakao Talk'
         register={register}
         rules={{ required: 'please enter your contact id' }}
