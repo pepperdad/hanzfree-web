@@ -102,6 +102,16 @@
             "position": "before"
           },
           {
+            "pattern": "class-variance-authority",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "lucide-react",
+            "group": "external",
+            "position": "before"
+          },
+          {
             "pattern": "@**",
             "group": "internal",
             "position": "before"
