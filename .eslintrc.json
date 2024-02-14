@@ -127,7 +127,7 @@
             "position": "before"
           }
         ],
-        // "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": ["react"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
