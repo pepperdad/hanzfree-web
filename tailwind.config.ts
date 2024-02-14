@@ -2,12 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ['./pages/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   prefix: '',
   theme: {
     container: {
@@ -18,6 +13,28 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: [
+          'Poppins',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Arial',
+          'sans-serif',
+        ],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      width: {
+        '1/2-12': 'calc(50% - 12px)',
+        '1/2-20': 'calc(50% - 20px)',
+      },
+      minHeight: {
+        'screen-230': 'calc(100vh - 230px);',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
