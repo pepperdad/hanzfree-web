@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content='Travel Light with HanzFree, enjoy to the fullest!'
           key='og-desc'
         />
-        <meta property='og:url' content='https://hanzfree.co.kr' key='og-url' />
+        <meta property='og:url' content='https://www.hanzfree.co.kr' key='og-url' />
         <meta property='og:image' content='/logo_favicon.png' key='og-image' />
         <meta property='og:site_name' content='hanzfreesite' key='og-site' />
 
