@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   AlertDialog,
@@ -11,20 +11,15 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@shared/components/shadcn/ui/alert-dialog';
-import { Progress } from '@shared/components/shadcn/ui/progress';
 
 const shadcn = () => {
-  const [progress, setProgress] = useState(13);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const [open, setOpen] = useState(false); // 알림 다이얼로그의 상태를 제어하는 state
   return (
     <div>
-      <p>shadn</p>
+      <h1 className='text-2xl'>shadn</h1>
+      <br />
 
-      <AlertDialog>
+      <AlertDialog open={open} onOpenChange={setOpen}>
         <AlertDialogTrigger>Open</AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
@@ -35,13 +30,10 @@ const shadcn = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction className='bg-blue-500'>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-
-      <Progress value={progress} className='w-[60%]' />
     </div>
   );
 };

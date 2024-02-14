@@ -60,13 +60,17 @@ const EnterForm = ({ userData }: EnterFormProps) => {
         price: reservation.price,
       };
 
-      const res = await Instance.post('/reservation', formData);
+      // TODO: TEST
+      setReservation(formData);
+      setPage(3);
+
+      // const res = await Instance.post('/reservation', formData);
       // console.log('res', res);
 
-      if (res.status === 201) {
-        setReservation(formData);
-        setPage(3);
-      }
+      // if (res.status === 201) {
+      // setReservation(formData);
+      //   setPage(3);
+      // }
     } catch (e) {
       document.body.style.overflow = 'visible';
 

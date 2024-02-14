@@ -7,6 +7,7 @@ import CompletePage from '@reservation/CompletePage';
 import { ReservationPageContext } from '@reservation/context';
 import OtherInfoPage from '@reservation/OtherInfoPage';
 import Page from '@reservation/Page';
+import PaymentPage from '@reservation/PaymentPage';
 import Layout from '@shared/components/Layout';
 import { PageProp } from '@shared/types';
 
@@ -18,7 +19,8 @@ const index = ({ userData }: PageProp) => {
       <Layout headerData={userData}>
         {page === 1 && <Page />}
         {page === 2 && <OtherInfoPage userData={userData} />}
-        {page === 3 && <CompletePage />}
+        {page === 3 && <PaymentPage />}
+        {page === 4 && <CompletePage />}
       </Layout>
     </ReservationPageContext.Provider>
   );
