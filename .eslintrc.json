@@ -117,11 +117,6 @@
             "position": "before"
           },
           {
-            "pattern": "@shared/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
             "pattern": "@**",
             "group": "internal",
             "position": "before"
