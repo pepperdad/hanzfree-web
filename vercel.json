@@ -1,9 +1,9 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "https://www.hanzfree.co.kr/$1" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "https://hanzfree.co.kr/$1" }],
   "headers": [
     {
       "source": "/(.*)",
-      "headers": [{ "key": "Access-Control-Allow-Origin", "value": "https://www.hanzfree.co.kr" }]
+      "headers": [{ "key": "Access-Control-Allow-Origin", "value": "https://hanzfree.co.kr" }]
     }
   ]
 }
