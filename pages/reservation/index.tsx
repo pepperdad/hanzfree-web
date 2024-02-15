@@ -12,15 +12,15 @@ import Layout from '@shared/components/Layout';
 import { UserProfile } from '@shared/types';
 
 const index = ({ userData }: UserProfile) => {
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
 
   return (
     <ReservationPageContext.Provider value={setPage}>
       <Layout userData={userData}>
         {page === 1 && <Page />}
         {page === 2 && <OtherInfoPage userData={userData} />}
-        {page === 3 && <PaymentPage />}
-        {page === 4 && <CompletePage />}
+        {/* {page === 3 && <PaymentPage />} */}
+        {page === 3 && <CompletePage />}
       </Layout>
     </ReservationPageContext.Provider>
   );

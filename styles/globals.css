@@ -202,9 +202,9 @@ a {
 }
 
 .booking_detail_label {
-  @apply mb-1 font-medium text-gray-800;
+  @apply mb-1 font-normal text-gray-500;
 }
 
 .booking_detail_content {
-  @apply ml-2 font-normal text-gray-500;
+  @apply ml-2 font-medium text-gray-800;
 }

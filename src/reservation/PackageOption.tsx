@@ -94,7 +94,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
   };
 
   return (
-    <div className='mt-5 flex flex-col min-w-[360px] md:w-3/5 rounded-3xl border border-zinc-300 px-3 md:px-5 py-5 mx-[1rem]'>
+    <div className='mt-5 flex flex-col min-w-[360px] md:w-3/5 rounded-3xl border border-zinc-300 px-3 md:px-5 py-5 mx-3'>
       {onAlert && <Alert onAlert={onAlert} setOnAlert={setOnAlert} />}
       <div className='flex justify-between items-center'>
         <div className='text-gray-800 text-2xl font-bold'>{DELIVERY_TYPE[type]}</div>
@@ -147,7 +147,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
                 Please select an experience date
               </div>
               <Calendar
-                className='mt-[32px] grow max-w-[350px]'
+                className='mt-[32px] grow max-w-[340px]'
                 value={selectedDate}
                 onChange={setSelectedDate}
                 locale='en'

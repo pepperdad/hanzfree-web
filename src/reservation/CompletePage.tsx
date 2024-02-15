@@ -5,7 +5,12 @@ import { useRouter } from 'next/router';
 
 import { useRecoilValue } from 'recoil';
 
+import AirportToHotelContent from '@booking/AirportToHotelContent';
+import HotelToAirportContent from '@booking/HotelToAirportContent';
+import HotelToHotelContent from '@booking/HotelToHotelContent';
+import DetailColumn from '@shared/components/DetailColumn';
 import { reservationState } from '@shared/recoil';
+import { formatDate } from '@shared/util';
 
 import { DELIVERY_TYPE } from './constants';
 
@@ -15,6 +20,8 @@ const CompletePage = () => {
   const router = useRouter();
   const reservation = useRecoilValue(reservationState);
 
+  // console.log('reservation1', reservation);
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
 
@@ -22,83 +29,43 @@ const CompletePage = () => {
   }, []);
 
   return (
-    <div className='py-12 min-h-screen-230'>
+    <div className='py-8 md:py-12 min-h-screen-230 mx-6'>
       <div className='flex-center flex-col text-center'>
         <div className='absolute top-0 left-0 flex-center w-screen h-screen -z-10'>
           <Complete />
         </div>
-        <div className='text-4xl md:text-5xl font-bold pb-4'>Thank you for your reservation!</div>
-        <h2 className='pb-8 text-center text-gray-500'>
+        <div className='text-3xl md:text-5xl font-bold pb-4'>Thank you for your reservation!</div>
+        <h3 className='pb-4 md:pb-8 text-center text-gray-500 text-sm md:text-base'>
           or any inquiries or assistance, feel free to contact us. Happy journey
-        </h2>
+        </h3>
 
-        <div className='rounded-2xl border border-zinc-500 p-4 mx-4 md:w-3/5'>
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Date</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.date && reservation.date.toLocaleDateString()}{' '}
-              {reservation.method === 'airportToHotel' &&
-                `${reservation.dropOffTimeHour} : ${reservation.dropOffTimeMin}`}
-              {reservation.method === 'hotelToAirport' &&
-                `${reservation.pickUpTimeHour} : ${reservation.pickUpTimeMin}`}
-              {reservation.method === 'hotelToHotel' &&
-                `${reservation.departureTimeHour} : ${reservation.departureTimeMin}`}
+        <div key={reservation.id} className='flex bg-white p-4 rounded-xl shadow-md md:w-3/5'>
+          <div className='grow'>
+            <p className='text-gray-800 md:text-xl font-semibold mb-4'>
+              Booked date {formatDate(reservation.date as string)}
+            </p>
+            <div>
+              <DetailColumn
+                label='Name'
+                content={`${reservation.firstName} ${reservation.lastName}`}
+              />
+              <DetailColumn label='Method' content={`${DELIVERY_TYPE[reservation.method]}`} />
+              <DetailColumn label='Quantity' content={`${reservation.quantity}`} />
+
+              {reservation.method === 'airportToHotel' ? (
+                <AirportToHotelContent reservation={reservation} detail />
+              ) : reservation.method === 'hotelToAirport' ? (
+                <HotelToAirportContent reservation={reservation} detail />
+              ) : reservation.method === 'hotelToHotel' ? (
+                <HotelToHotelContent reservation={reservation} detail />
+              ) : null}
             </div>
-          </div>
-
-          {reservation.method !== 'hotelToHotel' && (
-            <div className='flex py-2'>
-              <div className='text-neutral-600 text-xl w-1/2'>Terminal</div>
-              <div className='text-neutral-600 text-xl font-semibold grow'>
-                Terminal {reservation.airportTerminal}
-              </div>
-            </div>
-          )}
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Method</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {DELIVERY_TYPE[reservation.method]}
-            </div>
-          </div>
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Name</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.firstName} {reservation.lastName}
-            </div>
-          </div>
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Hotel Name</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.hotelName}
-            </div>
-          </div>
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Hotel Address</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.hotelAddress}
-            </div>
-          </div>
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Phone Number</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>
-              {reservation.dialCode}-{reservation.phoneNumber}
-            </div>
-          </div>
-
-          <div className='flex py-2'>
-            <div className='text-neutral-600 text-xl w-1/2'>Email(for updates your booking)</div>
-            <div className='text-neutral-600 text-xl font-semibold grow'>{reservation.email}</div>
           </div>
         </div>
 
         <button
           onClick={() => router.push('/booking')}
-          className='p-4 mt-4 bg-slate-100 rounded-md hover:bg-slate-200 text-blue-500'
+          className='p-4 mt-4 md:mt-8 rounded-xl hover:bg-slate-100 text-gray-900 text-sm md:text-base border border-gray-600 font-medium'
         >
           Go to My Bookings
         </button>

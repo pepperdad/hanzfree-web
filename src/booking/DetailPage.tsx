@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { getReservation } from '@pages/api/booking';
+import { DELIVERY_TYPE } from '@reservation/constants';
+import DetailColumn from '@shared/components/DetailColumn';
 import { Skeleton } from '@shared/components/shadcn/ui/skeleton';
 import { ReservationData } from '@shared/types';
 import { formatDate } from '@shared/util';
@@ -29,22 +31,36 @@ const DetailPage = () => {
 
   return (
     <div className='min-h-screen-230 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-230 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl'>
-        <div className='flex justify-between gap-3 mb-6 items-center'>
-          <h1 className='text-lg md:text-2xl font-semibold text-blue-500'>
-            Booked date <br className='md:hidden' />
-            {reservation && formatDate(reservation?.date as string)}
-          </h1>
+      <div className='max-w-screen-lg w-full min-h-screen-230 md:min-h-0 p-8  md:rounded-3xl'>
+        <div className='flex justify-between gap-3 mb-4 md:mb-6 items-center shadow-md bg-white p-4 rounded-xl'>
+          <div>
+            <p className='text-lg md:text-2xl text-green-500 font-semibold'>Booking completed</p>
+            <p className='my-3 text-xl text-black font-medium'>
+              Total paid: ₩{reservation?.price.toLocaleString()}
+            </p>
+            <button
+              onClick={() => router.push('/reservation')}
+              className='p-2 md:px-3 md:py-2 rounded-2xl hover:bg-slate-100 text-gray-900 text-sm md:text-base border border-gray-600 font-medium'
+            >
+              Book again
+            </button>
+            <button
+              onClick={() => router.push('/booking')}
+              className='inline md:hidden ml-3 p-2 md:px-3 md:py-2 rounded-2xl hover:bg-slate-100 text-gray-900 text-sm md:text-base border border-gray-600 font-medium'
+            >
+              Back to My Bookings
+            </button>
+          </div>
           <button
             onClick={() => router.push('/booking')}
-            className='p-2 md:p-4 bg-slate-100 rounded-md hover:bg-slate-200 text-blue-500 text-sm md:text-base'
+            className='hidden md:block p-2 md:px-3 md:py-2 rounded-2xl hover:bg-slate-100 text-gray-900 text-sm md:text-base border border-black font-medium'
           >
             Back to My Bookings
           </button>
         </div>
 
         {!reservation ? (
-          <div className='flex flex-col space-y-3'>
+          <div className='flex flex-col space-y-3 bg-white p-4 rounded-xl'>
             <Skeleton className='h-8 md:h-10 w-56 md:w-[400px] rounded-xl mb-4 ' />
             <div className='space-y-3'>
               <Skeleton className='h-6 w-64 md:w-[550px]' />
@@ -62,44 +78,29 @@ const DetailPage = () => {
             </div>
           </div>
         ) : (
-          <div key={reservation.id} className='flex p-4 border rounded-xl'>
+          <div key={reservation.id} className='flex bg-white p-4 rounded-xl shadow-md'>
             <div className='grow'>
-              <p className='text-lg md:text-2xl text-green-500 font-semibold mb-2'>
-                Booking completed
-              </p>
-              <p className='md:text-xl font-semibold mb-2'>
+              <p className='text-gray-800 md:text-xl font-semibold mb-4'>
                 Booked date {formatDate(reservation.date as string)}
               </p>
-              <p className='booking_detail_label'>
-                Name:
-                <span className='booking_detail_content'>
-                  {reservation.firstName} {reservation.lastName}
-                </span>
-              </p>
-              <p className='booking_detail_label'>
-                Method:
-                <span className='booking_detail_content'>{reservation.method}</span>
-              </p>
-              <p className='booking_detail_label'>
-                Quantity:
-                <span className='booking_detail_content'>{reservation.quantity}</span>
-              </p>
-              {reservation.method === 'airportToHotel' ? (
-                <AirportToHotelContent reservation={reservation} detail />
-              ) : reservation.method === 'hotelToAirport' ? (
-                <HotelToAirportContent reservation={reservation} detail />
-              ) : reservation.method === 'hotelToHotel' ? (
-                <HotelToHotelContent reservation={reservation} detail />
-              ) : null}
-              <p className='booking_detail_label'>
-                Contact id:
-                <span className='booking_detail_content'>{reservation.contactId}</span>
-              </p>
+              <div>
+                <DetailColumn
+                  label='Name'
+                  content={`${reservation.firstName} ${reservation.lastName}`}
+                />
+                <DetailColumn label='Method' content={`${DELIVERY_TYPE[reservation.method]}`} />
+                <DetailColumn label='Quantity' content={`${reservation.quantity}`} />
 
-              <p className='my-2 text-xl text-black font-medium'>
-                Total paid: ₩{reservation.price.toLocaleString()}
-              </p>
-              <p className='font-medium text-gray-500'>
+                {reservation.method === 'airportToHotel' ? (
+                  <AirportToHotelContent reservation={reservation} detail />
+                ) : reservation.method === 'hotelToAirport' ? (
+                  <HotelToAirportContent reservation={reservation} detail />
+                ) : reservation.method === 'hotelToHotel' ? (
+                  <HotelToHotelContent reservation={reservation} detail />
+                ) : null}
+              </div>
+
+              <p className='font-medium text-gray-500 mt-8'>
                 Created at {formatDate(reservation.createdAt)}
               </p>
             </div>

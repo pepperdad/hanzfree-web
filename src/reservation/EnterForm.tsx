@@ -10,7 +10,7 @@ import intlTelInput from 'intl-tel-input';
 
 import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
-import { UserProfile } from '@shared/types';
+import { UserProfileData } from '@shared/types';
 
 import AirportToHotelForm from './AirportToHotelForm';
 import { TERMS } from './constants';
@@ -24,7 +24,7 @@ import TermCheck from './TermCheck';
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
 interface EnterFormProps {
-  userData: UserProfile;
+  userData: UserProfileData;
 }
 
 const EnterForm = ({ userData }: EnterFormProps) => {
@@ -61,16 +61,16 @@ const EnterForm = ({ userData }: EnterFormProps) => {
       };
 
       // TODO: TEST
-      setReservation(formData);
-      setPage(3);
+      // setReservation(formData);
+      // setPage(3);
 
-      // const res = await Instance.post('/reservation', formData);
+      const res = await Instance.post('/reservation', formData);
       // console.log('res', res);
 
-      // if (res.status === 201) {
-      // setReservation(formData);
-      //   setPage(3);
-      // }
+      if (res.status === 201) {
+        setReservation(res.data);
+        setPage(3);
+      }
     } catch (e) {
       document.body.style.overflow = 'visible';
 

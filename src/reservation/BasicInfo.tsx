@@ -20,12 +20,12 @@ const BasicInfo = () => {
       <div className='w-full md:w-4/5 my-2 text-neutral-600 text-lg font-normal'>
         Please fill out the information below.
       </div>
-      <div className='flex justify-center md:w-4/5 my-3 p-4 rounded-[24px] border border-zinc-500'>
-        <div className='flex w-24 md:w-fit shrink-0'>
-          <Image src='/assets/reservation/delivery.svg' alt='delivery' width={155} height={110} />
+      <div className='flex justify-center md:w-4/5 my-3 p-3 md:p-4 rounded-[24px] border border-zinc-500'>
+        <div className='flex w-16 md:w-fit shrink-0'>
+          <Image src='/assets/reservation/delivery.svg' alt='delivery' width={145} height={110} />
         </div>
-        <div className='flex flex-col ml-6 justify-between'>
-          <div className='text-2xl font-medium text-blue-700'>
+        <div className='flex flex-col ml-4 justify-between'>
+          <div className='md:text-2xl font-medium text-blue-700'>
             Incheon International Airport (ICN) Luggage Service by HANZFREE
           </div>
           <div className='text-neutral-600 text-lg md:text-xl font-normal'>
