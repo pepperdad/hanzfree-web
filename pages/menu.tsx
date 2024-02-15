@@ -8,8 +8,8 @@ import Layout from '@shared/components/Layout';
 
 import { fetchUserData } from './api';
 
-const menu = () => {
-  return <Layout>menu</Layout>;
+const menu = ({ userData }: any) => {
+  return <Layout userData={userData}>menu</Layout>;
 };
 
 export default menu;
