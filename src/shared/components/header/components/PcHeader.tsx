@@ -26,7 +26,7 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
           <Image src='/logo.svg' alt='hanzfree Logo' width={160} height={40} />
         </button>
 
-        <nav className='ml-10 hidden md:flex md:flex-row'>
+        <nav className='ml-10 hidden lg:flex lg:flex-row'>
           <button onClick={() => scrollToSection('section2')} className='headerNav'>
             Introduction of Service
           </button>
@@ -46,7 +46,7 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
         </nav>
       </div>
       {userData ? (
-        <div className='hidden md:flex items-center gap-6 '>
+        <div className='hidden lg:flex items-center gap-6 '>
           <div className='text-center flex-center text-slate-100 font-bold'>
             <span>Welcome!</span>
             <span className='ml-2'>
@@ -57,7 +57,7 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
           <Button onClick={handleLogout}>Sign out</Button>
         </div>
       ) : (
-        <div className='hidden md:block'>
+        <div className='hidden lg:block'>
           <Button onClick={() => router.push('/login')}>Sign in</Button>
           <Button
             buttonStyle='ml-5 bg-gray-400 hover:bg-gray-500'
@@ -70,7 +70,7 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
 
       {/* mobile */}
       <button
-        className='p-2 rounded-lg md:hidden flex-center hover:bg-blue-700'
+        className='p-2 rounded-lg lg:hidden flex-center hover:bg-blue-700'
         onClick={toggleMenu}
       >
         <Image src='/assets/header/hamburger.svg' alt='Menu' width={30} height={30} />

@@ -2,41 +2,12 @@ import { atom } from 'recoil';
 
 import { uniqueId } from 'lodash';
 
-import { DELIVERY_TYPE } from '@reservation/constants';
+import { ReservationData } from '@shared/types';
 
-interface ReservationState {
-  method: keyof typeof DELIVERY_TYPE;
-  date: Date | null;
-  quantity: number;
-  price: number;
-  lastName: string;
-  firstName: string;
-  email: string;
-  phone: string;
-  hotelName: string;
-  hotelAddress: string;
-  repersenativeName: string;
-  airportTerminal: string;
-  flightNumber: string;
-
-  arrivalTimeHour: string;
-  arrivalTimeMin: string;
-  dropOffTimeHour: string;
-  dropOffTimeMin: string;
-
-  departureTimeHour: string;
-  departureTimeMin: string;
-  pickUpTimeHour: string;
-  pickUpTimeMin: string;
-
-  contactId: string;
-  dialCode: string;
-  phoneNumber: string;
-}
-
-export const reservationState = atom<ReservationState>({
+export const reservationState = atom<ReservationData>({
   key: `reservationState/${uniqueId}`, // 각 atom의 고유한 키
   default: {
+    id: 1,
     method: 'airportToHotel',
     date: null,
     quantity: 1,
@@ -47,7 +18,7 @@ export const reservationState = atom<ReservationState>({
     phone: '',
     hotelName: '',
     hotelAddress: '',
-    repersenativeName: '',
+    hotelRepresentativeName: '',
     airportTerminal: '',
     flightNumber: '',
 
@@ -61,8 +32,13 @@ export const reservationState = atom<ReservationState>({
     pickUpTimeHour: '',
     pickUpTimeMin: '',
 
+    arrivalHotelName: '',
+    arrivalHotelAddress: '',
+
     contactId: '',
     dialCode: '',
     phoneNumber: '',
+
+    createdAt: '',
   },
 });

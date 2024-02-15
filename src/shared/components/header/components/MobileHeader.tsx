@@ -20,14 +20,14 @@ const MobileHeader = ({
   toggleMenu,
   handleLogout,
 }: MobileHeaderProps) => {
+  const router = useRouter();
+
   const moveToSection = (section: string) => {
     toggleMenu();
     scrollToSection(section);
   };
 
   const redirectUrl = (url: string) => {
-    const router = useRouter();
-
     toggleMenu();
     router.push(url);
   };
@@ -51,10 +51,6 @@ const MobileHeader = ({
         <div className='my-4 flex flex-col'>
           {userData ? (
             <>
-              {/* <div className='text-2xl text-center font-bold py-2'>
-                    Welcome! {headerData.firstName.toUpperCase()}{' '}
-                    {headerData.lastName.toUpperCase()}, <br /> Enjoy our service!
-                  </div> */}
               <Button onClick={() => redirectUrl('/booking')}>My Bookings</Button>
               <Button buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500' onClick={handleLogout}>
                 Sign out
