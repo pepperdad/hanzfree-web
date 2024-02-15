@@ -64,7 +64,7 @@ const DetailPage = () => {
         ) : (
           <div key={reservation.id} className='flex p-4 border rounded-xl'>
             <div className='grow'>
-              <p className='text-lg md:text-2xl text-green-500 font-semibold mb-1'>
+              <p className='text-lg md:text-2xl text-green-500 font-semibold mb-2'>
                 Booking completed
               </p>
               <p className='md:text-xl font-semibold mb-2'>
@@ -85,32 +85,21 @@ const DetailPage = () => {
                 <span className='booking_detail_content'>{reservation.quantity}</span>
               </p>
               {reservation.method === 'airportToHotel' ? (
-                <AirportToHotelContent reservation={reservation} />
+                <AirportToHotelContent reservation={reservation} detail />
               ) : reservation.method === 'hotelToAirport' ? (
-                <HotelToAirportContent reservation={reservation} />
+                <HotelToAirportContent reservation={reservation} detail />
               ) : reservation.method === 'hotelToHotel' ? (
-                <HotelToHotelContent reservation={reservation} />
+                <HotelToHotelContent reservation={reservation} detail />
               ) : null}
-
               <p className='booking_detail_label'>
-                Hotel Name:
-                <span className='booking_detail_content'>{reservation.hotelName}</span>
-              </p>
-              <p className='booking_detail_label'>
-                Hotel Address:
-                <span className='booking_detail_content'>{reservation.hotelAddress}</span>
-              </p>
-              <p className='booking_detail_label'>
-                Hotel Reservation representative&apos;s name:
-                <span className='booking_detail_content'>
-                  {reservation.hotelRepresentativeName}
-                </span>
+                Contact id:
+                <span className='booking_detail_content'>{reservation.contactId}</span>
               </p>
 
-              <p className='mt-2 text-xl text-black font-medium'>
+              <p className='my-2 text-xl text-black font-medium'>
                 Total paid: ₩{reservation.price.toLocaleString()}
               </p>
-              <p className='booking_detail_label font-medium'>
+              <p className='font-medium text-gray-500'>
                 Created at {formatDate(reservation.createdAt)}
               </p>
             </div>

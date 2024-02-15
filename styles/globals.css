@@ -206,5 +206,5 @@ a {
 }
 
 .booking_detail_content {
-  @apply ml-1 font-normal text-gray-500;
+  @apply ml-2 font-normal text-gray-500;
 }
