@@ -22,7 +22,7 @@ const ContactInfo = ({ userData, dialCode, phone }: ContactInfoProps) => {
         We&rsquo;ll only contact you if there&rsquo;s any updates to your booking
       </div>
 
-      <div className='rounded-2xl border border-zinc-500 p-4'>
+      <div className='flex flex-col rounded-2xl border border-zinc-500 p-4'>
         <UserInfo title='First Name' content={userData.firstName} />
         <UserInfo title='Last Name' content={userData.lastName} />
         <UserInfo
@@ -35,8 +35,11 @@ const ContactInfo = ({ userData, dialCode, phone }: ContactInfoProps) => {
         />
 
         <div className='flex py-2'>
-          <div className='text-neutral-600 text-xl w-1/2'>Email(for updates your booking)</div>
-          <div className='text-neutral-600 text-xl font-semibold grow'>{userData.email}</div>
+          <div className='text-neutral-600 md:text-xl w-1/2'>
+            Email
+            <span className='text-xs hidden md:block'> (for updates your booking)</span>
+          </div>
+          <div className='text-neutral-600 md:text-xl font-semibold grow'>{userData.email}</div>
         </div>
       </div>
     </div>

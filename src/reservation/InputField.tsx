@@ -5,6 +5,7 @@ const InputField = forwardRef(
     {
       label,
       inputName,
+      width,
       register,
       errors,
       placeholder,
@@ -17,7 +18,7 @@ const InputField = forwardRef(
     ref,
   ) => {
     return (
-      <div className='flex flex-col md:w-1/2-20'>
+      <div className={`flex flex-col ${width}`}>
         {label && (
           <label htmlFor={inputName} className='mb-1'>
             {label}
@@ -41,6 +42,7 @@ const InputField = forwardRef(
             placeholder={placeholder || `Enter ${label.toLowerCase()}`}
             ref={ref}
             onChange={onChange}
+            // autocompletetype='cc-exp'
             {...register(inputName, rules)}
           />
         )}

@@ -10,7 +10,7 @@ const TimeSelect = ({ label, hourName, minuteName, register, errors }: any) => {
       </label>
       <div className='flex flex-wrap justify-between'>
         <InputField
-          width='md:w-1/2-20'
+          width='w-1/2-20'
           inputName={hourName}
           register={register}
           errors={errors}
@@ -28,7 +28,7 @@ const TimeSelect = ({ label, hourName, minuteName, register, errors }: any) => {
           ]}
         />
         <InputField
-          width='md:w-1/2-20'
+          width='w-1/2-20'
           inputName={minuteName}
           register={register}
           errors={errors}

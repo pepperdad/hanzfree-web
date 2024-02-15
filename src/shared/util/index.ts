@@ -1,5 +1,5 @@
-export function formatDate(originalDateString: string) {
-  const originalDate = new Date(originalDateString);
+export function formatDate(originalDateString: string | null) {
+  const originalDate = new Date(originalDateString as string);
 
   const formattedDate = `${String(originalDate.getFullYear()).slice(-4)}-${String(
     originalDate.getMonth() + 1,

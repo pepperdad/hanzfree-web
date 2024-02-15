@@ -10,6 +10,10 @@ export const login = async (email: string, password: string) => {
   return Instance.post('/auth/login', { email, password });
 };
 
+export const logout = async () => {
+  return Instance.post('/auth/logout');
+};
+
 export const fetchUserData = async (context: GetServerSidePropsContext) => {
   const { cookie } = context.req.headers;
   // 쿠키가 없거나 토큰이 없는 경우 null 반환

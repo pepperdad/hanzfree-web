@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
-import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { getReservationList } from '@pages/api/booking';
+import { DELIVERY_TYPE } from '@reservation/constants';
+import { Skeleton } from '@shared/components/shadcn/ui/skeleton';
+import { ReservationData } from '@shared/types';
 import { formatDate } from '@shared/util';
 
-const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
+import AirportToHotelContent from './AirportToHotelContent';
+import HotelToAirportContent from './HotelToAirportContent';
+import HotelToHotelContent from './HotelToHotelContent';
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
-  const [reservationList, setReservationList] = useState<any>([]);
+  const [reservationList, setReservationList] = useState<ReservationData[]>([]);
 
   useEffect(() => {
     getReservationList()
       .then((res) => {
-        console.log('res', res);
         setReservationList(res.data);
       })
       .catch((error) => {
@@ -27,68 +31,125 @@ const Page = () => {
   }, []);
 
   return (
-    <div className='min-h-screen-230 flex items-center justify-center bg-gray-100 md:py-10'>
+    <div className='min-h-screen-230 flex items-center justify-center bg-gray-100 md:py-8'>
       <div className='max-w-screen-lg w-full min-h-screen-230 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl'>
         <div className='flex items-end mb-6'>
-          <h1 className='text-3xl font-semibold text-blue-500'>My Bookings</h1>
-          <span className='ml-2 text-gray-500'>({reservationList.length} records)</span>
+          <h1 className='text-lg md:text-3xl font-semibold text-blue-500'>My Bookings</h1>
+          <span className='text-sm md:text-base ml-2 text-gray-500'>
+            ({reservationList.length} records)
+          </span>
         </div>
 
         {loading ? (
-          <div className='flex-center'>
-            <Loading />
+          <div className='flex flex-col space-y-6'>
+            <Skeleton className='h-24 md:h-32 w-full rounded-xl' />
+            <Skeleton className='h-24 md:h-32 w-full rounded-xl' />
+            <Skeleton className='h-24 md:h-32 w-full rounded-xl' />
+            <Skeleton className='h-24 md:h-0 w-full rounded-xl' />
           </div>
         ) : reservationList?.length === 0 ? (
           <p className='text-gray-500'>No Bookings available.</p>
         ) : (
-          <div className='grid gap-4'>
-            {reservationList?.map((reservation: any) => (
-              <div key={reservation.id} className='flex p-4 border rounded-xl hover:shadow-md'>
-                <div className='grow'>
-                  <p className='text-lg font-semibold'>Booked on {formatDate(reservation.date)}</p>
-                  <p className='text-gray-500'>
-                    Name: {reservation.firstName} {reservation.lastName}
-                  </p>
-                  <p className='text-gray-500'>Method: {reservation.method}</p>
-                  <p className='text-gray-500'>Quantity: {reservation.quantity}</p>
-                  {reservation.method === 'airportToHotel' ? (
-                    <>
-                      <p className='text-gray-500'>
-                        Path: Termianl {reservation.airportTerminal} -&gt;{' '}
-                        {reservation.hotelAddress}
-                      </p>
-                      <p className='text-gray-500'>
-                        Luggage drop-off time: {reservation.dropOffTimeHour} :{' '}
-                        {reservation.dropOffTimeMin}
-                      </p>
-                    </>
-                  ) : reservation.method === 'hotelToAirport' ? (
-                    <>
-                      <p className='text-gray-500'>
-                        Path: {reservation.hotelAddress} -&gt; Termianl{' '}
-                        {reservation.airportTerminal}
-                      </p>
-                      <p className='text-gray-500'>
-                        Luggage pick-up time: {reservation.pickUpTimeHour} :{' '}
-                        {reservation.pickUpTimeMin}
-                      </p>
-                    </>
-                  ) : null}
+          <div className='grid gap-6'>
+            {reservationList?.map((reservation: ReservationData) => (
+              <Link key={reservation.id} href={`/booking/${reservation.id}`}>
+                <div className='flex p-4 border rounded-xl hover:shadow-md'>
+                  <div className='grow'>
+                    <p className='md:text-lg font-semibold'>
+                      Booked on {formatDate(reservation.date as string)}
+                    </p>
+                    <p className='booking_detail_label'>
+                      Method:
+                      <span className='booking_detail_content'>
+                        {DELIVERY_TYPE[reservation.method]}
+                      </span>
+                    </p>
+                    <p className='booking_detail_label'>
+                      Quantity:
+                      <span className='booking_detail_content'>{reservation.quantity}</span>
+                    </p>
+                    {reservation.method === 'airportToHotel' ? (
+                      <AirportToHotelContent reservation={reservation} />
+                    ) : reservation.method === 'hotelToAirport' ? (
+                      <HotelToAirportContent reservation={reservation} />
+                    ) : reservation.method === 'hotelToHotel' ? (
+                      <HotelToHotelContent reservation={reservation} />
+                    ) : null}
 
-                  <p className='mt-2 text-black font-medium'>Total paid: {reservation.price}</p>
-                  <p className='text-gray-500 font-medium'>
-                    Created at {formatDate(reservation.createdAt)}
-                  </p>
+                    <p className='mt-2 mb-1 text-black font-medium'>
+                      Total paid: ₩{reservation.price.toLocaleString()}
+                    </p>
+                    <p className='text-green-500 font-medium'>Booking completed</p>
+                  </div>
+
+                  <div className='hidden md:flex items-center gap-2'>
+                    {reservation.method === 'airportToHotel' ? (
+                      <>
+                        <Image
+                          src='/assets/reservation/airplane.svg'
+                          alt='airplane'
+                          width={70}
+                          height={70}
+                        />
+                        <Image
+                          src='/assets/reservation/right_arrow.svg'
+                          alt='right_arrow'
+                          width={25}
+                          height={25}
+                        />
+                        <Image
+                          src='/assets/reservation/home.svg'
+                          alt='home'
+                          width={70}
+                          height={70}
+                        />
+                      </>
+                    ) : reservation.method === 'hotelToAirport' ? (
+                      <>
+                        <Image
+                          src='/assets/reservation/home.svg'
+                          alt='home'
+                          width={70}
+                          height={70}
+                        />
+                        <Image
+                          src='/assets/reservation/right_arrow.svg'
+                          alt='right_arrow'
+                          width={25}
+                          height={25}
+                        />
+                        <Image
+                          src='/assets/reservation/airplane.svg'
+                          alt='airplane'
+                          width={70}
+                          height={70}
+                        />
+                      </>
+                    ) : reservation.method === 'hotelToHotel' ? (
+                      <>
+                        <Image
+                          src='/assets/reservation/home.svg'
+                          alt='home'
+                          width={70}
+                          height={70}
+                        />
+                        <Image
+                          src='/assets/reservation/right_arrow.svg'
+                          alt='right_arrow'
+                          width={25}
+                          height={25}
+                        />
+                        <Image
+                          src='/assets/reservation/home.svg'
+                          alt='home'
+                          width={70}
+                          height={70}
+                        />
+                      </>
+                    ) : null}
+                  </div>
                 </div>
-
-                {/* Link to the reservation detail page */}
-
-                <Link href={`/booking/${reservation.id}`}>
-                  <button className='my-auto p-4 bg-slate-100 rounded-md hover:bg-slate-200 shrink-0'>
-                    <a className='text-blue-500'>View Details</a>
-                  </button>
-                </Link>
-              </div>
+              </Link>
             ))}
           </div>
         )}
