@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { UserProfile } from '@shared/types';
+import { UserProfileData } from '@shared/types';
 
 import UserInfo from './UserInfo';
 
 interface ContactInfoProps {
-  userData: UserProfile;
+  userData: UserProfileData;
   dialCode: string;
   phone: string;
 }

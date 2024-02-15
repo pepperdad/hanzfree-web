@@ -4,15 +4,14 @@ import Footer from '@shared/components/footer/components';
 import Header from '@shared/components/header/components';
 import { UserProfile } from '@shared/types';
 
-interface LayoutProps {
+export interface LayoutProps extends UserProfile {
   children?: ReactNode;
-  headerData?: UserProfile;
 }
 
-const Layout = ({ children, headerData, ...props }: LayoutProps) => {
+const Layout = ({ children, userData, ...props }: LayoutProps) => {
   return (
     <div>
-      <Header headerData={headerData} />
+      <Header userData={userData} />
       {React.Children.map(children, (child) => {
         // children이 유효한 React 요소인지 확인
         if (React.isValidElement(child)) {

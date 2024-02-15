@@ -4,13 +4,13 @@ import dynamic from 'next/dynamic';
 
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
-import { PageProp } from '@shared/types';
+import { UserProfile } from '@shared/types';
 
 const Complete = dynamic(() => import('@shared/components/animation/complete'), { ssr: false });
 
-const index = ({ userData }: PageProp) => {
+const index = ({ userData }: UserProfile) => {
   return (
-    <Layout headerData={userData}>
+    <Layout userData={userData}>
       <div>
         reservation complete!!
         <div className='w-40 h-40'>

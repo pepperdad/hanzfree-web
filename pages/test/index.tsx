@@ -5,7 +5,7 @@ import Layout from '@shared/components/Layout';
 
 const index = ({ userData }: any) => {
   return (
-    <Layout headerData={userData}>
+    <Layout userData={userData}>
       <div>
         <ul>
           <li>email: {userData.email}</li>

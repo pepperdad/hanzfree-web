@@ -3,11 +3,11 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import DetailPage from '@booking/DetailPage';
 import { fetchUserData } from '@pages/api';
 import Layout from '@shared/components/Layout';
-import { PageProp } from '@shared/types';
+import { UserProfile } from '@shared/types';
 
-const index = ({ userData }: PageProp) => {
+const index = ({ userData }: UserProfile) => {
   return (
-    <Layout headerData={userData}>
+    <Layout userData={userData}>
       <DetailPage />
     </Layout>
   );

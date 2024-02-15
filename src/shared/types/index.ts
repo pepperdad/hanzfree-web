@@ -10,7 +10,7 @@ export interface PagePropsWithSetPage {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export interface UserProfile {
+export interface UserProfileData {
   id: number;
   country: string | null;
   countryCode: string | null;
@@ -28,8 +28,8 @@ export interface UserProfile {
   socialProvider: string;
 }
 
-export interface PageProp {
-  userData: UserProfile;
+export interface UserProfile {
+  userData: UserProfileData;
 }
 
 export interface PageState {

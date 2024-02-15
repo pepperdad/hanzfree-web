@@ -9,14 +9,14 @@ import OtherInfoPage from '@reservation/OtherInfoPage';
 import Page from '@reservation/Page';
 import PaymentPage from '@reservation/PaymentPage';
 import Layout from '@shared/components/Layout';
-import { PageProp } from '@shared/types';
+import { UserProfile } from '@shared/types';
 
-const index = ({ userData }: PageProp) => {
-  const [page, setPage] = useState(1);
+const index = ({ userData }: UserProfile) => {
+  const [page, setPage] = useState(3);
 
   return (
     <ReservationPageContext.Provider value={setPage}>
-      <Layout headerData={userData}>
+      <Layout userData={userData}>
         {page === 1 && <Page />}
         {page === 2 && <OtherInfoPage userData={userData} />}
         {page === 3 && <PaymentPage />}
