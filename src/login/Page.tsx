@@ -63,7 +63,7 @@ const Page = () => {
   };
 
   return (
-    <div className='py-8 min-h-screen-230'>
+    <div className='py-8 min-h-280'>
       {loading && (
         <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80 bg-slate-50'>
           <Loading />
