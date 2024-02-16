@@ -109,15 +109,15 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
       <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>create an account to continue</h2>
       <div className='flex justify-center'>
-        <div className='relative w-3/5 md:w-1/3'>
+        <div className='relative w-4/5 md:w-2/5'>
           <SignUpForm onClick={onClick} setCountry={setCountry} setDialCode={setDialCode} />
 
           <SignInGoogle from={from} />
 
-          <div className='flex justify-center mt-4'>
+          <div className='flex justify-center mt-4 text-sm md:text-base gap-4'>
             <p className='text-gray-400'>Already have an account?</p>
             <span
-              className='ml-2 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2'
+              className='ml-36 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2 text-sm md:text-base'
               onClick={() => router.push('/login')}
             >
               Sign in

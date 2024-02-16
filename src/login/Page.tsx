@@ -73,17 +73,17 @@ const Page = () => {
       <h1 className='text-4xl font-bold text-center'>Log In</h1>
       <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
       <div className='flex justify-center'>
-        <div className='relative w-3/5 md:w-1/3'>
+        <div className='relative w-4/5 md:w-2/5'>
           <LoginForm onClick={onClick} />
           <div className='flex justify-center'>
             {error && <span className='absolute text-red-500 top-55'>{error}</span>}
           </div>
 
           <SignInGoogle from={from} />
-          <div className='flex justify-center mt-4'>
-            <p className='text-gray-400'>Don&apos;t have an account yet?</p>
+          <div className='flex justify-center mt-4 gap-4'>
+            <p className='text-gray-400 text-sm md:text-base'>Don&apos;t have an account yet?</p>
             <span
-              className='ml-2 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2'
+              className='ml-36 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2 text-sm md:text-base'
               onClick={() => router.push('/signup')}
             >
               Sign up
