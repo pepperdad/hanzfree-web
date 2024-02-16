@@ -127,7 +127,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
       <div className='flex items-center justify-between h-[44px] mt-2'>
         <div className='text-neutral-800 text-xl font-medium '>₩ 25,000</div>
         <button
-          className={`px-6 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg shadow text-white font-bold ${
+          className={`px-6 py-2 bg-blue-700 hover:bg-blue-800 rounded-lg shadow text-white font-bold ${
             onToggle && 'hidden'
           }`}
           onClick={() => toggleHandler()}
@@ -189,7 +189,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
                 </div>
               </div>
               <button
-                className='mt-3 py-2 bg-blue-500 hover:bg-blue-700 rounded-xl shadow text-white text-lg font-bold'
+                className='mt-3 py-2 bg-blue-700 hover:bg-blue-800 rounded-xl shadow text-white text-lg font-bold'
                 onClick={handleNextPage}
               >
                 Book now

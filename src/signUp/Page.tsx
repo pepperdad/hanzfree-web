@@ -114,10 +114,10 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
 
           <SignInGoogle from={from} />
 
-          <div className='flex justify-center mt-4 text-sm md:text-base gap-4'>
+          <div className='flex justify-center mt-4 text-sm md:text-base'>
             <p className='text-gray-400'>Already have an account?</p>
             <span
-              className='ml-36 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2 text-sm md:text-base'
+              className='ml-3 text-blue-700 hover:text-blue-900 cursor-pointer underline underline-offset-2 text-sm md:text-base'
               onClick={() => router.push('/login')}
             >
               Sign in

@@ -13,7 +13,7 @@ const CompletePage = () => {
       <div className='flex-center flex-col text-center'>
         <div className='text-4xl md:text-6xl font-medium pb-4'>Sign up Complete!</div>
         <h2 className='pb-8 text-lg text-center text-gray-500'>get Started with your account</h2>
-        <div className='w-80 h-96'>
+        <div className='w-80 h-80'>
           <Complete />
         </div>
         <button

@@ -17,7 +17,7 @@ const SubmitForm = () => {
           (You can choose your payment method in the next step){' '}
         </div>
         <button
-          className='px-3 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded-lg'
+          className='px-3 py-2 text-white bg-blue-700 hover:bg-blue-800 rounded-lg'
           type='submit'
         >
           Go to payment
