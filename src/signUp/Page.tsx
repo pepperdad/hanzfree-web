@@ -106,8 +106,10 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
           <Loading />
         </div>
       )}
-      <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
-      <h2 className='pb-8 text-lg text-center text-gray-500'>create an account to continue</h2>
+      <h1 className='text-3xl md:text-4xl font-bold text-center'>Sign Up</h1>
+      <h2 className='pb-8 text-sm md:text-lg text-center text-gray-500'>
+        create an account to continue
+      </h2>
       <div className='flex justify-center'>
         <div className='relative w-4/5 md:w-2/5'>
           <SignUpForm onClick={onClick} setCountry={setCountry} setDialCode={setDialCode} />
