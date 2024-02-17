@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@shared/components/Button';
+import { Avatar, AvatarFallback, AvatarImage } from '@shared/components/shadcn/ui/avatar';
 import { UserProfile } from '@shared/types';
 
 interface PcHeaderProps extends UserProfile {
@@ -46,9 +47,18 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
         </nav>
       </div>
       {userData ? (
-        <div className='hidden lg:flex items-center gap-6 '>
-          <div className='text-center flex-center text-slate-100 font-bold'>
-            <span>Welcome!</span>
+        <div className='hidden lg:flex items-center gap-6'>
+          <div
+            className='text-center flex-center text-slate-100 font-bold cursor-pointer hover:text-slate-300 transition hover:opacity-60'
+            onClick={() => {
+              router.push('/user');
+            }}
+          >
+            <Avatar className='w-8 h-8 shadow-md border'>
+              <AvatarImage src={userData.profileImg} alt='user-image' />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+
             <span className='ml-2'>
               {userData.firstName.toUpperCase()} {userData.lastName.toUpperCase()}
             </span>

@@ -39,7 +39,7 @@ const Header = ({ userData }: UserProfile) => {
 
   return (
     <div className='pb-20'>
-      <header className='fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-4 bg-blue-600 rounded-bl-5 rounded-br-5'>
+      <header className='fixed top-0 left-0 right-0 z-50 px-6 md:px-16 py-4 bg-blue-700 rounded-bl-5 rounded-br-5'>
         <PcHeader
           userData={userData}
           scrollToSection={scrollToSection}

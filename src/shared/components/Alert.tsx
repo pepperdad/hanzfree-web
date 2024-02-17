@@ -29,7 +29,7 @@ const Alert = ({ onAlert, setOnAlert }: AlertProps) => {
             <AlertDialogDescription>{onAlert.message}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='bg-blue-500 hover:bg-blue-700'>
+            <AlertDialogAction className='bg-blue-700 hover:bg-blue-800'>
               Continue
             </AlertDialogAction>
           </AlertDialogFooter>

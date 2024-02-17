@@ -30,9 +30,9 @@ const DetailPage = () => {
   }, [id]);
 
   return (
-    <div className='min-h-screen-230 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-230 md:min-h-0 p-8  md:rounded-3xl'>
-        <div className='flex justify-between gap-3 mb-4 md:mb-6 items-center shadow-md bg-white p-4 rounded-xl'>
+    <div className='min-h-screen-280 flex items-center justify-center bg-gray-100 md:py-8'>
+      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8  md:rounded-3xl'>
+        <div className='flex justify-between gap-3 mb-4 md:mb-6 items-center shadow-md bg-white p-4 md:p-6 rounded-xl'>
           <div>
             <p className='text-lg md:text-2xl text-green-500 font-semibold'>Booking completed</p>
             <p className='my-3 text-xl text-black font-medium'>
@@ -78,7 +78,7 @@ const DetailPage = () => {
             </div>
           </div>
         ) : (
-          <div key={reservation.id} className='flex bg-white p-4 rounded-xl shadow-md'>
+          <div key={reservation.id} className='flex bg-white p-4 md:p-6 rounded-xl shadow-md'>
             <div className='grow'>
               <p className='text-gray-800 md:text-xl font-semibold mb-4'>
                 Booked date {formatDate(reservation.date as string)}

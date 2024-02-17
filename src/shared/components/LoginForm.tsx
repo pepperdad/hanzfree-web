@@ -25,7 +25,7 @@ const LoginForm = ({ onClick }: LoginFormProps) => {
         label='Password'
         inputStyle='bg-slate-100'
       />
-      <Button fullWidth type='submit' buttonStyle='mt-4'>
+      <Button fullWidth type='submit' buttonStyle='mt-4 bg-blue-700 hover:bg-blue-800'>
         Log in
       </Button>
     </form>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@shared/components/Button';
+import { Avatar, AvatarFallback, AvatarImage } from '@shared/components/shadcn/ui/avatar';
 import { UserProfile } from '@shared/types';
 
 interface MobileHeaderProps extends UserProfile {
@@ -51,6 +52,23 @@ const MobileHeader = ({
         <div className='my-4 flex flex-col'>
           {userData ? (
             <>
+              <div
+                className='text-center flex-center text-slate-100 font-semibold cursor-pointer hover:text-slate-300 transition hover:opacity-60 mt-2 mb-4 shadow-md p-1 rounded'
+                onClick={() => {
+                  router.push('/user');
+                }}
+              >
+                <Avatar className='w-8 h-8 shadow border'>
+                  <AvatarImage src={userData.profileImg} alt='user-image' />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+
+                <span className='ml-2 text-black'>
+                  {userData.firstName.toUpperCase()} {userData.lastName.toUpperCase()}
+                  <span>&apos;s page</span>
+                </span>
+              </div>
+
               <Button onClick={() => redirectUrl('/booking')}>My Bookings</Button>
               <Button buttonStyle='mt-2 bg-gray-400 hover:bg-gray-500' onClick={handleLogout}>
                 Sign out

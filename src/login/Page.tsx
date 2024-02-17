@@ -9,6 +9,8 @@ import SignInGoogle from '@shared/components/SignInGoogle';
 
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
+const Airplane = dynamic(() => import('@shared/components/animation/airplane'), { ssr: false });
+
 const Page = () => {
   const router = useRouter();
 
@@ -63,31 +65,41 @@ const Page = () => {
   };
 
   return (
-    <div className='py-8 min-h-screen-230'>
+    <div className='py-8 min-h-280 flex-center'>
       {loading && (
-        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-80 bg-slate-50'>
+        <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-60 bg-slate-50'>
           <Loading />
         </div>
       )}
 
-      <h1 className='text-4xl font-bold text-center'>Log In</h1>
-      <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
-      <div className='flex justify-center'>
-        <div className='relative w-3/5 md:w-1/3'>
-          <LoginForm onClick={onClick} />
-          <div className='flex justify-center'>
-            {error && <span className='absolute text-red-500 top-55'>{error}</span>}
-          </div>
+      <div className='md:w-4/5 flex w-full'>
+        <div className='w-1/2 hidden md:block'>
+          <Airplane />
+        </div>
 
-          <SignInGoogle from={from} />
-          <div className='flex justify-center mt-4'>
-            <p className='text-gray-400'>Don&apos;t have an account yet?</p>
-            <span
-              className='ml-2 text-blue-700 cursor-pointer hover:underline hover:underline-offset-2'
-              onClick={() => router.push('/signup')}
-            >
-              Sign up
-            </span>
+        <div className='w-full md:w-1/2 flex flex-col items-center'>
+          <h1 className='text-4xl font-bold text-center'>Log In</h1>
+          <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
+          <div className='flex justify-center w-full'>
+            <div className='w-4/5 relative md:w-4/5'>
+              <LoginForm onClick={onClick} />
+              <div className='flex justify-center'>
+                {error && <span className='absolute text-red-500 top-55'>{error}</span>}
+              </div>
+
+              <SignInGoogle from={from} />
+              <div className='flex justify-center mt-4'>
+                <p className='text-gray-400 text-sm md:text-base'>
+                  Don&apos;t have an account yet?
+                </p>
+                <span
+                  className='ml-3 text-blue-700 hover:text-blue-900 cursor-pointer underline underline-offset-2 text-sm md:text-base'
+                  onClick={() => router.push('/signup')}
+                >
+                  Sign up
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

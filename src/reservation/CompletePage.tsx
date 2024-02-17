@@ -20,7 +20,7 @@ const CompletePage = () => {
   const router = useRouter();
   const reservation = useRecoilValue(reservationState);
 
-  // console.log('reservation1', reservation);
+  // console.log('reservation', reservation);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -29,9 +29,9 @@ const CompletePage = () => {
   }, []);
 
   return (
-    <div className='py-8 md:py-12 min-h-screen-230 mx-6'>
+    <div className='py-8 md:py-12 min-h-280 mx-6'>
       <div className='flex-center flex-col text-center'>
-        <div className='absolute top-0 left-0 flex-center w-screen h-screen -z-10'>
+        <div className='absolute top-0 left-0 flex-center w-screen h-64 z-10'>
           <Complete />
         </div>
         <div className='text-3xl md:text-5xl font-bold pb-4'>Thank you for your reservation!</div>
