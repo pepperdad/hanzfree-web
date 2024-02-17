@@ -20,10 +20,6 @@ const Page = ({ setPage }: PagePropsWithSetPage) => {
   const [dialCode, setDialCode] = useState<string>('');
   const [loading, setLoading] = useState(false);
 
-  const googleLoginHandler = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?from=${from}`;
-  };
-
   const onClick = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
