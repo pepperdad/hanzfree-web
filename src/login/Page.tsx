@@ -14,7 +14,6 @@ const Airplane = dynamic(() => import('@shared/components/animation/airplane'), 
 const Page = () => {
   const router = useRouter();
 
-  // TODO: 소셜로그인 리다이렉트
   const { from } = router.query;
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -78,8 +77,11 @@ const Page = () => {
         </div>
 
         <div className='w-full md:w-1/2 flex flex-col items-center'>
-          <h1 className='text-4xl font-bold text-center'>Log In</h1>
-          <h2 className='pb-8 text-lg text-center text-gray-500'>Sign in to use service</h2>
+          <h1 className='text-3xl md:text-4xl font-bold text-center'>Log In</h1>
+          <h2 className='mt-1 pb-8 text-sm md:text-lg text-center text-gray-500'>
+            {from ? 'Sign in to use service' : 'Welcome! We are hanzfree. Enjoy your travel.'}
+          </h2>
+
           <div className='flex justify-center w-full'>
             <div className='w-4/5 relative md:w-4/5'>
               <LoginForm onClick={onClick} />

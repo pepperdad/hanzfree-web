@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ label, fullWidth, type, inputStyle, ...pr
   };
   return (
     <div className={`flex flex-col ${fullWidth ? 'w-full' : ''}`}>
-      {label && <label className='mb-1'>{label}</label>}
+      {label && <label className='text-sm md:text-base mb-1'>{label}</label>}
       <div className='relative'>
         <input
           type={type === 'password' && !showPassword ? 'password' : 'text'}
