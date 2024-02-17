@@ -47,15 +47,15 @@ const PcHeader = ({ userData, scrollToSection, toggleMenu, handleLogout }: PcHea
         </nav>
       </div>
       {userData ? (
-        <div className='hidden lg:flex items-center gap-6 '>
+        <div className='hidden lg:flex items-center gap-6'>
           <div
-            className='text-center flex-center text-slate-100 font-bold cursor-pointer hover:text-slate-300 transition-colors'
+            className='text-center flex-center text-slate-100 font-bold cursor-pointer hover:text-slate-300 transition hover:opacity-60'
             onClick={() => {
               router.push('/user');
             }}
           >
-            <Avatar className='w-8 h-8'>
-              <AvatarImage src='/assets/shared/avatar.jpeg' alt='user-image' />
+            <Avatar className='w-8 h-8 shadow-md border'>
+              <AvatarImage src={userData.profileImg} alt='user-image' />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
 
