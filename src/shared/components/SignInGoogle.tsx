@@ -8,7 +8,7 @@ interface SignInGoogleProps {
 
 const SignInGoogle = ({ from }: SignInGoogleProps) => {
   const googleLoginHandler = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/login?from=${from}`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/redirect?from=${from}`;
   };
 
   return (
