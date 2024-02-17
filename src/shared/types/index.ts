@@ -14,20 +14,21 @@ export interface PagePropsWithSetPage {
 
 export interface UserProfileData {
   id: number;
+  email: string;
+  firstName: string;
+  isSocialAccountRegistered: boolean;
+  lastName: string;
+  phoneNumber: string;
+  profileImg: string;
+  role: string;
+  socialProvider: string;
   country: string | null;
   countryCode: string | null;
   createdAt: string;
   currentRefreshToken: string;
   currentRefreshTokenExp: string;
   dialCode: string;
-  email: string;
   externalId: null;
-  firstName: string;
-  isSocialAccountRegistered: boolean;
-  lastName: string;
-  phoneNumber: string;
-  role: string;
-  socialProvider: string;
 }
 
 export interface UserProfile {

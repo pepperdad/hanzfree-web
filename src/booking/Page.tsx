@@ -32,9 +32,9 @@ const Page = () => {
 
   return (
     <div className='min-h-screen-280 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl'>
+      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl mx-0 md:mx-4'>
         <div className='flex items-end mb-6'>
-          <h1 className='text-lg md:text-3xl font-semibold text-blue-500'>My Bookings</h1>
+          <h1 className='text-lg md:text-3xl font-semibold text-blue-700'>My Bookings</h1>
           <span className='text-sm md:text-base ml-2 text-gray-500'>
             ({reservationList.length} records)
           </span>
@@ -53,9 +53,12 @@ const Page = () => {
           <div className='grid gap-6'>
             {reservationList?.map((reservation: ReservationData) => (
               <Link key={reservation.id} href={`/booking/${reservation.id}`}>
-                <div className='flex p-4 border rounded-xl hover:shadow-md'>
+                <div className='flex pl-3 pr-4 py-4 border rounded-xl shadow-md hover:shadow-lg'>
+                  <div className='relative w-7 h-7 mr-2'>
+                    <Image src='/assets/landing/logo_small.svg' alt='section1' layout='fill' />
+                  </div>
                   <div className='grow'>
-                    <p className='md:text-lg font-semibold'>
+                    <p className='md:text-lg font-semibold mb-3'>
                       Booked on {formatDate(reservation.date as string)}
                     </p>
                     <p className='booking_detail_label'>
