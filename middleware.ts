@@ -10,7 +10,8 @@ export async function middleware(request: NextRequest) {
 
   if (
     request.nextUrl.pathname.startsWith('/booking') ||
-    request.nextUrl.pathname.startsWith('/reservation')
+    request.nextUrl.pathname.startsWith('/reservation') ||
+    request.nextUrl.pathname.startsWith('/user')
   ) {
     return withAuth(request);
   }
@@ -25,5 +26,11 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/test/:path*', '/admin/:path*', '/reservation/:path*', '/booking/:path*'],
+  matcher: [
+    '/test/:path*',
+    '/admin/:path*',
+    '/reservation/:path*',
+    '/booking/:path*',
+    '/user/:path*',
+  ],
 };
