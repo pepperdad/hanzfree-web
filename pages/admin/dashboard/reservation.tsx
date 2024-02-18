@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 import { getLogginedUser } from '@pages/api';
 import Instance from '@pages/api/config';
+import { DELIVERY_TYPE } from '@reservation/constants';
 import Button from '@shared/components/Button';
 import InputCalendar from '@shared/components/InputCalendar';
 
@@ -13,27 +14,23 @@ import { Admin } from '.';
 interface Reservation {
   id: number;
   date: string;
-  method: string;
+  method: keyof typeof DELIVERY_TYPE;
   firstName: string;
   lastName: string;
   createdAt: string;
   // 예약과 관련된 다른 필드들 추가
 }
 
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
+const initialFilter = {
+  date: { start: undefined, end: undefined },
+  showCalendar: { start: false, end: false },
+  method: '전체',
+};
 
 const reservation = () => {
-  const initialFilter = {
-    date: { start: undefined, end: undefined },
-    showCalendar: { start: false, end: false },
-    method: '전체',
-  };
-
   const router = useRouter();
   const [admin, setAdmin] = useState<Admin>();
-  const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [reservationList, setReservationList] = useState<Reservation[]>([]);
   const [filter, setFilter] = useState(initialFilter);
 
   useEffect(() => {
@@ -47,7 +44,7 @@ const reservation = () => {
 
     Instance.get('/reservation')
       .then((res) => {
-        setReservations(res.data);
+        setReservationList(res.data);
       })
       .catch((e) => {
         console.error(e);
@@ -107,7 +104,7 @@ const reservation = () => {
       },
     })
       .then((res) => {
-        setReservations(res.data);
+        setReservationList(res.data);
       })
       .catch((e) => {
         console.error(e);
@@ -171,13 +168,15 @@ const reservation = () => {
             </tr>
           </thead>
           <tbody>
-            {reservations?.map((_reservation: Reservation) => (
+            {reservationList?.map((_reservation: Reservation) => (
               <tr key={_reservation.id}>
                 <td className='border border-gray-300 px-4 py-2'>{_reservation.id}</td>
                 <td className='border border-gray-300 px-4 py-2'>
                   {_reservation?.date?.slice(0, 10)}
                 </td>
-                <td className='border border-gray-300 px-4 py-2'>{_reservation.method}</td>
+                <td className='border border-gray-300 px-4 py-2'>
+                  {DELIVERY_TYPE[_reservation.method]}
+                </td>
                 <td className='border border-gray-300 px-4 py-2'>
                   {_reservation.firstName} {_reservation.lastName}
                 </td>
