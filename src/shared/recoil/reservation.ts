@@ -8,6 +8,7 @@ export const reservationState = atom<ReservationData>({
   key: `reservationState/${uniqueId}`, // 각 atom의 고유한 키
   default: {
     id: 1,
+    bookingNumber: '',
     method: 'airportToHotel',
     date: null,
     quantity: 1,
