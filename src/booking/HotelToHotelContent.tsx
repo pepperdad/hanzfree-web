@@ -11,13 +11,13 @@ const HotelToHotelContent = ({ reservation, detail = false }: ContentProps) => {
         <p className='booking_detail_label'>
           Path:
           <span className='booking_detail_content'>
-            Termianl {reservation.airportTerminal} -&gt; {reservation.hotelAddress}
+            {reservation.hotelAddress} -&gt; {reservation.arrivalHotelAddress}
           </span>
         </p>
         <p className='booking_detail_label'>
-          Luggage drop-off time:
+          Your departure time at hotel:
           <span className='booking_detail_content'>
-            {reservation.dropOffTimeHour} : {reservation.dropOffTimeMin}
+            {reservation.departureTimeHour} : {reservation.departureTimeMin}
           </span>
         </p>
       </>
@@ -31,7 +31,7 @@ const HotelToHotelContent = ({ reservation, detail = false }: ContentProps) => {
         content={`${reservation.hotelAddress} -> ${reservation.arrivalHotelAddress}`}
       />
       <DetailColumn
-        label='Luggage drop-off time'
+        label='Your departure time at hotel'
         content={`${reservation.departureTimeHour} : ${reservation.departureTimeMin}`}
       />
       <DetailColumn label='Hotel Name' content={`${reservation.hotelName}`} />

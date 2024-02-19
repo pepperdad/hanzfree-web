@@ -21,6 +21,7 @@ const Page = () => {
     getReservationList()
       .then((res) => {
         setReservationList(res.data);
+        // console.log('res.data', res.data);
       })
       .catch((error) => {
         console.error('Error fetching reservation list:', error);
@@ -52,7 +53,7 @@ const Page = () => {
         ) : (
           <div className='grid gap-6'>
             {reservationList?.map((reservation: ReservationData) => (
-              <Link key={reservation.id} href={`/booking/${reservation.id}`}>
+              <Link key={reservation.id} href={`/booking/${reservation.bookingNumber}`}>
                 <div className='flex pl-3 pr-4 py-4 border rounded-xl shadow-md hover:shadow-lg'>
                   <div className='relative w-7 h-7 mr-2'>
                     <Image src='/assets/landing/logo_small.svg' alt='section1' layout='fill' />

@@ -22,6 +22,19 @@ const DetailPage = () => {
     getReservation(id as string)
       .then((res) => {
         // console.log('res', res);
+
+        if (res.status === 404) {
+          alert('Reservation not found');
+          router.push('/');
+          return;
+        }
+
+        if (res.status === 403) {
+          alert('Unauthorized access');
+          router.push('/');
+          return;
+        }
+
         setReservation(res.data);
       })
       .catch((error) => {

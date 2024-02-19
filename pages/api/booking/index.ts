@@ -5,8 +5,8 @@ export const getReservationList = () => {
   return res;
 };
 
-export const getReservation = (id: string) => {
-  const res = Instance.get(`/user/reservation/${id}`);
+export const getReservation = (bookingNumber: string) => {
+  const res = Instance.get(`/user/reservation/${bookingNumber}`);
   return res;
 };
 

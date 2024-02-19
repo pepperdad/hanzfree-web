@@ -44,7 +44,7 @@ const HotelToHotelForm = ({ register, errors }: FormInputProps) => {
       />
 
       <TimeSelect
-        label='Departure time at hotel'
+        label='Your departure time at hotel'
         hourName='departureTimeHour'
         minuteName='departureTimeMin'
         register={register}
