@@ -14,7 +14,7 @@ const index = () => {
       <div className='relative w-64 md:w-80 h-16'>
         <Image src='/assets/header/logo_string.svg' alt='logo' layout='fill' />
       </div>
-      <p className='text-4xl mt-10'>😔</p>
+      <p className='text-4xl md:text-6xl mt-10'>😔</p>
       <h1 className='text-xl md:text-3xl mt-2'>Ooups, page not found</h1>
       <p className='text-sm text-gray-500 p-5'>
         we are very sorry for the inconvenience. It looks like you&apos;re trying to access a page
