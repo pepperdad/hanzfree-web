@@ -45,6 +45,7 @@ export type DateType = DatePiece | [DatePiece, DatePiece];
 
 export interface ReservationData {
   id: number;
+  bookingNumber: string;
   method: keyof typeof DELIVERY_TYPE;
   date: Date | null | string;
   quantity: number;
