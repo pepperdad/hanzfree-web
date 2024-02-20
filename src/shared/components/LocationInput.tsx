@@ -2,6 +2,8 @@ import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 
+import Alert from './Alert';
+
 const center = {
   lat: 37.5649867,
   lng: 126.985575,
@@ -27,6 +29,10 @@ const LocationInput = ({
   // });
 
   const [markerPosition, setMarkerPosition] = useState<any>(null);
+  const [onAlert, setOnAlert] = useState({
+    open: false,
+    message: '',
+  });
 
   let autocomplete: any;
 
@@ -50,7 +56,11 @@ const LocationInput = ({
 
       if (!place.geometry) {
         document.getElementById('autocomplete')?.setAttribute('placeholder', 'Enter a location');
-        alert('Enter an available location');
+
+        setOnAlert({
+          open: true,
+          message: 'Enter an available location',
+        });
       } else {
         console.log('place', place);
         setLocation({
@@ -80,6 +90,7 @@ const LocationInput = ({
 
   return (
     <div className='flex flex-col w-full'>
+      {onAlert && <Alert onAlert={onAlert} setOnAlert={setOnAlert} />}
       <div className='h-40 w-full'>
         <GoogleMap
           mapContainerStyle={{ position: 'relative', width: '100%', height: '100%' }}
