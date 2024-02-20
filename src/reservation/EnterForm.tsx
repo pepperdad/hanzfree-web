@@ -40,6 +40,16 @@ const EnterForm = ({ userData }: EnterFormProps) => {
   const [country, setCountry] = useState<string>('');
   const [dialCode, setDialCode] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
+  const [location, setLocation] = useState({
+    placeName: '',
+    input: '',
+    address: '',
+  });
+  const [arrivalLocation, setArrivalLocation] = useState({
+    placeName: '',
+    input: '',
+    address: '',
+  });
 
   const onValid = async (data: any) => {
     if (isSubmitting) return;
@@ -49,6 +59,8 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     try {
       const formData = {
         ...data,
+        hotelName: location.input,
+        hotelAddress: location.address,
         country,
         dialCode,
         email: userData.email,
@@ -58,6 +70,8 @@ const EnterForm = ({ userData }: EnterFormProps) => {
         date: reservation.date,
         quantity: reservation.quantity,
         price: reservation.price,
+        arrivalhotelName: reservation.method === 'hotelToHotel' ? arrivalLocation.input : '',
+        arrivalhotelAddress: reservation.method === 'hotelToHotel' ? arrivalLocation.address : '',
       };
 
       // TODO: TEST
@@ -102,6 +116,16 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     });
   }, []);
 
+  document.addEventListener(
+    'keydown',
+    function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+      }
+    },
+    true,
+  );
+
   return (
     <div className='md:w-4/5 mt-3'>
       {isSubmitting && (
@@ -115,11 +139,28 @@ const EnterForm = ({ userData }: EnterFormProps) => {
         className='flex flex-col md:flex-row flex-wrap justify-between gap-y-2 md:gap-y-3'
       >
         {reservation.method === 'airportToHotel' ? (
-          <AirportToHotelForm register={register} errors={errors} />
+          <AirportToHotelForm
+            location={location}
+            setLocation={setLocation}
+            register={register}
+            errors={errors}
+          />
         ) : reservation.method === 'hotelToAirport' ? (
-          <HotelToAirportForm register={register} errors={errors} />
+          <HotelToAirportForm
+            location={location}
+            setLocation={setLocation}
+            register={register}
+            errors={errors}
+          />
         ) : (
-          <HotelToHotelForm register={register} errors={errors} />
+          <HotelToHotelForm
+            location={location}
+            setLocation={setLocation}
+            arrivalLocation={arrivalLocation}
+            setArrivalLocation={setArrivalLocation}
+            register={register}
+            errors={errors}
+          />
         )}
 
         <div className='flex flex-col md:w-1/2-20'>
