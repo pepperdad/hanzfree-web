@@ -82,7 +82,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Favicon 설정 */}
         <link rel='icon' href='/logo_favicon.png' />
       </Head>
+
       <Component {...pageProps} />
+      <script
+        defer
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY}&libraries=places&language=en`}
+      />
     </RecoilRoot>
   );
 }

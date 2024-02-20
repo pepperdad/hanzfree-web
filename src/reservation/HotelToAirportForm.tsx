@@ -1,26 +1,22 @@
 import React from 'react';
 
-import { FormInputProps } from './AirportToHotelForm';
+import LocationInput from '@shared/components/LocationInput';
+
 import { AIRPORT_TERMINAL } from './constants';
+import { FormInputProps } from './HotelToHotelForm';
 import InputField from './InputField';
 import TimeSelect from './TimeSelect';
 
-const HotelToAirportForm = ({ register, errors }: FormInputProps) => {
+const HotelToAirportForm = ({ location, setLocation, register, errors }: FormInputProps) => {
   return (
     <>
-      <InputField
-        width='md:w-1/2-20'
-        inputName='hotelName'
+      <LocationInput
         label='Hotel Name'
-        register={register}
-        rules={{ required: 'please enter your hotel name' }}
-        errors={errors}
-      />
-
-      <InputField
-        width='md:w-1/2-20'
-        inputName='hotelAddress'
-        label='Hotel Address'
+        addressLabel='Hotel Address'
+        name='hotelName'
+        address='hotelAddress'
+        location={location}
+        setLocation={setLocation}
         register={register}
         rules={{ required: 'please enter your hotel address' }}
         errors={errors}

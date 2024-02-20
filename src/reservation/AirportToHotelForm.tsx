@@ -1,20 +1,27 @@
 import React from 'react';
 
-import { UseFormReturn } from 'react-hook-form';
+import LocationInput from '@shared/components/LocationInput';
 
 import { AIRPORT_TERMINAL } from './constants';
+import { FormInputProps } from './HotelToHotelForm';
 import InputField from './InputField';
 import TimeSelect from './TimeSelect';
 
-export interface FormInputProps {
-  register: UseFormReturn['register'];
-  errors: UseFormReturn['formState']['errors'];
-}
-
-const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
+const AirportToHotelForm = ({ location, setLocation, register, errors }: FormInputProps) => {
   return (
     <>
-      <InputField
+      <LocationInput
+        label='Hotel Name'
+        addressLabel='Hotel Address'
+        name='hotelName'
+        address='hotelAddress'
+        location={location}
+        setLocation={setLocation}
+        register={register}
+        rules={{ required: 'please enter your hotel address' }}
+        errors={errors}
+      />
+      {/* <InputField
         inputName='hotelName'
         width='md:w-1/2-20'
         label='Hotel Name'
@@ -29,16 +36,7 @@ const AirportToHotelForm = ({ register, errors }: FormInputProps) => {
         //   value: 5,
         // },
         errors={errors}
-      />
-
-      <InputField
-        inputName='hotelAddress'
-        width='md:w-1/2-20'
-        label='Hotel Address'
-        register={register}
-        rules={{ required: 'please enter your hotel address' }}
-        errors={errors}
-      />
+      /> */}
 
       <InputField
         inputName='hotelRepresentativeName'
