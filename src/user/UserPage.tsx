@@ -50,8 +50,8 @@ const UserPage = ({ userData }: UserProfile) => {
   }, []);
 
   return (
-    <div className='min-h-screen-280 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl mx-0 md:mx-4'>
+    <div className='min-h-screen-264 flex items-center justify-center bg-gray-100 md:py-8'>
+      <div className='max-w-screen-lg w-full min-h-screen-264 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl mx-0 md:mx-4'>
         {loading ? (
           <div className='flex flex-col items-center space-y-6'>
             <Skeleton className='h-10 w-3/5 rounded-xl' />

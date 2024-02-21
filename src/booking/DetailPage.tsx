@@ -43,8 +43,8 @@ const DetailPage = () => {
   }, [id]);
 
   return (
-    <div className='min-h-screen-280 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8  md:rounded-3xl'>
+    <div className='min-h-screen-264 flex items-center justify-center bg-gray-100 md:py-8'>
+      <div className='max-w-screen-lg w-full min-h-screen-264 md:min-h-0 p-8  md:rounded-3xl'>
         <div className='flex justify-between gap-3 mb-4 md:mb-6 items-center shadow-md bg-white p-4 md:p-6 rounded-xl'>
           <div>
             <p className='text-lg md:text-2xl text-green-500 font-semibold'>Booking completed</p>

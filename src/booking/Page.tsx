@@ -32,8 +32,8 @@ const Page = () => {
   }, []);
 
   return (
-    <div className='min-h-screen-280 flex items-center justify-center bg-gray-100 md:py-8'>
-      <div className='max-w-screen-lg w-full min-h-screen-280 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl mx-0 md:mx-4'>
+    <div className='min-h-screen-264 flex items-center justify-center bg-gray-100 md:py-8'>
+      <div className='max-w-screen-lg w-full min-h-screen-264 md:min-h-0 p-8 bg-white shadow-md md:rounded-3xl mx-0 md:mx-4'>
         <div className='flex items-end mb-6'>
           <h1 className='text-lg md:text-3xl font-semibold text-blue-700'>My Bookings</h1>
           <span className='text-sm md:text-base ml-2 text-gray-500'>

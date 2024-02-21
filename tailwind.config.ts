@@ -33,7 +33,7 @@ const config = {
         '1/2-20': 'calc(50% - 20px)',
       },
       minHeight: {
-        'screen-280': 'calc(100vh - 280px);',
+        'screen-264': 'calc(100vh - 264px);',
       },
       colors: {
         border: 'hsl(var(--border))',
