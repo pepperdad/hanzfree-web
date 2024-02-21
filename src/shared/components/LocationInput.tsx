@@ -62,7 +62,8 @@ const LocationInput = ({
           message: 'Enter an available location',
         });
       } else {
-        console.log('place', place);
+        // console.log('place', place);
+
         setLocation({
           placeName: place.name,
           input: place.name,
