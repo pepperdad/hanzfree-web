@@ -1280,6 +1280,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shopify/admin-api-client@npm:^0.2.5":
+  version: 0.2.5
+  resolution: "@shopify/admin-api-client@npm:0.2.5"
+  dependencies:
+    "@shopify/graphql-client": ^0.10.0
+  checksum: eb490018e4d33f9c0c446316f63311264684a30ae6b96a3877ed16befc2cb22ce72086ef64272b996d748004254fee509327f67101d5f756324551a86c5b8b26
+  languageName: node
+  linkType: hard
+
+"@shopify/graphql-client@npm:^0.10.0":
+  version: 0.10.0
+  resolution: "@shopify/graphql-client@npm:0.10.0"
+  checksum: ae9d136669c5ecaf1c8bbc1776c393c7070f42e386d516628efe2e588eea9d5494175b8df8338c04d024bf6abdbb82ba070a61e98e4b4ca169e547901e09c468
+  languageName: node
+  linkType: hard
+
+"@shopify/network@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@shopify/network@npm:3.2.1"
+  checksum: 0a5573f3988be80cf3dd28df4fcb942586cb5d3e6f5cb2105d319b0fcef083212990045c5830bfc37a0faef3ad05705839c5f23eabb82c13c3b57e314f0dc0fb
+  languageName: node
+  linkType: hard
+
+"@shopify/shopify-api@npm:^9.3.2":
+  version: 9.3.2
+  resolution: "@shopify/shopify-api@npm:9.3.2"
+  dependencies:
+    "@shopify/admin-api-client": ^0.2.5
+    "@shopify/network": ^3.2.1
+    "@shopify/storefront-api-client": ^0.3.0
+    compare-versions: ^6.1.0
+    isbot: ^4.4.0
+    jose: ^5.2.0
+    node-fetch: ^2.6.1
+    tslib: ^2.0.3
+    uuid: ^9.0.0
+  checksum: 8ed68e60c7241da8352f9b00d506efffdab02811eac1c64ee71caf2bfc7aef902ac35c32d0bb2badc75be22d68f9f26f17e5feb9ecb3446d65642108e2095a31
+  languageName: node
+  linkType: hard
+
+"@shopify/storefront-api-client@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@shopify/storefront-api-client@npm:0.3.0"
+  dependencies:
+    "@shopify/graphql-client": ^0.10.0
+  checksum: 4089f3c69c44a2c2feae628b3d18c8ff6bc284c5f2b97fdd0d57ef2a9ddee37b8be414e6bc2ef97bba1018ab3d50593ca7b92c94ced15777981139913303b6dc
+  languageName: node
+  linkType: hard
+
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
   resolution: "@swc/helpers@npm:0.4.11"
@@ -2163,6 +2212,13 @@ __metadata:
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: d7b9913ff92cae20cb577a4ac6fcc121bd6223319e54a40f51a14740a681ad5c574fd29a57da478a5f234a6fa6c52cbf0b7c641353e03c648b1ae85ba670b977
+  languageName: node
+  linkType: hard
+
+"compare-versions@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "compare-versions@npm:6.1.0"
+  checksum: d4e2a45706a023d8d0b6680338b66b79e20bd02d1947f0ac6531dab634cbed89fa373b3f03d503c5e489761194258d6e1bae67a07f88b1efc61648454f2d47e7
   languageName: node
   linkType: hard
 
@@ -3353,6 +3409,7 @@ __metadata:
     "@radix-ui/react-select": ^2.0.0
     "@radix-ui/react-slot": ^1.0.2
     "@react-google-maps/api": ^2.19.3
+    "@shopify/shopify-api": ^9.3.2
     "@types/cookie": ^0.6.0
     "@types/google.maps": ^3.55.3
     "@types/intl-tel-input": ^18.1.4
@@ -3847,6 +3904,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"isbot@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "isbot@npm:4.4.0"
+  checksum: fea20d64ad2d7f23d5edb3af370a3e3f7cf2010d5f20fa00d89e45e0ba907f7f3cc9bf9cfdd5a7f408973934b6e665479ff3128f05d28ef18c3ded88a9971cd6
+  languageName: node
+  linkType: hard
+
 "isexe@npm:^2.0.0":
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
@@ -3893,6 +3957,13 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: a7bd5d63921c170eaec91eecd686388181c7828e1fa0657ab374b9372bfc1f383cf4b039e6b272383d5cb25607509880af814a39abdff967322459cca41f2961
+  languageName: node
+  linkType: hard
+
+"jose@npm:^5.2.0":
+  version: 5.2.2
+  resolution: "jose@npm:5.2.2"
+  checksum: d23def3c1df8aae1ae59d1c027a073804034fe8b971dafe51f0452ca8f6eb7e5cd3e3c90b6e544776443e01e58c8f8eefbd1984dbcde378e693e0ebbd176584d
   languageName: node
   linkType: hard
 
@@ -4408,6 +4479,20 @@ __metadata:
   bin:
     next: dist/bin/next
   checksum: fa2372c3dfaa8c3910ad443a6489ea2578c141e8c819544eb98da6ed6a6c960b2496ac8e9baa4f919bc55c60fd072b85eca5fd2a7073a521364f3247ec09dfa2
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.1":
+  version: 2.7.0
+  resolution: "node-fetch@npm:2.7.0"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: d76d2f5edb451a3f05b15115ec89fc6be39de37c6089f1b6368df03b91e1633fd379a7e01b7ab05089a25034b2023d959b47e59759cb38d88341b2459e89d6e5
   languageName: node
   linkType: hard
 
@@ -5772,6 +5857,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tr46@npm:~0.0.3":
+  version: 0.0.3
+  resolution: "tr46@npm:0.0.3"
+  checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
 "ts-api-utils@npm:^1.0.1":
   version: 1.0.3
   resolution: "ts-api-utils@npm:1.0.3"
@@ -5800,7 +5892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.0, tslib@npm:^2.1.0, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
+"tslib@npm:^2.0.0, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
@@ -6028,7 +6120,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.1":
+"uuid@npm:^9.0.0, uuid@npm:^9.0.1":
   version: 9.0.1
   resolution: "uuid@npm:9.0.1"
   bin:
@@ -6043,6 +6135,23 @@ __metadata:
   dependencies:
     loose-envify: ^1.0.0
   checksum: 4f2cb6a9575e4faf71ddad9ad1ae7a00d0a75d24521c193fa464f30e6b04027bd97aa5d9546b0e13d3a150ab402eda216d59c1d0f2d6ca60124d96cd40dfa35c
+  languageName: node
+  linkType: hard
+
+"webidl-conversions@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "webidl-conversions@npm:3.0.1"
+  checksum: c92a0a6ab95314bde9c32e1d0a6dfac83b578f8fa5f21e675bc2706ed6981bc26b7eb7e6a1fab158e5ce4adf9caa4a0aee49a52505d4d13c7be545f15021b17c
+  languageName: node
+  linkType: hard
+
+"whatwg-url@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "whatwg-url@npm:5.0.0"
+  dependencies:
+    tr46: ~0.0.3
+    webidl-conversions: ^3.0.0
+  checksum: b8daed4ad3356cc4899048a15b2c143a9aed0dfae1f611ebd55073310c7b910f522ad75d727346ad64203d7e6c79ef25eafd465f4d12775ca44b90fa82ed9e2c
   languageName: node
   linkType: hard
 
