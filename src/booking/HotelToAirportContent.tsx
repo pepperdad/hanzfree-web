@@ -38,7 +38,7 @@ const HotelToAirportContent = ({ reservation, detail = false }: ContentProps) =>
       <DetailColumn label='Hotel Address' content={`${reservation.hotelAddress}`} />
       <DetailColumn
         label="Hotel Reservation representative's name"
-        content={`${reservation.hotelAddress}`}
+        content={`${reservation.hotelRepresentativeName}`}
       />
       <DetailColumn label='Contact id:' content={`${reservation.contactId}`} />
     </>

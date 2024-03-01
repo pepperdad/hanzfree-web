@@ -6,20 +6,10 @@ import { useRouter } from 'next/router';
 
 import { RecoilRoot } from 'recoil';
 
+import NextNProgress from 'nextjs-progressbar';
 import 'intl-tel-input/build/css/intlTelInput.css';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/globals.css';
-
-// export const metadata = {
-//   title: {
-//     default: '이정민 블로그',
-//     template: '이정민 블로그 | %s',
-//   },
-//   description: '프론트엔드 개발자가 되고 싶은 취준생의 블로그',
-//   icons: {
-//     icon: '/favicon.ico',
-//   },
-// };
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -82,7 +72,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Favicon 설정 */}
         <link rel='icon' href='/logo_favicon.png' />
       </Head>
-
+      <NextNProgress
+        color='#5ec4ff'
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow
+        options={{ showSpinner: false }}
+      />
       <Component {...pageProps} />
       <script
         defer

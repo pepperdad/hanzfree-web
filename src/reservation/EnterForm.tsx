@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -10,12 +10,12 @@ import intlTelInput from 'intl-tel-input';
 
 import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
+import { shopifyProductState } from '@shared/recoil/shopifyProduct';
 import { UserProfileData } from '@shared/types';
 
 import AirportToHotelForm from './AirportToHotelForm';
 import { TERMS } from './constants';
 import ContactInfo from './ContactInfo';
-import { ReservationPageContext } from './context';
 import HotelToAirportForm from './HotelToAirportForm';
 import HotelToHotelForm from './HotelToHotelForm';
 import SubmitForm from './SubmitForm';
@@ -35,8 +35,10 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     formState: { errors, isSubmitting },
   } = useForm({ mode: 'all' });
 
-  const setPage = useContext(ReservationPageContext);
   const [reservation, setReservation] = useRecoilState(reservationState);
+  const [shopifyProducts, setShopifyProducts] = useRecoilState(shopifyProductState);
+  const [selectedProduct, setSelectedProduct] = useState<any>({});
+
   const [country, setCountry] = useState<string>('');
   const [dialCode, setDialCode] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -50,6 +52,47 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     input: '',
     address: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const checkout = async () => {
+    const fetchUrl = 'http://localhost:3000/api/shopify/checkout';
+    // const fetchUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/api/shopify/checkout`;
+    const fetchOptions = {
+      endpoint: fetchUrl,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        variantId: selectedProduct,
+        quantity: reservation.quantity,
+      }),
+    };
+
+    try {
+      setIsLoading(true);
+
+      const response = await fetch(fetchUrl, fetchOptions);
+
+      if (!response.ok) {
+        let message = await response.json();
+        message = message.error;
+        throw new Error(message);
+      }
+
+      const data = await response.json();
+      const { checkoutURL } = data;
+      const checkoutId = checkoutURL.split('/')[5];
+      const indexOfQuestionMark = checkoutId.indexOf('?');
+      const strWithoutQuery = checkoutId.slice(0, indexOfQuestionMark);
+
+      window.location.href = checkoutURL;
+
+      return strWithoutQuery;
+    } catch (e: any) {
+      throw new Error(e.message || 'An error occurred.');
+    }
+  };
 
   const onValid = async (data: any) => {
     if (isSubmitting) return;
@@ -57,8 +100,17 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     document.body.style.overflow = 'hidden';
 
     try {
+      const checkoutId = await checkout();
+
+      const currentDate = new Date();
+      const utcOffsetInMinutes = currentDate.getTimezoneOffset();
+      const adjustedReservationDate = new Date(
+        (new Date(reservation?.date as string) as Date).getTime() - utcOffsetInMinutes * 60 * 1000,
+      );
+
       const formData = {
         ...data,
+        bookingNumber: checkoutId,
         hotelName: location.input,
         hotelAddress: location.address,
         country,
@@ -67,23 +119,19 @@ const EnterForm = ({ userData }: EnterFormProps) => {
         firstName: userData.firstName,
         lastName: userData.lastName,
         method: reservation.method,
-        date: reservation.date,
+        date: adjustedReservationDate,
         quantity: reservation.quantity,
         price: reservation.price,
         arrivalhotelName: reservation.method === 'hotelToHotel' ? arrivalLocation.input : '',
         arrivalhotelAddress: reservation.method === 'hotelToHotel' ? arrivalLocation.address : '',
       };
 
-      // TODO: TEST
-      // setReservation(formData);
-      // setPage(3);
-
       const res = await Instance.post('/reservation', formData);
       // console.log('res', res);
 
       if (res.status === 201) {
         setReservation(res.data);
-        setPage(3);
+        // setPage(3);
       }
     } catch (e) {
       document.body.style.overflow = 'visible';
@@ -114,6 +162,19 @@ const EnterForm = ({ userData }: EnterFormProps) => {
       setDialCode(itiDialCode);
       setCountry(name);
     });
+  }, []);
+
+  useEffect(() => {
+    let handle = '';
+    if (reservation.method === 'airportToHotel') handle = 'airport-to-hotel';
+    else if (reservation.method === 'hotelToAirport') handle = 'hotel-to-airport';
+    else if (reservation.method === 'hotelToHotel') handle = 'hotel-to-hotel';
+
+    setSelectedProduct(
+      shopifyProducts
+        .filter((product: any) => product.node.handle === handle)
+        .map((product: any) => product.node.variants.edges[0].node.id)[0],
+    );
   }, []);
 
   document.addEventListener(
@@ -197,7 +258,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
 
         <ContactInfo userData={userData} dialCode={dialCode} phone={phone} />
 
-        <SubmitForm />
+        <SubmitForm isLoading={isLoading} />
       </form>
     </div>
   );

@@ -3,11 +3,12 @@ import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 import AirportToHotelContent from '@booking/AirportToHotelContent';
 import HotelToAirportContent from '@booking/HotelToAirportContent';
 import HotelToHotelContent from '@booking/HotelToHotelContent';
+import { getReservation } from '@pages/api/booking';
 import DetailColumn from '@shared/components/DetailColumn';
 import { reservationState } from '@shared/recoil';
 import { formatDate } from '@shared/util';
@@ -18,9 +19,27 @@ const Complete = dynamic(() => import('@shared/components/animation/celebrate'),
 
 const CompletePage = () => {
   const router = useRouter();
-  const reservation = useRecoilValue(reservationState);
+  const [reservation, setReservation] = useRecoilState(reservationState);
 
-  // console.log('reservation', reservation);
+  useEffect(() => {
+    const { bookingNumber } = router.query;
+    getReservation(bookingNumber as string).then((res) => {
+      // console.log('res', res.data);
+      if (res.status === 404) {
+        alert('Reservation not found');
+        router.push('/');
+        return;
+      }
+
+      if (res.status === 403) {
+        alert('Unauthorized access');
+        router.push('/');
+        return;
+      }
+
+      setReservation(res.data);
+    });
+  }, [router.query.bookingNumber]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

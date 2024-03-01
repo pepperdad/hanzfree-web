@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@radix-ui/react-select", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:2.0.0"],\
             ["@radix-ui/react-slot", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:1.0.2"],\
             ["@react-google-maps/api", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:2.19.3"],\
+            ["@shopify/shopify-api", "npm:9.3.2"],\
             ["@types/cookie", "npm:0.6.0"],\
             ["@types/google.maps", "npm:3.55.3"],\
             ["@types/intl-tel-input", "npm:18.1.4"],\
@@ -68,6 +69,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["lucide-react", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.325.0"],\
             ["next", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:12.3.2"],\
+            ["nextjs-progressbar", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.0.16"],\
             ["postcss", "npm:8.4.32"],\
             ["prettier", "npm:3.1.1"],\
             ["prettier-plugin-tailwindcss", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.5.10"],\
@@ -1770,6 +1772,62 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@shopify/admin-api-client", [\
+        ["npm:0.2.5", {\
+          "packageLocation": "./.yarn/cache/@shopify-admin-api-client-npm-0.2.5-af3894bc67-eb490018e4.zip/node_modules/@shopify/admin-api-client/",\
+          "packageDependencies": [\
+            ["@shopify/admin-api-client", "npm:0.2.5"],\
+            ["@shopify/graphql-client", "npm:0.10.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shopify/graphql-client", [\
+        ["npm:0.10.0", {\
+          "packageLocation": "./.yarn/cache/@shopify-graphql-client-npm-0.10.0-2d888eec9c-ae9d136669.zip/node_modules/@shopify/graphql-client/",\
+          "packageDependencies": [\
+            ["@shopify/graphql-client", "npm:0.10.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shopify/network", [\
+        ["npm:3.2.1", {\
+          "packageLocation": "./.yarn/cache/@shopify-network-npm-3.2.1-8bf21543de-0a5573f398.zip/node_modules/@shopify/network/",\
+          "packageDependencies": [\
+            ["@shopify/network", "npm:3.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shopify/shopify-api", [\
+        ["npm:9.3.2", {\
+          "packageLocation": "./.yarn/cache/@shopify-shopify-api-npm-9.3.2-3b89c9f57d-8ed68e60c7.zip/node_modules/@shopify/shopify-api/",\
+          "packageDependencies": [\
+            ["@shopify/shopify-api", "npm:9.3.2"],\
+            ["@shopify/admin-api-client", "npm:0.2.5"],\
+            ["@shopify/network", "npm:3.2.1"],\
+            ["@shopify/storefront-api-client", "npm:0.3.0"],\
+            ["compare-versions", "npm:6.1.0"],\
+            ["isbot", "npm:4.4.0"],\
+            ["jose", "npm:5.2.2"],\
+            ["node-fetch", "virtual:3b89c9f57d28d1cc69a232c0ab9a682984e17e7c2011dc0ba13f3c7e89a8f98ee25eb0b32bdb47005af834187110a52cec20f03ad9869b786e64e493c2e2e90a#npm:2.7.0"],\
+            ["tslib", "npm:2.6.2"],\
+            ["uuid", "npm:9.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shopify/storefront-api-client", [\
+        ["npm:0.3.0", {\
+          "packageLocation": "./.yarn/cache/@shopify-storefront-api-client-npm-0.3.0-c6fb46ecae-4089f3c69c.zip/node_modules/@shopify/storefront-api-client/",\
+          "packageDependencies": [\
+            ["@shopify/storefront-api-client", "npm:0.3.0"],\
+            ["@shopify/graphql-client", "npm:0.10.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@swc/helpers", [\
         ["npm:0.4.11", {\
           "packageLocation": "./.yarn/cache/@swc-helpers-npm-0.4.11-d20747f9c8-736857d524.zip/node_modules/@swc/helpers/",\
@@ -1888,6 +1946,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/node", "npm:20.10.6"],\
             ["undici-types", "npm:5.26.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/nprogress", [\
+        ["npm:0.2.3", {\
+          "packageLocation": "./.yarn/cache/@types-nprogress-npm-0.2.3-028144a215-2bd96ba116.zip/node_modules/@types/nprogress/",\
+          "packageDependencies": [\
+            ["@types/nprogress", "npm:0.2.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2873,6 +2940,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/commander-npm-4.1.1-22a0fe921b-d7b9913ff9.zip/node_modules/commander/",\
           "packageDependencies": [\
             ["commander", "npm:4.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["compare-versions", [\
+        ["npm:6.1.0", {\
+          "packageLocation": "./.yarn/cache/compare-versions-npm-6.1.0-43f6eabab2-d4e2a45706.zip/node_modules/compare-versions/",\
+          "packageDependencies": [\
+            ["compare-versions", "npm:6.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4445,6 +4521,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@radix-ui/react-select", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:2.0.0"],\
             ["@radix-ui/react-slot", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:1.0.2"],\
             ["@react-google-maps/api", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:2.19.3"],\
+            ["@shopify/shopify-api", "npm:9.3.2"],\
             ["@types/cookie", "npm:0.6.0"],\
             ["@types/google.maps", "npm:3.55.3"],\
             ["@types/intl-tel-input", "npm:18.1.4"],\
@@ -4478,6 +4555,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["lucide-react", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.325.0"],\
             ["next", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:12.3.2"],\
+            ["nextjs-progressbar", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.0.16"],\
             ["postcss", "npm:8.4.32"],\
             ["prettier", "npm:3.1.1"],\
             ["prettier-plugin-tailwindcss", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.5.10"],\
@@ -5015,6 +5093,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["isbot", [\
+        ["npm:4.4.0", {\
+          "packageLocation": "./.yarn/cache/isbot-npm-4.4.0-9da33b558e-fea20d64ad.zip/node_modules/isbot/",\
+          "packageDependencies": [\
+            ["isbot", "npm:4.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["isexe", [\
         ["npm:2.0.0", {\
           "packageLocation": "./.yarn/cache/isexe-npm-2.0.0-b58870bd2e-26bf6c5480.zip/node_modules/isexe/",\
@@ -5061,6 +5148,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/jiti-npm-1.21.0-baebd5985a-a7bd5d6392.zip/node_modules/jiti/",\
           "packageDependencies": [\
             ["jiti", "npm:1.21.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jose", [\
+        ["npm:5.2.2", {\
+          "packageLocation": "./.yarn/cache/jose-npm-5.2.2-e921996149-d23def3c1d.zip/node_modules/jose/",\
+          "packageDependencies": [\
+            ["jose", "npm:5.2.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5634,6 +5730,58 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["nextjs-progressbar", [\
+        ["npm:0.0.16", {\
+          "packageLocation": "./.yarn/cache/nextjs-progressbar-npm-0.0.16-63ea303e14-b75f7bd1f3.zip/node_modules/nextjs-progressbar/",\
+          "packageDependencies": [\
+            ["nextjs-progressbar", "npm:0.0.16"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.0.16", {\
+          "packageLocation": "./.yarn/__virtual__/nextjs-progressbar-virtual-71555270ee/0/cache/nextjs-progressbar-npm-0.0.16-63ea303e14-b75f7bd1f3.zip/node_modules/nextjs-progressbar/",\
+          "packageDependencies": [\
+            ["nextjs-progressbar", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:0.0.16"],\
+            ["@types/next", null],\
+            ["@types/nprogress", "npm:0.2.3"],\
+            ["@types/react", "npm:18.2.46"],\
+            ["next", "virtual:6226fd078110b7d304b88778fa6c7cb58c526fb37ba9273ed48089c1da17ba43ce78d890d77bf1ba7544f0236defacad76c0de90b20e32c57cf91b3553fe4b18#npm:12.3.2"],\
+            ["nprogress", "npm:0.2.0"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/next",\
+            "@types/react",\
+            "next",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["node-fetch", [\
+        ["npm:2.7.0", {\
+          "packageLocation": "./.yarn/cache/node-fetch-npm-2.7.0-587d57004e-d76d2f5edb.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "npm:2.7.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:3b89c9f57d28d1cc69a232c0ab9a682984e17e7c2011dc0ba13f3c7e89a8f98ee25eb0b32bdb47005af834187110a52cec20f03ad9869b786e64e493c2e2e90a#npm:2.7.0", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-10ff161e7b/0/cache/node-fetch-npm-2.7.0-587d57004e-d76d2f5edb.zip/node_modules/node-fetch/",\
+          "packageDependencies": [\
+            ["node-fetch", "virtual:3b89c9f57d28d1cc69a232c0ab9a682984e17e7c2011dc0ba13f3c7e89a8f98ee25eb0b32bdb47005af834187110a52cec20f03ad9869b786e64e493c2e2e90a#npm:2.7.0"],\
+            ["@types/encoding", null],\
+            ["encoding", null],\
+            ["whatwg-url", "npm:5.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/encoding",\
+            "encoding"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["node-gyp", [\
         ["npm:10.0.1", {\
           "packageLocation": "./.yarn/unplugged/node-gyp-npm-10.0.1-48708ce70b/node_modules/node-gyp/",\
@@ -5686,6 +5834,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/normalize-range-npm-0.1.2-bec5e259e2-9b2f14f093.zip/node_modules/normalize-range/",\
           "packageDependencies": [\
             ["normalize-range", "npm:0.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["nprogress", [\
+        ["npm:0.2.0", {\
+          "packageLocation": "./.yarn/cache/nprogress-npm-0.2.0-c1c0973624-66b7bec5d5.zip/node_modules/nprogress/",\
+          "packageDependencies": [\
+            ["nprogress", "npm:0.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7357,6 +7514,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["tr46", [\
+        ["npm:0.0.3", {\
+          "packageLocation": "./.yarn/cache/tr46-npm-0.0.3-de53018915-726321c5ea.zip/node_modules/tr46/",\
+          "packageDependencies": [\
+            ["tr46", "npm:0.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["ts-api-utils", [\
         ["npm:1.0.3", {\
           "packageLocation": "./.yarn/cache/ts-api-utils-npm-1.0.3-992f360d9b-441cc4489d.zip/node_modules/ts-api-utils/",\
@@ -7726,6 +7892,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["warning", "npm:4.0.3"],\
             ["loose-envify", "npm:1.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["webidl-conversions", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/webidl-conversions-npm-3.0.1-60310f6a2b-c92a0a6ab9.zip/node_modules/webidl-conversions/",\
+          "packageDependencies": [\
+            ["webidl-conversions", "npm:3.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["whatwg-url", [\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/whatwg-url-npm-5.0.0-374fb45e60-b8daed4ad3.zip/node_modules/whatwg-url/",\
+          "packageDependencies": [\
+            ["whatwg-url", "npm:5.0.0"],\
+            ["tr46", "npm:0.0.3"],\
+            ["webidl-conversions", "npm:3.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
