@@ -55,8 +55,8 @@ const EnterForm = ({ userData }: EnterFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const checkout = async () => {
-    const fetchUrl = 'http://localhost:3000/api/shopify/checkout';
-    // const fetchUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/api/shopify/checkout`;
+    // const fetchUrl = 'http://localhost:3000/api/shopify/checkout';
+    const fetchUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/api/shopify/checkout`;
     const fetchOptions = {
       endpoint: fetchUrl,
       method: 'POST',
