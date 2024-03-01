@@ -15,11 +15,11 @@ import HotelToHotelContent from './HotelToHotelContent';
 
 const DetailPage = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { bookingNumber } = router.query;
   const [reservation, setReservation] = useState<ReservationData>();
 
   useEffect(() => {
-    getReservation(id as string)
+    getReservation(bookingNumber as string)
       .then((res) => {
         // console.log('res', res);
 
@@ -40,7 +40,7 @@ const DetailPage = () => {
       .catch((error) => {
         console.error('Error fetching reservation list:', error);
       });
-  }, [id]);
+  }, [bookingNumber]);
 
   return (
     <div className='min-h-screen-264 flex items-center justify-center bg-gray-100 md:py-8'>
