@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { useRecoilState } from 'recoil';
 
@@ -19,6 +20,8 @@ interface PackageOptionProps {
 }
 
 const PackageOption = ({ type }: PackageOptionProps) => {
+  const router = useRouter();
+
   const setPage = useContext(ReservationPageContext);
   const [reservation, setReservation] = useRecoilState(reservationState);
   const [onToggle, setOnToggle] = useState(false);
@@ -88,8 +91,20 @@ const PackageOption = ({ type }: PackageOptionProps) => {
         price: 25000 * quantity,
       });
 
-      // console.log('reservation', reservation);
+      console.log('adjustedReservationDate', typeof adjustedReservationDate);
+      const formattedDate =
+        adjustedReservationDate.getFullYear().toString() +
+        `0${adjustedReservationDate.getMonth() + 1}`.slice(-2) +
+        `0${adjustedReservationDate.getDate()}`.slice(-2);
+
+      // console.log('method', type);
+      // console.log('date', formattedDate, selectedDate, adjustedReservationDate);
+      // console.log('quantity', quantity);
+      // console.log('price', 25000 * quantity);
       setPage(2);
+      router.push({
+        query: { method: type, quantity, date: adjustedReservationDate.toDateString() },
+      });
     }
   };
 
