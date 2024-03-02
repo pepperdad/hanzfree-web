@@ -44,7 +44,7 @@ const SignUpForm = ({ onClick, setCountry, setDialCode }: SignUpFormProps) => {
         <Input fullWidth placeholder='Last name' name='lastName' label='Last Name' />
       </div>
 
-      <Input fullWidth placeholder='ID' name='email' label='Email Address' />
+      <Input fullWidth placeholder='Email' name='email' label='Email Address' />
       <div className='flex flex-col w-full'>
         <label className='text-sm md:text-base mb-1'>Phone Number</label>
         <input
