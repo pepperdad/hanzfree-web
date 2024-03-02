@@ -81,7 +81,7 @@ const Page = () => {
                     ) : null}
 
                     <p className='mt-2 mb-1 text-black font-medium'>
-                      Total paid: ₩{reservation.price.toLocaleString()}
+                      Total paid: ₩ {reservation.price.toLocaleString()}
                     </p>
                     <p className='text-green-500 font-medium'>Booking completed</p>
                   </div>

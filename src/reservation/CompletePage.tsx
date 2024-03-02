@@ -64,6 +64,7 @@ const CompletePage = () => {
               Booked date {formatDate(reservation.date as string)}
             </p>
             <div>
+              <DetailColumn label='Price' content={`₩${reservation?.price.toLocaleString()}`} />
               <DetailColumn
                 label='Name'
                 content={`${reservation.firstName} ${reservation.lastName}`}

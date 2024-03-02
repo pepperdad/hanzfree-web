@@ -91,7 +91,7 @@ const PackageOption = ({ type }: PackageOptionProps) => {
         price: 25000 * quantity,
       });
 
-      console.log('adjustedReservationDate', typeof adjustedReservationDate);
+      // console.log('adjustedReservationDate', typeof adjustedReservationDate);
       const formattedDate =
         adjustedReservationDate.getFullYear().toString() +
         `0${adjustedReservationDate.getMonth() + 1}`.slice(-2) +
