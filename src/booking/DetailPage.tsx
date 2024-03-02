@@ -49,7 +49,7 @@ const DetailPage = () => {
           <div>
             <p className='text-lg md:text-2xl text-green-500 font-semibold'>Booking completed</p>
             <p className='my-3 text-xl text-black font-medium'>
-              Total paid: ₩{reservation?.price.toLocaleString()}
+              Total paid: ₩ {reservation?.price.toLocaleString()}
             </p>
             <button
               onClick={() => router.push('/reservation')}

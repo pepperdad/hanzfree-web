@@ -8,9 +8,10 @@ interface ContactInfoProps {
   userData: UserProfileData;
   dialCode: string;
   phone: string;
+  contactId: string;
 }
 
-const ContactInfo = ({ userData, dialCode, phone }: ContactInfoProps) => {
+const ContactInfo = ({ userData, dialCode, phone, contactId }: ContactInfoProps) => {
   return (
     <div className='w-full'>
       <div className='flex items-center mt-8'>
@@ -23,8 +24,7 @@ const ContactInfo = ({ userData, dialCode, phone }: ContactInfoProps) => {
       </div>
 
       <div className='flex flex-col rounded-2xl border border-zinc-500 p-4'>
-        <UserInfo title='First Name' content={userData.firstName} />
-        <UserInfo title='Last Name' content={userData.lastName} />
+        <UserInfo title='Name' content={`${userData.firstName} ${userData.lastName}`} />
         <UserInfo
           title='Phone Number'
           content={
@@ -34,12 +34,12 @@ const ContactInfo = ({ userData, dialCode, phone }: ContactInfoProps) => {
           }
         />
 
-        <div className='flex py-2'>
+        <div className='flex py-2 pb-3'>
           <div className='text-neutral-600 md:text-xl w-1/2'>
-            Email
+            Contact Info
             <span className='text-xs hidden md:block'> (for updates your booking)</span>
           </div>
-          <div className='text-neutral-600 md:text-xl font-semibold grow'>{userData.email}</div>
+          <div className='text-black md:text-xl font-semibold grow'>{contactId}</div>
         </div>
       </div>
     </div>
