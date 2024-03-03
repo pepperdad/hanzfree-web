@@ -14,41 +14,45 @@ const SignInGoogle = ({ from }: SignInGoogleProps) => {
     message: '',
   });
 
-  const googleLoginHandler = () => {
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/redirect?from=${from}`;
+  const hrefToSocial = (type: string) => {
+    if (type === 'google') {
+      window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/redirect?from=${from}`;
+    } else if (type === 'facebook') {
+      window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/facebook/redirect?from=${from}`;
+    } else if (type === 'apple') {
+      setOnAlert({
+        open: true,
+        message: 'This feature is not available yet.',
+      });
+    }
   };
 
   return (
     <div className='flex flex-col items-center justify-center mt-10 border-y py-6'>
       {onAlert && <Alert onAlert={onAlert} setOnAlert={setOnAlert} />}
       <div className='text-center mb-3'>Or sign in with:</div>
-      <div
-        onClick={() => googleLoginHandler()}
-        className='flex items-center border-2 hover:border-blue-700 cursor-pointer hover:bg-blue-700 hover:text-white text-slate-400 hover:opacity-80'
-      >
-        <button className='p-2 flex-center bg-white'>
-          <Image src='/assets/shared/google_icon.svg' alt='google login' width={36} height={36} />
-        </button>
-        <div className='w-[180px] h-full p-3 font-bold text-sm md:text-base'>
-          Sign in with Google
-        </div>
-      </div>
 
-      <div
-        onClick={() => {
-          setOnAlert({
-            open: true,
-            message: 'This feature is not available yet.',
-          });
-        }}
-        className='flex items-center bg-black border-2 border-black cursor-pointer text-white hover:text-gray-400 mt-2 hover:opacity-80'
-      >
-        <button className='flex-center bg-white'>
-          <Image src='/assets/shared/apple_icon.png' alt='google login' width={52} height={52} />
+      <div className='flex w-full justify-center gap-6'>
+        <button
+          onClick={() => hrefToSocial('google')}
+          className='flex items-center justify-center h-12 w-12 rounded-full bg-white hover:bg-gray-100 shadow-md p-0.5'
+        >
+          <img src='/assets/shared/google_icon.svg' alt='Google 로그인' />
         </button>
-        <div className='w-[180px] h-full p-3 font-bold text-sm md:text-base bg-black'>
-          Sign in with Apple
-        </div>
+
+        <button
+          onClick={() => hrefToSocial('facebook')}
+          className='flex items-center justify-center h-12 w-12 rounded-full bg-white hover:bg-gray-200 shadow-md p-0.5'
+        >
+          <img src='/assets/shared/facebook_icon.png' alt='Facebook 로그인' />
+        </button>
+
+        <button
+          onClick={() => hrefToSocial('apple')}
+          className='flex items-center justify-center h-12 w-12 rounded-full bg-white hover:bg-gray-100 shadow-md p-1'
+        >
+          <img src='/assets/shared/apple_icon2.png' alt='Apple 로그인' />
+        </button>
       </div>
     </div>
   );
