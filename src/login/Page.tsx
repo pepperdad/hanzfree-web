@@ -64,7 +64,7 @@ const Page = () => {
   };
 
   return (
-    <div className='py-8 min-h-280 flex-center'>
+    <div className='py-8 min-h-screen-264 flex-center'>
       {loading && (
         <div className='absolute top-0 left-0 z-10 flex-center w-screen h-screen opacity-60 bg-slate-50'>
           <Loading />
