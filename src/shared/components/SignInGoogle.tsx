@@ -18,7 +18,11 @@ const SignInGoogle = ({ from }: SignInGoogleProps) => {
     if (type === 'google') {
       window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/google/redirect?from=${from}`;
     } else if (type === 'facebook') {
-      window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/facebook/redirect?from=${from}`;
+      setOnAlert({
+        open: true,
+        message: 'This feature is not available yet.',
+      });
+      // window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/facebook/redirect?from=${from}`;
     } else if (type === 'apple') {
       setOnAlert({
         open: true,
