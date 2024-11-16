@@ -15,13 +15,13 @@ import { UserProfileData } from '@shared/types';
 import { generateBookingNumber } from '@shared/util';
 
 import AirportToHotelForm from './AirportToHotelForm';
+import { ReservationPageContext } from './context';
 import { TERMS } from './constants';
 import ContactInfo from './ContactInfo';
 import HotelToAirportForm from './HotelToAirportForm';
 import HotelToHotelForm from './HotelToHotelForm';
 import SubmitForm from './SubmitForm';
 import TermCheck from './TermCheck';
-import { ReservationPageContext } from './context';
 
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
 
