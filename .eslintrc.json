@@ -46,6 +46,7 @@
     "react/no-array-index-key": "off",
     "no-nested-ternary": "off",
     "jsx-a11y/heading-has-content": "off",
+    "no-plusplus": "off",
     "import/order": [
       "error",
       {

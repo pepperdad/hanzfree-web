@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -12,10 +12,12 @@ import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
 import { shopifyProductState } from '@shared/recoil/shopifyProduct';
 import { UserProfileData } from '@shared/types';
+import { generateBookingNumber } from '@shared/util';
 
 import AirportToHotelForm from './AirportToHotelForm';
 import { TERMS } from './constants';
 import ContactInfo from './ContactInfo';
+import { ReservationPageContext } from './context';
 import HotelToAirportForm from './HotelToAirportForm';
 import HotelToHotelForm from './HotelToHotelForm';
 import SubmitForm from './SubmitForm';
@@ -34,6 +36,8 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     watch,
     formState: { errors, isSubmitting },
   } = useForm({ mode: 'all' });
+
+  const setPage = useContext(ReservationPageContext);
 
   const [reservation, setReservation] = useRecoilState(reservationState);
   const [shopifyProducts, setShopifyProducts] = useRecoilState(shopifyProductState);
@@ -99,7 +103,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
     document.body.style.overflow = 'hidden';
 
     try {
-      const checkoutId = await checkout();
+      // const checkoutId = await checkout();
 
       const currentDate = new Date();
       const utcOffsetInMinutes = currentDate.getTimezoneOffset();
@@ -109,7 +113,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
 
       const formData = {
         ...data,
-        bookingNumber: checkoutId,
+        bookingNumber: generateBookingNumber(),
         hotelName: location.input,
         hotelAddress: location.address,
         country,
@@ -130,7 +134,7 @@ const EnterForm = ({ userData }: EnterFormProps) => {
 
       if (res.status === 201) {
         setReservation(res.data);
-        // setPage(3);
+        setPage(3);
       }
     } catch (e) {
       document.body.style.overflow = 'visible';
