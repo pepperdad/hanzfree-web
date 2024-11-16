@@ -21,25 +21,25 @@ const CompletePage = () => {
   const router = useRouter();
   const [reservation, setReservation] = useRecoilState(reservationState);
 
-  useEffect(() => {
-    const { bookingNumber } = router.query;
-    getReservation(bookingNumber as string).then((res) => {
-      // console.log('res', res.data);
-      if (res.status === 404) {
-        alert('Reservation not found');
-        router.push('/');
-        return;
-      }
+  // useEffect(() => {
+  //   const { bookingNumber } = router.query;
+  //   getReservation(bookingNumber as string).then((res) => {
+  //     // console.log('res', res.data);
+  //     if (res.status === 404) {
+  //       alert('Reservation not found');
+  //       router.push('/');
+  //       return;
+  //     }
 
-      if (res.status === 403) {
-        alert('Unauthorized access');
-        router.push('/');
-        return;
-      }
+  //     if (res.status === 403) {
+  //       alert('Unauthorized access');
+  //       router.push('/');
+  //       return;
+  //     }
 
-      setReservation(res.data);
-    });
-  }, [router.query.bookingNumber]);
+  //     setReservation(res.data);
+  //   });
+  // }, [router.query.bookingNumber]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
