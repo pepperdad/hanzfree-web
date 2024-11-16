@@ -9,8 +9,7 @@ export function formatDate(originalDateString: string | null) {
 }
 
 export function generateBookingNumber() {
-  const chars =
-    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const length = 12;
   let result = '';
   for (let i = 0; i < length; i++) {

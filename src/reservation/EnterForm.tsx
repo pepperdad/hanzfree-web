@@ -12,6 +12,7 @@ import Instance from '@pages/api/config';
 import { reservationState } from '@shared/recoil';
 import { shopifyProductState } from '@shared/recoil/shopifyProduct';
 import { UserProfileData } from '@shared/types';
+import { generateBookingNumber } from '@shared/util';
 
 import AirportToHotelForm from './AirportToHotelForm';
 import { TERMS } from './constants';
@@ -20,7 +21,6 @@ import HotelToAirportForm from './HotelToAirportForm';
 import HotelToHotelForm from './HotelToHotelForm';
 import SubmitForm from './SubmitForm';
 import TermCheck from './TermCheck';
-import { generateBookingNumber } from '@shared/util';
 import { ReservationPageContext } from './context';
 
 const Loading = dynamic(() => import('@shared/components/animation/loading'), { ssr: false });
