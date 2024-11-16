@@ -7,3 +7,14 @@ export function formatDate(originalDateString: string | null) {
 
   return formattedDate;
 }
+
+export function generateBookingNumber() {
+  const chars =
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const length = 12;
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return result;
+}
