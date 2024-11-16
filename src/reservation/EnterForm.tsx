@@ -17,7 +17,6 @@ import { generateBookingNumber } from '@shared/util';
 import AirportToHotelForm from './AirportToHotelForm';
 import { TERMS } from './constants';
 import ContactInfo from './ContactInfo';
-
 import { ReservationPageContext } from './context';
 import HotelToAirportForm from './HotelToAirportForm';
 import HotelToHotelForm from './HotelToHotelForm';
